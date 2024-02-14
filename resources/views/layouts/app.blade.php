@@ -1,80 +1,102 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1">
+	{{-- Change address bar color Chrome, Firefox OS and Opera --}}
+	<meta name="theme-color"
+		  content="#FFF" />
+	{{-- iOS Safari --}}
+	<meta name="apple-mobile-web-app-status-bar-style"
+		  content="#232323">
+	<meta name="description"
+		  content="The best KG Consultancy" />
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+	<!-- CSRF Token -->
+	<meta name="csrf-token"
+		  content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+	<title>{{ config('app.name', 'KG Consultancy') }}</title>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+	<!-- Favicon  -->
+	<link rel="icon"
+		  href="storage/img/favicon.ico">
 
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+	<!-- Fonts -->
+	<link rel="dns-prefetch"
+		  href="//fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css?family=Nunito"
+		  rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700"
+		  rel="stylesheet">
+
+	<!-- Styles -->
+	<link href="{{ asset('css/app.css') }}"
+		  rel="stylesheet">
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800,800i"
+		  rel="stylesheet">
+
+	<!-- Fonts -->
+	<link rel="dns-prefetch"
+		  href="//fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700"
+		  rel="stylesheet">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet"
+		  href="{{ asset('css/bootstrap.min.css') }}" />
+	<link rel="stylesheet"
+		  href="{{ asset('css/font-awesome.min.css') }}" />
+	<link rel="stylesheet"
+		  href="{{ asset('css/owl.carousel.css') }}" />
+	<link rel="stylesheet"
+		  href="{{ asset('css/style.css') }}" />
+
+	{{-- IOS support --}}
+	<link rel="apple-touch-icon"
+		  href="storage/img/musical-note.png">
+	<meta name="apple-mobile-web-app-status-bar"
+		  content="#aa7700">
 </head>
+
+<style>
+	body {
+		overflow-x: hidden;
+	}
+</style>
+
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+	<noscript>
+		<center>
+			<h2 class="m-5">
+				We're sorry but {{ config('app.name') }}
+				doesn't work properly without JavaScript enabled.
+				Please enable it to continue.
+			</h2>
+		</center>
+	</noscript>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+	<div id="app"></div>
 
-                    </ul>
+	<!-- Scripts -->
+	<script src="{{ asset('js/app.js') }}"
+			defer></script>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
+	{{-- Chart.js --}}
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
+	<!--====== Javascripts & Jquery ======-->
+	<script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+	<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+	<script src="{{ asset('js/mixitup.min.js') }}"></script>
+	<script src="{{ asset('js/circle-progress.min.js') }}"></script>
+	<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+	<script src="{{ asset('js/main.js') }}"></script>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
 </body>
+
 </html>

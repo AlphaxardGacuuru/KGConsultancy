@@ -10,7 +10,7 @@
 		  content="#FFF" />
 	{{-- iOS Safari --}}
 	<meta name="apple-mobile-web-app-status-bar-style"
-		  content="#232323">
+		  content="#3C1712">
 	<meta name="description"
 		  content="The best KG Consultancy" />
 

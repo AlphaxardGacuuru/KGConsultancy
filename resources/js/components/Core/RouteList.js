@@ -5,7 +5,6 @@ import Index from "@/pages/index"
 import About from "@/pages/about"
 import Services from "@/pages/services"
 import Portfolio from "@/pages/portfolio"
-import Contact from "@/pages/contact"
 
 import AdminNav from "@/components/Layouts/AdminNav"
 import SupplierNav from "@/components/Layouts/SupplierNav"
@@ -43,11 +42,7 @@ const RouteList = ({ GLOBAL_STATE }) => {
 		{
 			path: "/portfolio",
 			component: <Portfolio {...GLOBAL_STATE} />,
-		},
-		{
-			path: "/contact",
-			component: <Contact {...GLOBAL_STATE} />,
-		},
+		}
 	]
 
 	return (

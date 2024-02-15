@@ -61,7 +61,7 @@ const Portfolio = () => {
 				<div className="col-sm-6 p-0">
 					<img src="img/bg-img/portfolio.jpg" alt="creator" />
 				</div>
-				<div className="col-sm-6" style={{ backgroundColor: "#232323" }}>
+				<div className="col-sm-6" style={{ backgroundColor: "#3C1712" }}>
 					<div className="mt-5 mb-5 hidden"></div>
 					<center>
 						<br />

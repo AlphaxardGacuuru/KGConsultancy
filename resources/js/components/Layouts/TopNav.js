@@ -1,34 +1,62 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 
-const open = () =>
-	(document.getElementById("MyElement").className = "menu-open")
-const close = () =>
-	document.getElementById("MyElement").classList.remove("menu-open")
-
-window.onscroll = () => {
-	if (window.pageYOffset > 0) {
-		document.getElementById("header-area").classList.add("sticky")
-	} else {
-		document.getElementById("header-area").classList.remove("sticky")
-	}
-}
+import CloseSVG from "@/svgs/CloseSVG"
+import PhoneSVG from "@/svgs/PhoneSVG"
+import SMSSVG from "@/svgs/SMSSVG"
+import WhatsAppSVG from "@/svgs/WhatsAppSVG"
+import EmailSVG from "@/svgs/EmailSVG"
+import InstagramSVG from "@/svgs/InstagramSVG"
+import FacebookSVG from "@/svgs/FacebookSVG"
 
 const TopNav = () => {
 	const location = useLocation()
 
+	const [loading, setLoading] = useState(true)
+
+	useEffect(() => {
+		// Simulate an asynchronous operation (e.g., loading assets or data)
+		const simulateLoading = async () => {
+			try {
+				// Simulating loading time with a setTimeout
+				await new Promise((resolve) => setTimeout(resolve, 1000))
+				setLoading(false)
+			} catch (error) {
+				console.error("Error loading:", error)
+			}
+		}
+
+		// Invoke the simulateLoading function
+		simulateLoading()
+	}, []) // Empty dependency array ensures the effect runs only once on mount
+
+	const open = () =>
+		(document.getElementById("MyElement").className = "menu-open")
+	const close = () =>
+		document.getElementById("MyElement").classList.remove("menu-open")
+
+	window.onscroll = () => {
+		if (window.pageYOffset > 0) {
+			document.getElementById("header-area").classList.add("sticky")
+		} else {
+			document.getElementById("header-area").classList.remove("sticky")
+		}
+	}
+
 	return (
 		<div id="MyElement">
 			{/* Preloader Start */}
-			{/* <div id="preloader">
-				<div className="preload-content">
-					<div id="sonar-load"></div>
+			{loading && (
+				<div id="preloader">
+					<div className="preload-content">
+						<div id="sonar-load"></div>
+					</div>
 				</div>
-			</div> */}
+			)}
 			{/* Preloader End */}
 
 			{/* <!-- Grids --> */}
-			{/* <div className="grids d-flex justify-content-between">
+			<div className="grids d-flex justify-content-between">
 				<div className="grid1"></div>
 				<div className="grid2"></div>
 				<div className="grid3"></div>
@@ -38,7 +66,81 @@ const TopNav = () => {
 				<div className="grid7"></div>
 				<div className="grid8"></div>
 				<div className="grid9"></div>
-			</div> */}
+			</div>
+
+			{/* <!-- ***** Header Area Start ***** --> */}
+			<header
+				id="header-area"
+				className="header-area">
+				<div className="container-fluid">
+					<div className="row">
+						<div className="col-12">
+							<div className="menu-area d-flex justify-content-between">
+								{/* <!-- Logo Area  --> */}
+								<div className="logo-area">
+									<Link to="/">KG Consultancy</Link>
+								</div>
+
+								<div className="menu-content-area d-flex align-items-center">
+									{/* <!-- Header Social Area --> */}
+									<div className="header-social-area d-flex align-items-center">
+										<a
+											href="tel:0700364446"
+											data-toggle="tooltip"
+											data-placement="bottom"
+											title="Phone">
+											<PhoneSVG />
+										</a>
+										<a
+											href="sms:0700364446"
+											data-toggle="tooltip"
+											data-placement="bottom"
+											title="SMS">
+											<SMSSVG />
+										</a>
+										<a
+											href="https://wa.me/+2540700364446"
+											data-toggle="tooltip"
+											data-placement="bottom"
+											title="WhatsApp">
+											<WhatsAppSVG />
+										</a>
+										<a
+											href="mailto:alphaxardgacuuru47@gmail.com?subject = Photography&body = Enquiry"
+											data-toggle="tooltip"
+											data-placement="bottom"
+											title="Email">
+											<EmailSVG />
+										</a>
+										<a
+											href="https://www.instagram.com/alphaxard_gacuuru"
+											data-toggle="tooltip"
+											data-placement="bottom"
+											title="Instagram">
+											<InstagramSVG />
+										</a>
+										<a
+											href="https://www.facebook.com/alphaxard.gacuuru"
+											data-toggle="tooltip"
+											data-placement="bottom"
+											title="Facebook">
+											<FacebookSVG />
+										</a>
+									</div>
+									{/* <!-- Header Social Area End --> */}
+
+									{/* <!-- Menu Icon --> */}
+									<span
+										className="navbar-toggler-icon"
+										id="menuIcon"
+										onClick={open}></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+			{/* <!-- ***** Header Area End ***** --> */}
 
 			{/* <!-- ***** Main Menu Area Start ***** --> */}
 			<div className="mainMenu d-flex align-items-center justify-content-between">
@@ -46,13 +148,15 @@ const TopNav = () => {
 				<div
 					className="closeIcon"
 					onClick={close}>
-					<i
-						className="ti-close"
-						aria-hidden="true"></i>
+					<CloseSVG />
 				</div>
 				{/* <!-- Logo Area --> */}
 				<div className="logo-area">
-					<Link to="/">HAVI Lenses</Link>
+					<Link
+						to="/"
+						onClick={close}>
+						KG Consultancy
+					</Link>
 				</div>
 				{/* <!-- Nav --> */}
 				<div
@@ -75,7 +179,7 @@ const TopNav = () => {
 									to="/about"
 									style={{ opacity: location.pathname == "/about" ? 1 : 0.4 }}
 									onClick={close}>
-									About Me
+									About Us
 								</Link>
 							</li>
 							<li className="nav-item">
@@ -109,17 +213,6 @@ const TopNav = () => {
 									Contact
 								</Link>
 							</li>
-							<li className="nav-item">
-								<Link
-									className="nav-link"
-									to="/contract"
-									style={{
-										opacity: location.pathname == "/contract" ? 1 : 0.4,
-									}}
-									onClick={close}>
-									Contract
-								</Link>
-							</li>
 						</ul>
 					</nav>
 				</div>
@@ -144,90 +237,6 @@ const TopNav = () => {
 				</div>
 			</div>
 			{/* <!-- ***** Main Menu Area End ***** --> */}
-
-			{/* <!-- ***** Header Area Start ***** --> */}
-			<header
-				id="header-area"
-				className="header-area">
-				<div className="container-fluid">
-					<div className="row">
-						<div className="col-12">
-							<div className="menu-area d-flex justify-content-between">
-								{/* <!-- Logo Area  --> */}
-								<div className="logo-area">
-									<Link to="/">HAVI Lenses</Link>
-								</div>
-
-								<div className="menu-content-area d-flex align-items-center">
-									{/* <!-- Header Social Area --> */}
-									<div className="header-social-area d-flex align-items-center">
-										<a
-											href="tel:0700364446"
-											data-toggle="tooltip"
-											data-placement="bottom"
-											title="Phone">
-											<i
-												className="fa fa-phone"
-												aria-hidden="true"></i>
-										</a>
-										<a
-											href="sms:0700364446"
-											data-toggle="tooltip"
-											data-placement="bottom"
-											title="SMS">
-											<i
-												className="fa fa-comment-o"
-												aria-hidden="true"></i>
-										</a>
-										<a
-											href="https://wa.me/+2540700364446"
-											data-toggle="tooltip"
-											data-placement="bottom"
-											title="WhatsApp">
-											<i
-												className="fa fa-whatsapp"
-												aria-hidden="true"></i>
-										</a>
-										<a
-											href="mailto:alphaxardgacuuru47@gmail.com?subject = Photography&body = Enquiry"
-											data-toggle="tooltip"
-											data-placement="bottom"
-											title="Email">
-											<i
-												className="fa fa-envelope-o"
-												aria-hidden="true"></i>
-										</a>
-										<a
-											href="https://www.instagram.com/alphaxard_gacuuru"
-											data-toggle="tooltip"
-											data-placement="bottom"
-											title="Instagram">
-											<i
-												className="fa fa-instagram"
-												aria-hidden="true"></i>
-										</a>
-										<a
-											href="https://www.facebook.com/alphaxard.gacuuru"
-											data-toggle="tooltip"
-											data-placement="bottom"
-											title="Facebook">
-											<i
-												className="fa fa-facebook"
-												aria-hidden="true"></i>
-										</a>
-									</div>
-									{/* <!-- Menu Icon --> */}
-									<span
-										className="navbar-toggler-icon"
-										id="menuIcon"
-										onClick={open}></span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</header>
-			{/* <!-- ***** Header Area End ***** --> */}
 		</div>
 	)
 }

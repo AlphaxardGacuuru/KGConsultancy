@@ -5,51 +5,59 @@ import Carousel from "react-bootstrap/Carousel"
 const Index = () => {
 	// Images array
 	const images = [
-		"img/portfolio-img/Wedding-05.jpg",
-		"img/portfolio-img/Wedding-40.jpg",
-		"img/portfolio-img/Wedding-31.jpg",
-		"img/portfolio-img/Wedding-13.jpg",
+		{
+			src: "storage/img/bg-img/carousel-1.jpeg",
+			heading: "Revolutionize Your Sourcing Strategy",
+			tag: "Empower your business with cutting-edge procurement solutions. Streamline operations, reduce costs, and gain a competitive edge in the market. Explore a smarter way to source with us.",
+		},
+		{
+			src: "storage/img/bg-img/carousel-2.avif",
+			heading: "Strategic Procurement Excellence",
+			tag: "Unlock the full potential of your procurement process. Our strategic solutions are designed to elevate your sourcing game, providing unmatched efficiency, transparency, and savings.",
+		},
+		{
+			src: "storage/img/bg-img/carousel-3.webp",
+			heading: "Smart Buying, Smart Business",
+			tag: "Navigate the complexities of procurement effortlessly. Our platform empowers you to make informed decisions, optimize costs, and drive sustainable growth. Experience procurement reimagined.",
+		},
+		{
+			src: "storage/img/bg-img/carousel-4.webp",
+			heading: "Sustainable Sourcing Solutions",
+			tag: "Embrace sustainability in your supply chain. Our procurement tools enable responsible sourcing, helping you build a resilient and eco-friendly procurement strategy for a better tomorrow.",
+		},
+		{
+			src: "storage/img/bg-img/carousel-5.jpeg",
+			heading: "Innovative Procurement Technologies",
+			tag: "Stay ahead with the latest in procurement tech. Leverage innovation to streamline workflows, enhance collaboration, and stay agile in a rapidly changing business landscape.",
+		},
+		{
+			src: "storage/img/bg-img/carousel-6.webp",
+			heading: "Your Trusted Procurement Partner",
+			tag: "Count on us as your strategic ally in procurement. With a commitment to excellence and unmatched expertise, we are here to support your procurement journey at every step.",
+		},
 	]
 
 	return (
 		<div>
 			{/* <!-- ***** Hero Area Start ***** --> */}
-			<Carousel controls={false}>
-				<Carousel.Item interval={3000}>
-					<img
-						className="d-block w-100"
-						src="img/portfolio-img/Wedding-05.jpg"
-						alt="First slide"
-						loading="lazy"
-					/>
-					<Carousel.Caption>
-						<h3 style={{ color: "white" }}>Gachie</h3>
-					</Carousel.Caption>
-				</Carousel.Item>
-				<Carousel.Item interval={3000}>
-					<img
-						className="d-block w-100"
-						src="img/portfolio-img/Wedding-31.jpg"
-						alt="Second slide"
-						loading="lazy"
-					/>
-
-					<Carousel.Caption>
-						<h3 style={{ color: "white" }}>Aboretum</h3>
-					</Carousel.Caption>
-				</Carousel.Item>
-				<Carousel.Item interval={3000}>
-					<img
-						className="d-block w-100"
-						src="img/portfolio-img/Wedding-22.jpg"
-						alt="Third slide"
-						loading="lazy"
-					/>
-
-					<Carousel.Caption>
-						<h3 style={{ color: "white" }}>Kasarani</h3>
-					</Carousel.Caption>
-				</Carousel.Item>
+			<Carousel controls={true}>
+				{images.map((image, key) => (
+					<Carousel.Item
+						key={key}
+						interval={3000}>
+						<img
+							className="d-block w-100"
+							src={image.src}
+							style={{ maxHeight: "90vh", display: "block", margin: "auto" }}
+							alt="First slide"
+							loading="lazy"
+						/>
+						<Carousel.Caption>
+							<h3 className="text-white">{image.heading}</h3>
+							<p className="text-white">{image.tag}</p>
+						</Carousel.Caption>
+					</Carousel.Item>
+				))}
 			</Carousel>
 			{/* <!-- ***** Hero Area End ***** --> */}
 
@@ -59,7 +67,7 @@ const Index = () => {
 			{/* <!-- ***** Call to Action Area Start ***** --> */}
 			<div className="sonar-call-to-action-area section-padding-0-100">
 				<div className="backEnd-content">
-					<h2>Real</h2>
+					<h2>K&G</h2>
 				</div>
 				<div className="container">
 					<div className="row">
@@ -68,8 +76,7 @@ const Index = () => {
 								className="call-to-action-content wow fadeInUp"
 								data-wow-delay="0.5s">
 								<h2>
-									"In photography there is a reality so subtle that it becomes
-									more <b>real</b> than reality."
+									"Elevating <b>Procurement</b> Excellence"
 								</h2>
 							</div>
 						</div>
@@ -80,33 +87,39 @@ const Index = () => {
 
 			<div
 				className="sonar-testimonials-area bg-img"
-				style={{ backgroundImage: "url(img/bg-img/tes.jpg)" }}>
+				style={{ backgroundImage: "url(storage/img/bg-img/tes.jpg)" }}>
 				<div className="container-fluid">
 					<div className="row">
 						<div className="col-12 col-md-10 col-lg-7">
 							<div className="testimonial-content bg-white">
 								<div className="section-heading text-left">
 									<div className="line"></div>
-									<h2>What I do</h2>
+									<h2>KG Consulting Mission and Vision</h2>
 								</div>
 
 								<div className="single-tes-slide">
-									<h5>Wedding Photography</h5>
+									<h5>Mission</h5>
 									<h6>
-										I take your day and immortalize it in breath taking
-										photography so you can remember it for all time, share it
-										with your friends, family, children and generations to come.
+										Facilitating connection of companies and organizations with
+										efficient procurement practices and suppliers that adhere to
+										standards and offer optimal value for money.
 									</h6>
 								</div>
 								<br />
 								<br />
 
 								<div className="single-tes-slide">
-									<h5>Wedding Videography</h5>
+									<h5>Vision</h5>
 									<h6>
-										I take your eventful day and turn it into a movie. With my
-										skilled team of experienced videographers, we capture every
-										emotion of the day frame by frame.
+										Elevating Procurement Excellence:
+										<br />
+										As a premier procurement consulting company, we envision
+										revolutionizing organization and supplier partnership,
+										pioneering value-for-money procurement solutions, and
+										delivering strategic procurement initiatives. Our commitment
+										is to empower organizations with efficient, transparent, and
+										innovative procurement practices, ensuring sustained growth
+										and unparalleled value creation.
 									</h6>
 								</div>
 							</div>
@@ -119,57 +132,51 @@ const Index = () => {
 			<div className="row mt-5">
 				<div
 					className="col-sm-12 p-5"
-					style={{ backgroundColor: "#000" }}>
+					style={{ backgroundColor: "#3C1712" }}>
 					<center>
-						<h1 style={{ color: "white" }}>About Me</h1>
+						<h1 style={{ color: "white" }}>About Us</h1>
 					</center>
 				</div>
 			</div>
+			{/* <!-- ***** Hero Area Start ***** --> */}
 			<div className="row">
 				<div className="col-sm-6 p-0">
 					<img
-						src="img/bg-img/Me-3.jpg"
+						src="storage/img/bg-img/about.jpg"
 						loading="lazy"
 						alt="creator"
 					/>
 				</div>
 				<div
-					className="col-sm-6"
-					style={{ backgroundColor: "#232323" }}>
-					<div className="mt-5 mb-5 hidden"></div>
-					<center>
-						<br />
-						<br />
-						<div className="d-flex justify-content-center mb-3">
-							<div className="p-2 ml-5 mr-5 hidden">Flex item 1</div>
-							<div className="px-3">
-								<div
-									className="m-3"
-									style={{ backgroundColor: "white", height: "1px" }}></div>
-								<h2 style={{ color: "white" }}>Hi, I'm Al</h2>
-								<p style={{ color: "white" }}>
-									I'm an experienced photographer and videographer and I know
-									that wedding ceremonies ought to be memorable, thus HAVI
-									Lenses offers customized wedding coverage to immortalize your
-									day.
-								</p>
-							</div>
-							<div className="p-2 ml-5 mr-5 hidden">Flex item 3</div>
+					className="col-sm-6 text-center"
+					style={{ backgroundColor: "#3C1712" }}>
+					<div className="d-flex justify-content-center my-5 py-5">
+						<div className="p-5">
+							{/* Top Line */}
+							<div
+								className="m-3"
+								style={{ backgroundColor: "white", height: "1px" }}></div>
+							{/* Top Line End */}
+
+							<h2 className="text-white">
+								Empowerment through Procurement Excellence
+							</h2>
+							<p className="text-white">
+								We envision ourselves as the premier procurement consulting
+								company, acting as the vital bridge between suppliers and
+								organizations to mitigate risks and streamline the procurement
+								process. Our commitment lies in enhancing procurement
+								compliance, strengthening partnerships between suppliers and
+								companies/organizations, and continually redefining procurement
+								applications to align with current market trends.
+							</p>
 						</div>
-					</center>
-				</div>
-			</div>
-			<div className="row">
-				<div
-					className="col-sm-12 p-5"
-					style={{ backgroundColor: "#232323" }}>
-					<center>
-						<Link
-							to="/about"
-							className="btn sonar-btn white-btn">
-							See More
-						</Link>
-					</center>
+					</div>
+					<Link
+						to="/about"
+						className="btn sonar-btn white-btn">
+						See More
+					</Link>
 				</div>
 			</div>
 			{/* <!-- ***** Hero Area End ***** --> */}
@@ -298,7 +305,7 @@ const Index = () => {
 						<div className="col-12 col-md-6 col-lg-4">
 							<div
 								className="single-services-area wow fadeInUp card py-5 px-2"
-								style={{ backgroundColor: "#232323", color: "white" }}
+								style={{ backgroundColor: "#3C1712", color: "white" }}
 								data-wow-delay="300ms">
 								<center>
 									<span>
@@ -359,46 +366,6 @@ const Index = () => {
 				</div>
 			</div>
 			{/* <!-- ***** Services Area End ***** --> */}
-
-			{/* Gallery Area Start */}
-			<div className="row">
-				<div className="col-sm-12 mt-5 mb-3">
-					<center>
-						<h1>Portfolio</h1>
-					</center>
-				</div>
-			</div>
-			<div>
-				{images.map((image, key) => (
-					<span
-						key={key}
-						className="thumbnail w-50"
-						style={{
-							borderRadius: "0px",
-							display: "inline-block",
-							textAlign: "center",
-							verticalAlign: "top",
-							padding: "2px",
-							transition: "display 2s ease",
-						}}>
-						<a href={image}>
-							<img src={image} />
-						</a>
-					</span>
-				))}
-			</div>
-			<div className="row">
-				<div className="col-sm-12 p-5">
-					<center>
-						<Link
-							to="/portfolio"
-							className="btn sonar-btn">
-							see more
-						</Link>
-					</center>
-				</div>
-			</div>
-			{/* Gallery Area End */}
 
 			{/* <!-- ***** Call to Action Area Start ***** --> */}
 			<div className="sonar-call-to-action-area section-padding-0-100">

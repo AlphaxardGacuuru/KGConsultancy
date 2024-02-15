@@ -15,7 +15,7 @@ const Services = () => {
 				</div>
 				<div
 					className="col-sm-6"
-					style={{ backgroundColor: "#232323" }}>
+					style={{ backgroundColor: "#3C1712" }}>
 					<div className="mt-5 mb-5 hidden"></div>
 					<center>
 						<br />
@@ -167,7 +167,7 @@ const Services = () => {
 						<div className="col-12 col-md-6 col-lg-4">
 							<div
 								className="single-services-area wow fadeInUp card py-5 px-2"
-								style={{ backgroundColor: "#232323", color: "white" }}
+								style={{ backgroundColor: "#3C1712", color: "white" }}
 								data-wow-delay="300ms">
 								<center>
 									<span>

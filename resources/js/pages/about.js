@@ -7,36 +7,49 @@ const About = () => {
 			{/* <!-- ***** Hero Area Start ***** --> */}
 			<div className="row">
 				<div className="col-sm-6 p-0">
-					<img src="img/bg-img/Me-3.jpg" loading="lazy" alt="creator" />
+					<img
+						src="storage/img/bg-img/about.jpg"
+						loading="lazy"
+						alt="creator"
+					/>
 				</div>
-				<div className="col-sm-6" style={{ backgroundColor: "#232323" }}>
-					<div className="mt-5 mb-5 hidden"></div>
-					<center>
-						<br />
-						<br />
-						<div className="d-flex justify-content-center mb-3">
-							<div className="p-2 ml-5 mr-5 hidden">Flex item 1</div>
-							<div className="px-3">
-								<div className="m-3" style={{ backgroundColor: "white", height: "1px" }}></div>
-								<h2 style={{ color: "white" }}>Hi, I'm Al</h2>
-								<p style={{ color: "white" }}>
-									I'm an experienced photographer and videographer and I know that
-									wedding ceremonies ought to be memorable, thus HAVI Lenses offers
-									customized wedding coverage to immortalize your day.
-								</p>
-							</div>
-							<div className="p-2 ml-5 mr-5 hidden">Flex item 3</div>
+				<div
+					className="col-sm-6 text-center"
+					style={{ backgroundColor: "#3C1712" }}>
+					<div className="d-flex justify-content-center my-5 py-5">
+						<div className="p-5">
+							{/* Top Line */}
+							<div
+								className="m-3"
+								style={{ backgroundColor: "white", height: "1px" }}></div>
+							{/* Top Line End */}
+
+							<h2 className="text-white">
+								Empowerment through Procurement Excellence
+							</h2>
+							<p className="text-white">
+								We envision ourselves as the premier procurement consulting
+								company, acting as the vital bridge between suppliers and
+								organizations to mitigate risks and streamline the procurement
+								process. Our commitment lies in enhancing procurement
+								compliance, strengthening partnerships between suppliers and
+								companies/organizations, and continually redefining procurement
+								applications to align with current market trends.
+							</p>
 						</div>
-						<Link to="/contact" className="btn sonar-btn white-btn">contact me</Link>
-						<br />
-						<br />
-						<br />
-					</center>
+					</div>
+					<Link
+						to="/contact"
+						className="btn sonar-btn white-btn">
+						contact us
+					</Link>
 				</div>
 			</div>
 			{/* <!-- ***** Hero Area End ***** --> */}
 
-			<div className="sonar-about-us-area bg-img" style={{ backgroundImage: "url(img/bg-img/about2.jpg)" }}>
+			<div
+				className="sonar-about-us-area bg-img"
+				style={{ backgroundImage: "url(storage/img/bg-img/about2.jpg)" }}>
 				{/* <!-- Back End Content --> */}
 				<div className="backEnd-content">
 					<h2>Dream</h2>
@@ -45,46 +58,49 @@ const About = () => {
 				<div className="container-fluid">
 					<div className="row">
 						<div className="col-12 col-md-10 col-lg-7">
-							<div className="about-us-content bg-white">
-								<div className="section-heading text-left wow fadeInUp" data-wow-delay="300ms">
-									<div className="line"></div>
-									<h2>Look at my qualities</h2>
-								</div>
-								<h6 className="wow fadeInUp" data-wow-delay="600ms">
-									I understand that patience is a virtue and how valuable you are
-									to me as a customer, thus I combine my creativity and commitment
-									to offer you the best services imaginable.
-								</h6>
-								{/* <!-- Progress Bar Content Area --> */}
-								<div className="services-progress-bar mt-50 wow fadeInUp" data-wow-delay="900ms">
-									<div className="progress rounded-0" style={{ height: "20px" }}>
-										<div className="progress-bar" style={{ backgroundColor: "#232323", width: "90%" }}>
-											<span className="p-2" style={{ textAlign: "right" }}> 90%</span>
-										</div>
-									</div>
-									<h6>Patience</h6>
-									<br />
-									<div className="progress rounded-0" style={{ height: "20px" }}>
-										<div className="progress-bar" style={{ backgroundColor: "#232323", width: "95%" }}>
-											<span className="p-2" style={{ textAlign: "right" }}> 95%</span>
-										</div>
-									</div>
-									<h6>Creativity</h6>
-									<br />
-									<div className="progress rounded-0" style={{ height: "20px" }}>
-										<div className="progress-bar" style={{ backgroundColor: "#232323", width: "100%" }}>
-											<span className="p-2" style={{ textAlign: "right" }}> 100%</span>
-										</div>
-									</div>
-									<h6>Commited</h6>
-								</div>
+							<div className="about-us-content bg-white text-center">
+								{/* Top Line */}
+								<div
+									className="mt-5 mb-3"
+									style={{ backgroundColor: "#3C1712", height: "1px" }}></div>
+								{/* Top Line End */}
+
+								<h2>Strategic Partnership Development</h2>
+								<p>
+									We strive to foster enduring partnerships by building a
+									unified supplier base market in Africa, specifically designed
+									and accessible to African companies and organizations through
+									our innovative KG-ASB system. Our goal is to establish a
+									robust network that promotes synergy and collaboration,
+									ultimately contributing to sustainable business growth.
+								</p>
+
+								{/* Top Line */}
+								<div
+									className="mt-5 mb-3"
+									style={{ backgroundColor: "#3C1712", height: "1px" }}></div>
+								{/* Top Line End */}
+
+								<h2>Optimizing Procurement Performance</h2>
+								<p>
+									At the core of our vision is the optimization of procurement
+									performance. We are dedicated to verifying suppliers who not
+									only meet the key performance indicators (KPIs) of
+									organizations and companies but also align with our commitment
+									to excellence. Our aim is to provide a curated list of
+									suppliers that comply with the specific procurement
+									requirements of each organization or company, ensuring a
+									seamless and efficient procurement experience.
+								</p>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<div className="sonar-about-us-area second-part bg-img" style={{ backgroundImage: "url(img/bg-img/about3.jpg)" }}>
+			<div
+				className="sonar-about-us-area second-part bg-img"
+				style={{ backgroundImage: "url(storage/img/bg-img/about3.jpg)" }}>
 				{/* <!-- Back End Content --> */}
 				<div className="backEnd-content">
 					<h2>Really</h2>
@@ -94,32 +110,90 @@ const About = () => {
 					<div className="row justify-content-end">
 						<div className="col-12 col-md-10 col-lg-7">
 							<div className="about-us-content bg-white">
-								<div className="section-heading text-left wow fadeInUp" data-wow-delay="300ms">
+								<div
+									className="section-heading text-left wow fadeInUp"
+									data-wow-delay="300ms">
 									<div className="line"></div>
-									<h3 className="wow fadeInUp" data-wow-delay="600ms">I am diverse</h3>
+									<h3
+										className="wow fadeInUp"
+										data-wow-delay="600ms">
+										Our Qualities
+									</h3>
 								</div>
 								{/* <!-- Progress Bar Content Area --> */}
-								<div className="services-progress-bar mt-50 wow fadeInUp" data-wow-delay="900ms">
-									<div className="progress rounded-0" style={{ height: "30px" }}>
-										<div className="progress-bar" style={{ backgroundColor: "#232323", width: "100%" }}>
-											<span className="p-2" style={{ textAlign: "right" }}> 100%</span>
+								<div
+									className="services-progress-bar mt-50 wow fadeInUp"
+									data-wow-delay="900ms">
+									<div
+										className="progress rounded-0"
+										style={{ height: "30px" }}>
+										<div
+											className="progress-bar"
+											style={{ backgroundColor: "#3C1712", width: "100%" }}>
+											<span
+												className="p-2"
+												style={{ textAlign: "right" }}>
+												{" "}
+												100%
+											</span>
 										</div>
 									</div>
-									<h6>Photography</h6>
+									<h6>Supplier Relationship Management</h6>
 									<br />
-									<div className="progress rounded-0" style={{ height: "30px" }}>
-										<div className="progress-bar" style={{ backgroundColor: "#232323", width: "100%" }}>
-											<span className="p-2" style={{ textAlign: "right" }}> 100%</span>
+									<div
+										className="progress rounded-0"
+										style={{ height: "30px" }}>
+										<div
+											className="progress-bar"
+											style={{ backgroundColor: "#3C1712", width: "100%" }}>
+											<span
+												className="p-2"
+												style={{ textAlign: "right" }}>
+												{" "}
+												100%
+											</span>
 										</div>
 									</div>
-									<h6>Video</h6>
+									<h6>Compliance and Ethics</h6>
+									<br />
+									<div
+										className="progress rounded-0"
+										style={{ height: "30px" }}>
+										<div
+											className="progress-bar"
+											style={{ backgroundColor: "#3C1712", width: "95%" }}>
+											<span
+												className="p-2"
+												style={{ textAlign: "right" }}>
+												{" "}
+												90%
+											</span>
+										</div>
+									</div>
+									<h6>Data Analytics</h6>
+									<br />
+									<div
+										className="progress rounded-0"
+										style={{ height: "30px" }}>
+										<div
+											className="progress-bar"
+											style={{ backgroundColor: "#3C1712", width: "85%" }}>
+											<span
+												className="p-2"
+												style={{ textAlign: "right" }}>
+												{" "}
+												85%
+											</span>
+										</div>
+									</div>
+									<h6>Cross-Functional Collaboration</h6>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div >
+		</div>
 	)
 }
 

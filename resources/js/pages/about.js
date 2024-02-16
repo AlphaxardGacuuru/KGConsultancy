@@ -1,7 +1,18 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Link } from "react-router-dom"
 
 const About = () => {
+	useEffect(() => {
+		// Slide on page load
+		// Get the animated div
+		const animatedDiv = document.getElementById("animatedDiv")
+
+		// Add the 'active' class after a short delay (adjust as needed)
+		setTimeout(function () {
+			animatedDiv.classList.add("active")
+		}, 500) // 500 milliseconds delay
+	}, [])
+
 	return (
 		<div>
 			{/* <!-- ***** Hero Area Start ***** --> */}
@@ -17,7 +28,9 @@ const About = () => {
 					className="col-sm-6 text-center"
 					style={{ backgroundColor: "#3C1712" }}>
 					<div className="d-flex justify-content-center my-5 py-5">
-						<div className="p-5">
+						<div
+							id="animatedDiv"
+							className="p-5 slide-in">
 							{/* Top Line */}
 							<div
 								className="m-3"

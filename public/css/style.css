@@ -2356,6 +2356,29 @@ img {
 
 /* Bottom slide Nav End */
 
+/* Glassy Gradient */
+.glassy-gradient {
+	background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(60, 23, 18, 0.5));
+	/* padding: 20px; */
+	border: 0px;
+	border-radius: 10px;
+}
+
+/* Glassy Gradient End */
+
+/* Slide in and out */
+.slide-in {
+	opacity: 0;
+	transform: translateY(100%);
+	transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.slide-in.active {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* Slide in and out End */
 /* The end */
 
 /*# sourceMappingURL=style.css.map */

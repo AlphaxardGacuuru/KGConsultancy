@@ -1,15 +1,53 @@
 import React from "react"
+import { Link, useLocation, useHistory, withRouter } from "react-router-dom"
 
 const Footer = () => {
+	const location = useLocation()
+
+	// Show Admin Nav based on Location
+	const showFooter =
+		!location.pathname.match("/admin") && !location.pathname.match("/supplier")
+			? "d-block"
+			: "d-none"
+
 	return (
-		<div>
+		<div className={`mt-5 ${showFooter}`}>
+			{/* <!-- ***** Call to Action Area Start ***** --> */}
+			<div className="sonar-call-to-action-area section-padding-0-100">
+				<div className="backEnd-content">
+					<h2>Dream</h2>
+				</div>
+				<div className="container">
+					<div className="row">
+						<div className="col-12">
+							<div
+								className="call-to-action-content wow fadeInUp"
+								data-wow-delay="0.5s">
+								<h2>
+									We connect organizations with suppliers that meet procurement
+									requirements, compliant to organization standards and provide
+									Value for Money.
+								</h2>
+								<h5>Let’s talk</h5>
+								<Link
+									to="/contact"
+									className="btn sonar-btn mt-100">
+									contact me
+								</Link>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{/* <!-- ***** Call to Action Area End </br>***** --> */}
+
 			{/* <!-- ***** Footer Area Start ***** --> */}
 			<footer className="footer-area">
 				{/* <!-- back end content --> */}
 				<div className="backEnd-content">
 					<img
 						className="dots"
-						src="img/core-img/dots.png"
+						src="storage/img/core-img/dots.png"
 						alt=""
 					/>
 					<h2>Dream</h2>

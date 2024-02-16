@@ -9,7 +9,7 @@ import Portfolio from "@/pages/portfolio"
 import AdminNav from "@/components/Layouts/AdminNav"
 import SupplierNav from "@/components/Layouts/SupplierNav"
 
-// import AdminLogin from "@/pages/admin/login"
+import AdminLogin from "@/pages/admin/login"
 // import AdminDashboard from "@/pages/admin/index"
 
 // import AdminStaff from "@/pages/admin/staff/index"
@@ -20,7 +20,12 @@ import SupplierNav from "@/components/Layouts/SupplierNav"
 // import Supplier from "@/pages/supplier/index"
 
 const RouteList = ({ GLOBAL_STATE }) => {
-	const authRoutes = []
+	const authRoutes = [
+		{
+			path: "/admin/login",
+			component: <AdminLogin {...GLOBAL_STATE} />,
+		}
+	]
 
 	const adminRoutes = []
 

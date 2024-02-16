@@ -1,51 +1,59 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 import { Link } from "react-router-dom"
 
 const Services = () => {
+	useEffect(() => {
+		// Slide on page load
+		// Get the animated div
+		const animatedDiv = document.getElementById("animatedDiv")
+
+		// Add the 'active' class after a short delay (adjust as needed)
+		setTimeout(function () {
+			animatedDiv.classList.add("active")
+		}, 500) // 500 milliseconds delay
+	}, [])
+
 	return (
 		<div>
 			{/* <!-- ***** Hero Area Start ***** --> */}
 			<div className="row">
 				<div className="col-sm-6 p-0">
 					<img
-						src="img/bg-img/blog.jpg"
+						src="storage/img/bg-img/blog.jpg"
 						alt="creator"
 					/>
 				</div>
 				<div
-					className="col-sm-6"
+					className="col-sm-6 text-center"
 					style={{ backgroundColor: "#3C1712" }}>
-					<div className="mt-5 mb-5 hidden"></div>
-					<center>
-						<br />
-						<br />
-						<div className="d-flex justify-content-center mb-3">
-							<div className="p-2 ml-5 mr-5 hidden">Flex item 1</div>
-							<div className="p-5">
-								<div
-									className="m-3"
-									style={{ backgroundColor: "white", height: "1px" }}></div>
-								<h2 style={{ color: "white" }}>
-									I provide top quality services
-								</h2>
-								<p style={{ color: "white" }}>
-									I use proven principles of photography and cinematography and
-									add my personal touch to give you an experience like never
-									before, using new technology to enhance your event
-								</p>
-							</div>
-							<div className="p-2 ml-5 mr-5 hidden">Flex item 3</div>
+					<div className="d-flex justify-content-center my-5 py-5">
+						<div
+							id="animatedDiv"
+							className="p-5 slide-in">
+							{/* Top Line */}
+							<div
+								className="m-3"
+								style={{ backgroundColor: "white", height: "1px" }}></div>
+							{/* Top Line End */}
+
+							<h2 className="text-white">
+								Transforming Procurement Excellence
+							</h2>
+							<p className="text-white">
+								We specialize in connecting businesses and organizations with
+								suppliers that meet stringent requirements, ensuring compliance
+								with organizational and company standards while delivering
+								unparalleled Value for Money. Elevate your procurement processes
+								with our trusted and efficient solutions.
+							</p>
 						</div>
-						<Link
-							to="/contact"
-							className="btn sonar-btn white-btn">
-							contact me
-						</Link>
-						<br />
-						<br />
-						<br />
-					</center>
+					</div>
+					<Link
+						to="/contact"
+						className="btn sonar-btn white-btn">
+						contact us
+					</Link>
 				</div>
 			</div>
 			{/* <!-- ***** Hero Area End ***** --> */}
@@ -54,340 +62,229 @@ const Services = () => {
 			<div className="sonar-services-area section-padding-100-50">
 				<div className="container">
 					<div className="row">
-						{/* <!-- Wedding Photography Plus Area --> */}
+						<h1 className="text-center">Expert Services</h1>
+						{/* <!-- Service Item --> */}
 						<div className="col-12 col-md-6 col-lg-4">
 							<div
-								className="single-services-area wow fadeInUp card py-5 px-2"
-								style={{ backgroundColor: "#FFC862" }}
+								className="single-services-area wow fadeInUp card py-5 px-2 glassy-gradient"
 								data-wow-delay="300ms">
 								<center>
-									<span>
-										<svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="50"
-											height="50"
-											fill="currentColor"
-											className="bi bi-camera-reels"
-											viewBox="0 0 16 16">
-											<path
-												fill-rule="evenodd"
-												d="M0 8a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 7.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 16H2a2 2 0 0 1-2-2V8zm11.5 5.175l3.5 1.556V7.269l-3.5 1.556v4.35zM2 7a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H2z"
-											/>
-											<path
-												fill-rule="evenodd"
-												d="M3 5a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
-											/>
-											<path
-												fill-rule="evenodd"
-												d="M9 5a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
-											/>
-										</svg>
-									</span>
-									<h4>
-										Wedding Photography <br />
-										Plus
-									</h4>
-									<span>2 Photographers</span>
-									<br />
-									<span>2 Cinematographers</span>
-									<br />
-									<span>3 A3 Mounts</span>
-									<br />
-									<span>1 Photo Magazine</span>
-									<br />
-									<span>250 Photos</span>
-									<br />
-									<span>Video (40mns-1.5hrs)</span>
-									<br />
-									<span>Trailer (6 - 12mns)</span>
-									<br />
-									<span>Free Engagement Shoot</span>
-									<br />
-									<br />
-									<h5>Ksh 50,000</h5>
-									<br />
-									<p>
-										“What i like about photographs is that they capture a moment
-										that’s gone forever, impossible to reproduce.” ― Karl
-										Lagerfeld.
-									</p>
+									<h4>Policies and Standard Operating Procedures (SoPs)</h4>
+									<div>
+										Design and development of comprehensive manuals and
+										handbooks.
+									</div>
+									<div>
+										Crafting a Supplier Handbook with a clear message to
+										suppliers; a prerequisite for suppliers seeking
+										collaboration with your organization, aligning with
+										established standards (referencing the Wartsila Handbook).
+									</div>
+									<div>
+										Ongoing review and continuous improvement of policies and
+										SoPs.
+									</div>
 								</center>
 							</div>
 						</div>
-						{/* <!-- Wedding Photography Standard Area --> */}
+						{/* <!-- Service Item End --> */}
+						{/* <!-- Service Item --> */}
 						<div className="col-12 col-md-6 col-lg-4">
 							<div
-								className="single-services-area wow fadeInUp card py-5 px-2"
-								style={{ backgroundColor: "#102336", color: "white" }}
+								className="single-services-area wow fadeInUp card py-5 px-2 glassy-gradient"
 								data-wow-delay="600ms">
 								<center>
-									<span>
-										<svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="50"
-											height="50"
-											fill="currentColor"
-											className="bi bi-camera-video"
-											viewBox="0 0 16 16">
-											<path
-												fill-rule="evenodd"
-												d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5zm11.5 5.175l3.5 1.556V4.269l-3.5 1.556v4.35zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H2z"
-											/>
-										</svg>
-									</span>
-									<h4 style={{ color: "white" }}>
-										Wedding Photography <br />
-										Standard
-									</h4>
-									<span>2 Photographers</span>
-									<br />
-									<span>1 Cinematographer</span>
-									<br />
-									<span>1 A3 Mount</span>
-									<br />
-									<span>150 Photos</span>
-									<br />
-									<span>Video (40mns-1.5hrs)</span>
-									<br />
-									<span>Trailer (6 - 12mns)</span>
-									<br />
-									<span>Free Engagement Shoot</span>
-									<br />
-									<br />
-									<h5 style={{ color: "white" }}>Ksh 30,000</h5>
-									<br />
-									<p style={{ color: "white" }}>
-										“If your pictures are not good enough you are not close
-										enough.” ― Robert Capa
-									</p>
+									<h4>Tools and Templates</h4>
+									<div>
+										Development and design of essential tools and templates.
+									</div>
+									<div>
+										Regular review and enhancement of tools and templates for
+										sustained efficiency.
+									</div>
 								</center>
 							</div>
 						</div>
-						{/* <!-- Wedding Photography Budget Area --> */}
+						{/* <!-- Service Item End --> */}
+						{/* <!-- Service Item --> */}
 						<div className="col-12 col-md-6 col-lg-4">
 							<div
-								className="single-services-area wow fadeInUp card py-5 px-2"
-								style={{ backgroundColor: "#3C1712", color: "white" }}
-								data-wow-delay="300ms">
-								<center>
-									<span>
-										<svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="50"
-											height="50"
-											fill="currentColor"
-											className="bi bi-camera"
-											viewBox="0 0 16 16">
-											<path
-												fill-rule="evenodd"
-												d="M15 12V6a1 1 0 0 0-1-1h-1.172a3 3 0 0 1-2.12-.879l-.83-.828A1 1 0 0 0 9.173 3H6.828a1 1 0 0 0-.707.293l-.828.828A3 3 0 0 1 3.172 5H2a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z"
-											/>
-											<path
-												fill-rule="evenodd"
-												d="M8 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"
-											/>
-											<path d="M3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
-										</svg>
-									</span>
-									<h4 style={{ color: "white" }}>
-										Wedding Photography <br />
-										Budget
-									</h4>
-									<span>1 Photographer</span>
-									<br />
-									<span>1 Cinematographer</span>
-									<br />
-									<span>100 Photos</span>
-									<br />
-									<span>Video (40mns-1.5hrs)</span>
-									<br />
-									<span>Trailer (6 - 12mns)</span>
-									<br />
-									<br />
-									<h5 style={{ color: "white" }}>Ksh 20,000</h5>
-									<br />
-									<p style={{ color: "white" }}>
-										A story should have a beginning, a middle and an end… but
-										not necessarily in that order. – Jean-Luc Godard.
-									</p>
-								</center>
-							</div>
-						</div>
-						{/* <!-- Engagement Shoot Area --> */}
-						<div className="col-12 col-md-6 col-lg-4">
-							<div
-								className="single-services-area wow fadeInUp card py-5 px-2"
-								style={{ backgroundColor: "#fb3958" }}
-								data-wow-delay="900ms">
-								<center>
-									<span>
-										<svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="50"
-											height="50"
-											fill="currentColor"
-											className="bi bi-gem"
-											viewBox="0 0 16 16">
-											<path
-												fill-rule="evenodd"
-												d="M3.1.7a.5.5 0 0 1 .4-.2h9a.5.5 0 0 1 .4.2l2.976 3.974c.149.185.156.45.01.644L8.4 15.3a.5.5 0 0 1-.8 0L.1 5.3a.5.5 0 0 1 0-.6l3-4zm11.386 3.785l-1.806-2.41-.776 2.413 2.582-.003zm-3.633.004l.961-2.989H4.186l.963 2.995 5.704-.006zM5.47 5.495l5.062-.005L8 13.366 5.47 5.495zm-1.371-.999l-.78-2.422-1.818 2.425 2.598-.003zM1.499 5.5l2.92-.003 2.193 6.82L1.5 5.5zm7.889 6.817l2.194-6.828 2.929-.003-5.123 6.831z"
-											/>
-										</svg>
-									</span>
-									<h4>Engagement Shoot</h4>
-									<span>1 A3 Mount</span>
-									<br />
-									<span>
-										30 Edited, Retouched (with skin smoothening) Photos
-									</span>
-									<br />
-									<br />
-									<h5>Ksh 5,000</h5>
-									<br />
-								</center>
-							</div>
-						</div>
-						{/* <!-- Family Area --> */}
-						<div className="col-12 col-md-6 col-lg-4">
-							<div
-								className="single-services-area wow fadeInUp card py-5 px-2"
-								style={{ backgroundColor: "#81D9DD" }}
-								data-wow-delay="300ms">
-								<center>
-									<span>
-										<svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="50"
-											height="50"
-											fill="currentColor"
-											className="bi bi-people"
-											viewBox="0 0 16 16">
-											<path
-												fill-rule="evenodd"
-												d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1h7.956a.274.274 0 0 0 .014-.002l.008-.002c-.002-.264-.167-1.03-.76-1.72C13.688 10.629 12.718 10 11 10c-1.717 0-2.687.63-3.24 1.276-.593.69-.759 1.457-.76 1.72a1.05 1.05 0 0 0 .022.004zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10c-1.668.02-2.615.64-3.16 1.276C1.163 11.97 1 12.739 1 13h3c0-1.045.323-2.086.92-3zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"
-											/>
-										</svg>
-									</span>
-									<h4>Family Shoot</h4>
-									<span>1 A3 Mount</span>
-									<br />
-									<span>
-										30 Edited, Retouched (with skin smoothening) Photos
-									</span>
-									<br />
-									<br />
-									<h5>Ksh 5,000</h5>
-									<br />
-								</center>
-							</div>
-						</div>
-						{/* <!-- Baby Bump Area --> */}
-						<div className="col-12 col-md-6 col-lg-4">
-							<div
-								className="single-services-area wow fadeInUp card py-5 px-2"
-								style={{ backgroundColor: "#FF0080" }}
+								className="single-services-area wow fadeInUp card py-5 px-2 glassy-gradient"
 								data-wow-delay="600ms">
 								<center>
-									<span>
-										<svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="50"
-											height="50"
-											fill="currentColor"
-											className="bi bi-person"
-											viewBox="0 0 16 16">
-											<path
-												fill-rule="evenodd"
-												d="M10 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"
-											/>
-										</svg>
-									</span>
-									<h4>Baby Bump Shoot</h4>
-									<span>1 A3 Mount</span>
-									<br />
-									<span>30 Edited Photos</span>
-									<br />
-									<br />
-									<h5>Ksh 5,000</h5>
-									<br />
+									<h4>Procurement Processes</h4>
+									<div>
+										Seamless execution of organizational and company procurement
+										processes, managing procurement cycle from request to
+										payment.
+									</div>
+									<div>
+										Establishment of a harmonious partnership between suppliers
+										and the organization/company.
+									</div>
 								</center>
 							</div>
 						</div>
-						{/* <!-- Products Area --> */}
+						{/* <!-- Service Item End --> */}
+						{/* <!-- Service Item --> */}
 						<div className="col-12 col-md-6 col-lg-4">
 							<div
-								className="single-services-area wow fadeInUp card py-5 px-2"
-								style={{ backgroundColor: "#914E3B" }}
+								className="single-services-area wow fadeInUp card py-5 px-2 glassy-gradient"
 								data-wow-delay="600ms">
 								<center>
-									<span>
-										<svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="50"
-											height="50"
-											fill="currentColor"
-											className="bi bi-bag"
-											viewBox="0 0 16 16">
-											<path
-												fill-rule="evenodd"
-												d="M8 1a2.5 2.5 0 0 0-2.5 2.5V4h5v-.5A2.5 2.5 0 0 0 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5H2z"
-											/>
-										</svg>
-									</span>
-									<h4>Products</h4>
-									<span>A3 Mount - Ksh 2500</span>
-									<br />
-									<span>A2 Mount - Ksh 4500</span>
-									<br />
-									<span>Photo Magazine (40 pgs) - Ksh 10,000</span>
-									<br />
-									<span>Photo Magazine (20 pgs) - Ksh 8,000</span>
-									<br />
-									<br />
+									<h4>In-House Capacity Building</h4>
+									<div>
+										Skill enhancement for organizational and company procurement
+										specialists, with a focus on business cases.
+									</div>
+									<div>
+										Capacity building initiatives to elevate the submission
+										standards of your current suppliers.
+									</div>
+									<div>
+										Empowering organizational/company staff with enhanced skills
+										in line with best procurement practices.
+									</div>
 								</center>
 							</div>
 						</div>
-						{/* <!-- Add-ons Area --> */}
+					</div>
+					{/* <!-- Service Item End --> */}
+					<div className="row">
+						<h1 className="text-center">Supplier Services</h1>
+						{/* <!-- Service Item --> */}
 						<div className="col-12 col-md-6 col-lg-4">
 							<div
-								className="single-services-area wow fadeInUp card py-5 px-2"
-								style={{ backgroundColor: "#CFF56A" }}
+								className="single-services-area wow fadeInUp card py-5 px-2 glassy-gradient"
 								data-wow-delay="600ms">
 								<center>
-									<h4>
-										Wedding Package <br />
-										Add-ons
-									</h4>
-									<h5>Drone - Ksh 25,000</h5>
-									<h5>Live Streaming - Ksh 15,000</h5>
-									<br />
+									<h4>Empowering for Compliance and Performance</h4>
+									<div>
+										Provide guidance to suppliers on aligning with
+										organizational and company requirements.
+									</div>
+									<div>
+										Facilitate training to enhance supplier capabilities,
+										ensuring they meet performance expectations.
+									</div>
 								</center>
 							</div>
 						</div>
-						{/* <!-- Terms and Details Area --> */}
+						{/* <!-- Service Item End --> */}
+						{/* <!-- Service Item --> */}
 						<div className="col-12 col-md-6 col-lg-4">
 							<div
-								className="single-services-area wow fadeInUp card py-5 px-2"
+								className="single-services-area wow fadeInUp card py-5 px-2 glassy-gradient"
 								data-wow-delay="600ms">
 								<center>
-									<h4>Terms and Details</h4>
+									<h4>Procurement Process Submission Training</h4>
+									<div>
+										Conduct workshops on preparation of Request for Quotation
+										(RFQ), Request for Proposal (RFP), and Invitation to Bid
+										(ITB) processes.
+									</div>
+									<div>
+										Offer specialized training to suppliers for effective and
+										streamlined submissions.
+									</div>
 								</center>
-								<h6>
-									Early booking of 2 weeks is recommended to secure the day.
-								</h6>
-								<h6>
-									Booking is done by paying 80% of the total package cost and
-									the remaining 20% on D-day.
-								</h6>
-								<h6>
-									Content will be delivered via a Flash Disk provided by me.
-								</h6>
-								<h6>Wedding package add-ons are an extra cost.</h6>
-								<h6>Delivery:</h6>
-								<h6 className="ml-3">Photos - 48hrs.</h6>
-								<h6 className="ml-3">Videos - 2 weeks.</h6>
 							</div>
 						</div>
+						{/* <!-- Service Item End --> */}
+						{/* <!-- Service Item --> */}
+						<div className="col-12 col-md-6 col-lg-4">
+							<div
+								className="single-services-area wow fadeInUp card py-5 px-2 glassy-gradient"
+								data-wow-delay="600ms">
+								<center>
+									<h4>Strategic Supplier Sourcing</h4>
+									<div>
+										• Utilize our network and expertise to identify and connect
+										suppliers with organizations and companies seeking their
+										specific services.
+									</div>
+								</center>
+							</div>
+						</div>
+						{/* <!-- Service Item End --> */}
+						{/* <!-- Service Item --> */}
+						<div className="col-12 col-md-6 col-lg-4">
+							<div
+								className="single-services-area wow fadeInUp card py-5 px-2 glassy-gradient"
+								data-wow-delay="600ms">
+								<center>
+									<h4>Vetting of Eligible Suppliers</h4>
+									<div>
+										Implement a thorough vetting process to ensure suppliers
+										meet eligibility criteria.
+									</div>
+									<div>
+										Assist in preparing suppliers for the vetting process,
+										addressing potential gaps in compliance.
+									</div>
+								</center>
+							</div>
+						</div>
+						{/* <!-- Service Item End --> */}
+						{/* <!-- Service Item --> */}
+						<div className="col-12 col-md-6 col-lg-4">
+							<div
+								className="single-services-area wow fadeInUp card py-5 px-2 glassy-gradient"
+								data-wow-delay="600ms">
+								<center>
+									<h4>Complaint Resolution</h4>
+									<div>
+										Establish a mechanism for suppliers to address concerns and
+										complaints promptly.
+									</div>
+									<div>
+										Offer mediation services to resolve issues between suppliers
+										and organizations/companies.
+									</div>
+								</center>
+							</div>
+						</div>
+						{/* <!-- Service Item End --> */}
+						{/* <!-- Service Item --> */}
+						<div className="col-12 col-md-6 col-lg-4">
+							<div
+								className="single-services-area wow fadeInUp card py-5 px-2 glassy-gradient"
+								data-wow-delay="600ms">
+								<center>
+									<h4>Strengthening Document Application</h4>
+									<div>
+										Provide training on essential document requirements,
+										including bank details, quotation formats, invoice formats,
+										and the distinction between proforma and invoice.
+									</div>
+									<div>
+										Offer ongoing support to ensure suppliers consistently
+										adhere to document standards.
+									</div>
+								</center>
+							</div>
+						</div>
+						{/* <!-- Service Item End --> */}
+						{/* <!-- Service Item --> */}
+						<div className="col-12 col-md-6 col-lg-4">
+							<div
+								className="single-services-area wow fadeInUp card py-5 px-2 glassy-gradient"
+								data-wow-delay="600ms">
+								<center>
+									<h4>Comprehensive Financial Guidance</h4>
+									<div>
+										Deliver workshops to enhance suppliers' understanding of
+										financial aspects, such as invoicing, payment terms, and
+										financial documentation compliance.
+									</div>
+									<div>
+										Guide suppliers in optimizing their financial processes to
+										align with industry best practices.
+									</div>
+								</center>
+							</div>
+						</div>
+						{/* <!-- Service Item End --> */}
 					</div>
 				</div>
 			</div>
@@ -402,50 +299,40 @@ const Services = () => {
 							<div className="testimonial-content bg-white">
 								<div className="section-heading text-left">
 									<div className="line"></div>
-									{/* <h2>Testimonials</h2>
-								</div>
+									<h2>Goals</h2>
 
-								<div className="testimonial-slides owl-carousel">
-
-									<div className="single-tes-slide">
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat nulla placerat, tincidunt mi. Nullam vel orci dui. Suspendisse sit amet laoreet neque. Fusce sagittis suscipit sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat nulla placerat, tincidunt mi. Nullam vel orci dui. Suspendisse sit amet laoreet neque.</p>
-										<h6>Maria Smith, Bride</h6>
+									<div className="my-1">
+										<b>Breakdown of our future goals: </b>As K&G Consulting, our
+										primary goal is to establish ourselves as the foremost
+										authority in procurement consulting, setting industry
+										standards for excellence and innovation.
 									</div>
-
-									<div className="single-tes-slide">
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat nulla placerat, tincidunt mi. Nullam vel orci dui. Suspendisse sit amet laoreet neque. Fusce sagittis suscipit sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat nulla placerat, tincidunt mi. Nullam vel orci dui. Suspendisse sit amet laoreet neque.</p>
-										<h6>Maria Smith, Bride</h6>
+									<div className="my-1">
+										<b>Global Impact: </b>We aspire to expand our influence
+										globally, leveraging the KG-ASB system to create unified
+										supplier base markets not only in Africa but also in other
+										regions, fostering accessibility and collaboration on a
+										worldwide scale.
 									</div>
-
-									<div className="single-tes-slide">
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat nulla placerat, tincidunt mi. Nullam vel orci dui. Suspendisse sit amet laoreet neque. Fusce sagittis suscipit sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat nulla placerat, tincidunt mi. Nullam vel orci dui. Suspendisse sit amet laoreet neque.</p>
-										<h6>Maria Smith, Bride</h6>
+									<div className="my-1">
+										<b>Optimized Procurement Practices: </b>Our commitment is to
+										continuously evolve and refine procurement processes,
+										striving for optimization by verifying suppliers against key
+										performance indicators, ensuring efficiency, and aligning
+										with the highest standards of excellence.
 									</div>
-
-									<div className="single-tes-slide">
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat nulla placerat, tincidunt mi. Nullam vel orci dui. Suspendisse sit amet laoreet neque. Fusce sagittis suscipit sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat nulla placerat, tincidunt mi. Nullam vel orci dui. Suspendisse sit amet laoreet neque.</p>
-										<h6>Maria Smith, Bride</h6>
+									<div className="my-1">
+										<b>Sustainable Partnerships: </b>We aim to foster enduring
+										partnerships between suppliers and organizations,
+										contributing to sustainable business growth and development
+										while actively promoting accessibility and inclusivity.
 									</div>
-
-									<div className="single-tes-slide">
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat nulla placerat, tincidunt mi. Nullam vel orci dui. Suspendisse sit amet laoreet neque. Fusce sagittis suscipit sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat nulla placerat, tincidunt mi. Nullam vel orci dui. Suspendisse sit amet laoreet neque.</p>
-										<h6>Maria Smith, Bride</h6>
+									<div className="my-1">
+										<b>Community Empowerment: </b>Beyond business success, our
+										ideal is to contribute to the empowerment of communities by
+										facilitating fair and ethical procurement practices,
+										creating a positive impact on both local and global scales.
 									</div>
-
-									<div className="single-tes-slide">
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat nulla placerat, tincidunt mi. Nullam vel orci dui. Suspendisse sit amet laoreet neque. Fusce sagittis suscipit sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat nulla placerat, tincidunt mi. Nullam vel orci dui. Suspendisse sit amet laoreet neque.</p>
-										<h6>Maria Smith, Bride</h6>
-									</div>
-
-									<div className="single-tes-slide">
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat nulla placerat, tincidunt mi. Nullam vel orci dui. Suspendisse sit amet laoreet neque. Fusce sagittis suscipit sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat nulla placerat, tincidunt mi. Nullam vel orci dui. Suspendisse sit amet laoreet neque.</p>
-										<h6>Maria Smith, Bride</h6>
-									</div>
-
-									<div className="single-tes-slide">
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat nulla placerat, tincidunt mi. Nullam vel orci dui. Suspendisse sit amet laoreet neque. Fusce sagittis suscipit sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat nulla placerat, tincidunt mi. Nullam vel orci dui. Suspendisse sit amet laoreet neque.</p>
-										<h6>Maria Smith, Bride</h6>
-									</div> */}
 								</div>
 							</div>
 						</div>
@@ -473,7 +360,7 @@ const Services = () => {
 								<h2>
 									<span className="counter">61</span>
 								</h2>
-								<h6>Happy Brides</h6>
+								<h6>Happy Clients</h6>
 							</div>
 						</div>
 						{/* <!-- Single Cool Fact--> */}
@@ -493,7 +380,7 @@ const Services = () => {
 								<h2>
 									<span className="counter">100</span>
 								</h2>
-								<h6>Hours of video editing</h6>
+								<h6>Hours of Service</h6>
 							</div>
 						</div>
 						{/* <!-- Single Cool Fact--> */}
@@ -514,7 +401,7 @@ const Services = () => {
 								<h2>
 									<span className="counter">1400</span>
 								</h2>
-								<h6>Edited Photos</h6>
+								<h6>Bids</h6>
 							</div>
 						</div>
 						{/* <!-- Single Cool Fact--> */}
@@ -540,26 +427,6 @@ const Services = () => {
 					</div>
 				</div>
 			</div>
-
-			{/* <!-- ***** Call to Action Area Start ***** --> */}
-			<div className="sonar-call-to-action-area bg-gray section-padding-100">
-				<div className="container">
-					<div className="row">
-						<div className="col-12">
-							<div className="call-to-action-content">
-								<h2>I'm an experienced photographer and videographer</h2>
-								<h5>Let’s talk</h5>
-								<Link
-									to="/contact"
-									className="btn sonar-btn mt-100">
-									contact me
-								</Link>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			{/* <!-- ***** Call to Action Area End ***** --></br> */}
 		</div>
 	)
 }

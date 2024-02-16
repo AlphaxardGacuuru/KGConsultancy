@@ -43,11 +43,14 @@ const TopNav = () => {
 		}
 	}
 
+	// Show TopNav always when in Admin Login
+	const sticky = location.pathname.match("/admin/login") && "sticky"
+
 	return (
 		<div id="MyElement">
 			{/* Preloader Start */}
 			{loading && (
-				<div id="preloader">
+				<div id="preloader" className="bg-transparent">
 					<div className="preload-content">
 						<div id="sonar-load"></div>
 					</div>
@@ -71,7 +74,7 @@ const TopNav = () => {
 			{/* <!-- ***** Header Area Start ***** --> */}
 			<header
 				id="header-area"
-				className="header-area">
+				className={`header-area ${sticky}`}>
 				<div className="container-fluid">
 					<div className="row">
 						<div className="col-12">
@@ -196,21 +199,23 @@ const TopNav = () => {
 							<li className="nav-item">
 								<Link
 									className="nav-link"
-									to="/portfolio"
+									to="/admin"
 									style={{
-										opacity: location.pathname == "/portfolio" ? 1 : 0.4,
+										opacity: location.pathname == "/admin" ? 1 : 0.4,
 									}}
 									onClick={close}>
-									Portfolio
+									Admin Portal
 								</Link>
 							</li>
 							<li className="nav-item">
 								<Link
 									className="nav-link"
-									to="/contact"
-									style={{ opacity: location.pathname == "/contact" ? 1 : 0.4 }}
+									to="/supplier"
+									style={{
+										opacity: location.pathname == "/supplier" ? 1 : 0.4,
+									}}
 									onClick={close}>
-									Contact
+									Supplier Portal
 								</Link>
 							</li>
 						</ul>

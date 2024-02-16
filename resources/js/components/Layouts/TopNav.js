@@ -8,6 +8,7 @@ import WhatsAppSVG from "@/svgs/WhatsAppSVG"
 import EmailSVG from "@/svgs/EmailSVG"
 import InstagramSVG from "@/svgs/InstagramSVG"
 import FacebookSVG from "@/svgs/FacebookSVG"
+import LogoSVG from "@/svgs/LogoSVG"
 
 const TopNav = () => {
 	const location = useLocation()
@@ -84,7 +85,9 @@ const TopNav = () => {
 							<div className="menu-area d-flex justify-content-between">
 								{/* <!-- Logo Area  --> */}
 								<div className="logo-area">
-									<Link to="/">KG Consultancy</Link>
+									<Link to="/">
+										<LogoSVG />
+									</Link>
 								</div>
 
 								<div className="menu-content-area d-flex align-items-center">

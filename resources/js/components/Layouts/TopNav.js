@@ -201,7 +201,7 @@ const TopNav = () => {
 									className="nav-link"
 									to="/admin"
 									style={{
-										opacity: location.pathname == "/admin" ? 1 : 0.4,
+										opacity: location.pathname == "/admin/login" ? 1 : 0.4,
 									}}
 									onClick={close}>
 									Admin Portal
@@ -212,7 +212,7 @@ const TopNav = () => {
 									className="nav-link"
 									to="/supplier"
 									style={{
-										opacity: location.pathname == "/supplier" ? 1 : 0.4,
+										opacity: location.pathname == "/supplier/login" ? 1 : 0.4,
 									}}
 									onClick={close}>
 									Supplier Portal

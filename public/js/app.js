@@ -84936,7 +84936,7 @@ var TopNav = function TopNav() {
     className: "nav-link",
     to: "/admin",
     style: {
-      opacity: location.pathname == "/admin" ? 1 : 0.4
+      opacity: location.pathname == "/admin/login" ? 1 : 0.4
     },
     onClick: close
   }, "Admin Portal")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -84945,7 +84945,7 @@ var TopNav = function TopNav() {
     className: "nav-link",
     to: "/supplier",
     style: {
-      opacity: location.pathname == "/supplier" ? 1 : 0.4
+      opacity: location.pathname == "/supplier/login" ? 1 : 0.4
     },
     onClick: close
   }, "Supplier Portal"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

@@ -67,7 +67,7 @@
 
 /* the draggable scrolling handle */
 ::-webkit-scrollbar-thumb {
-	background: #3C1712;
+	background: #234458;
 	border-radius: 20px;
 	border: 1px solid white;
 }
@@ -75,7 +75,7 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
 	background: #fff;
-	border: 1px solid #3C1712;
+	border: 1px solid #234458;
 }
 
 /*the track (progress bar) NOT covered by the handle*/
@@ -140,7 +140,7 @@ a:focus {
 	-webkit-box-pack: center;
 	-ms-flex-pack: center;
 	justify-content: center;
-	background-color: #3C1712;
+	background-color: #234458;
 	position: fixed;
 	width: 100%;
 	height: 100%;
@@ -364,7 +364,7 @@ img {
 }
 
 #scrollUp {
-	background-color: #3C1712;
+	background-color: #234458;
 	border-radius: 50%;
 	bottom: 60px;
 	right: 60px;
@@ -453,7 +453,7 @@ img {
 .section-heading .line {
 	width: 100px;
 	height: 1px;
-	background-color: #3C1712;
+	background-color: #234458;
 	margin-bottom: 30px;
 	display: block;
 }
@@ -524,7 +524,7 @@ img {
 }
 
 .sonar-btn.btn-3 {
-	background-color: #3C1712;
+	background-color: #234458;
 	color: #ffffff;
 }
 
@@ -534,7 +534,7 @@ img {
 	height: 100%;
 	background-color: transparent;
 	border: 1px solid;
-	border-color: #3C1712;
+	border-color: #234458;
 	right: -6px;
 	bottom: -6px;
 	content: '';
@@ -543,7 +543,7 @@ img {
 
 .sonar-btn.btn-3:hover,
 .sonar-btn.btn-3:focus {
-	background-color: #3C1712;
+	background-color: #234458;
 	color: #ffffff;
 }
 
@@ -691,7 +691,7 @@ img {
 }
 
 .header-area.sticky {
-	background-color: #3C1712;
+	background-color: #234458;
 }
 
 @media only screen and (max-width: 767px) {
@@ -711,7 +711,7 @@ img {
 	height: 100%;
 	top: 0;
 	right: -500px;
-	background-color: #3C1712;
+	background-color: #234458;
 	z-index: 99999;
 	text-align: center;
 	-webkit-box-orient: vertical;
@@ -1299,7 +1299,7 @@ img {
 
 /* :: Hero Area CSS */
 .hero-area {
-	background-color: #3C1712;
+	background-color: #234458;
 	position: relative;
 	z-index: 1;
 	overflow: hidden;
@@ -1506,8 +1506,8 @@ img {
 }
 
 .sonar-testimonials-area .owl-dots .owl-dot.active {
-	border-color: #3C1712;
-	background-color: #3C1712;
+	border-color: #234458;
+	background-color: #234458;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -1722,7 +1722,7 @@ img {
 .search-widget-area form button {
 	width: 50px;
 	height: 42px;
-	background-color: #3C1712;
+	background-color: #234458;
 	color: #ffffff;
 	font-size: 16px;
 	border: none;
@@ -2247,7 +2247,7 @@ img {
 	/* right: 50px; */
 	/* top: 50px; */
 	/* z-index: 9; */
-	color: #3C1712;
+	color: #234458;
 	font-size: 20px;
 	cursor: pointer;
 	-webkit-transition-duration: 750ms;
@@ -2260,7 +2260,7 @@ img {
 }
 
 .bottomMenu .logo-area a {
-	color: #3C1712;
+	color: #234458;
 	font-size: 30px;
 	display: block;
 	font-weight: 100;
@@ -2274,7 +2274,7 @@ img {
 
 .bottomMenu p {
 	margin-bottom: 0;
-	color: #3C1712;
+	color: #234458;
 }
 
 @media only screen and (max-width: 767px) {
@@ -2285,11 +2285,11 @@ img {
 
 .bottomMenu a {
 	font-weight: 300;
-	color: #3C1712;
+	color: #234458;
 }
 
 .bottomMenu .nav-link {
-	color: #3C1712;
+	color: #234458;
 	font-size: 18px;
 	position: relative;
 	z-index: 1;
@@ -2358,7 +2358,7 @@ img {
 
 /* Glassy Gradient */
 .glassy-gradient {
-	background: linear-gradient(rgba(255, 255, 255, 1), rgba(60, 23, 18, 0.1));
+	background: linear-gradient(rgba(255, 255, 255, 1), rgba(35, 68, 88, 0.1));
 	/* padding: 20px; */
 	border: 0px;
 	border-radius: 10px;
@@ -2382,3 +2382,4 @@ img {
 /* The end */
 
 /*# sourceMappingURL=style.css.map */
+/* #02A0BE, #234458 */

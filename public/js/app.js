@@ -84382,10 +84382,7 @@ var Footer = function Footer() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "call-to-action-content wow fadeInUp",
     "data-wow-delay": "0.5s"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "We connect organizations with suppliers that meet procurement requirements, compliant to organization standards and provide Value for Money."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Let\u2019s talk"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/contact",
-    className: "btn sonar-btn mt-100"
-  }, "contact me")))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "We connect organizations with suppliers that meet procurement requirements, compliant to organization standards and provide Value for Money."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Let\u2019s talk")))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
     className: "footer-area"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "backEnd-content"
@@ -84839,7 +84836,10 @@ var TopNav = function TopNav() {
     className: "grid9"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
     id: "header-area",
-    className: "header-area ".concat(sticky)
+    className: "header-area ".concat(sticky),
+    style: {
+      backgroundColor: "#234458"
+    }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container-fluid"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -84890,7 +84890,9 @@ var TopNav = function TopNav() {
     className: "navbar-toggler-icon",
     id: "menuIcon",
     onClick: open
-  }))))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }))))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
+    className: "hidden"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "mainMenu d-flex align-items-center justify-content-between"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "closeIcon",
@@ -85028,7 +85030,7 @@ var About = function About() {
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-sm-6 text-center",
     style: {
-      backgroundColor: "#3C1712"
+      backgroundColor: "#234458"
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "d-flex justify-content-center my-5 py-5"
@@ -85066,13 +85068,13 @@ var About = function About() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "mt-5 mb-3",
     style: {
-      backgroundColor: "#3C1712",
+      backgroundColor: "#234458",
       height: "1px"
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Strategic Partnership Development"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "We strive to foster enduring partnerships by building a unified supplier base market in Africa, specifically designed and accessible to African companies and organizations through our innovative KG-ASB system. Our goal is to establish a robust network that promotes synergy and collaboration, ultimately contributing to sustainable business growth."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "mt-5 mb-3",
     style: {
-      backgroundColor: "#3C1712",
+      backgroundColor: "#234458",
       height: "1px"
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Optimizing Procurement Performance"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "At the core of our vision is the optimization of procurement performance. We are dedicated to verifying suppliers who not only meet the key performance indicators (KPIs) of organizations and companies but also align with our commitment to excellence. Our aim is to provide a curated list of suppliers that comply with the specific procurement requirements of each organization or company, ensuring a seamless and efficient procurement experience.")))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -85109,7 +85111,7 @@ var About = function About() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "progress-bar",
     style: {
-      backgroundColor: "#3C1712",
+      backgroundColor: "#234458",
       width: "100%"
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -85125,7 +85127,7 @@ var About = function About() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "progress-bar",
     style: {
-      backgroundColor: "#3C1712",
+      backgroundColor: "#234458",
       width: "100%"
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -85141,7 +85143,7 @@ var About = function About() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "progress-bar",
     style: {
-      backgroundColor: "#3C1712",
+      backgroundColor: "#234458",
       width: "95%"
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -85157,7 +85159,7 @@ var About = function About() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "progress-bar",
     style: {
-      backgroundColor: "#3C1712",
+      backgroundColor: "#234458",
       width: "85%"
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -85379,7 +85381,7 @@ var Index = function Index() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-sm-12 p-5",
     style: {
-      backgroundColor: "#3C1712"
+      backgroundColor: "#234458"
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     style: {
@@ -85396,7 +85398,7 @@ var Index = function Index() {
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-sm-6 text-center",
     style: {
-      backgroundColor: "#3C1712"
+      backgroundColor: "#234458"
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "d-flex justify-content-center my-5 py-5"
@@ -85501,7 +85503,7 @@ var Portfolio = function Portfolio() {
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["React"].createElement("div", {
     className: "col-sm-6",
     style: {
-      backgroundColor: "#3C1712"
+      backgroundColor: "#234458"
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["React"].createElement("div", {
     className: "mt-5 mb-5 hidden"
@@ -85800,7 +85802,7 @@ var Services = function Services() {
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-sm-6 text-center",
     style: {
-      backgroundColor: "#3C1712"
+      backgroundColor: "#234458"
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "d-flex justify-content-center my-5 py-5"

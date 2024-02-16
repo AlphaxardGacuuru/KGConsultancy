@@ -50,7 +50,9 @@ const TopNav = () => {
 		<div id="MyElement">
 			{/* Preloader Start */}
 			{loading && (
-				<div id="preloader" className="bg-transparent">
+				<div
+					id="preloader"
+					className="bg-transparent">
 					<div className="preload-content">
 						<div id="sonar-load"></div>
 					</div>
@@ -74,7 +76,8 @@ const TopNav = () => {
 			{/* <!-- ***** Header Area Start ***** --> */}
 			<header
 				id="header-area"
-				className={`header-area ${sticky}`}>
+				className={`header-area ${sticky}`}
+				style={{ backgroundColor: "#234458" }}>
 				<div className="container-fluid">
 					<div className="row">
 						<div className="col-12">
@@ -143,6 +146,9 @@ const TopNav = () => {
 					</div>
 				</div>
 			</header>
+			<br />
+			<br />
+			<br className="hidden" />
 			{/* <!-- ***** Header Area End ***** --> */}
 
 			{/* <!-- ***** Main Menu Area Start ***** --> */}

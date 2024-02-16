@@ -26,7 +26,7 @@ const About = () => {
 				</div>
 				<div
 					className="col-sm-6 text-center"
-					style={{ backgroundColor: "#3C1712" }}>
+					style={{ backgroundColor: "#234458" }}>
 					<div className="d-flex justify-content-center my-5 py-5">
 						<div
 							id="animatedDiv"
@@ -75,7 +75,7 @@ const About = () => {
 								{/* Top Line */}
 								<div
 									className="mt-5 mb-3"
-									style={{ backgroundColor: "#3C1712", height: "1px" }}></div>
+									style={{ backgroundColor: "#234458", height: "1px" }}></div>
 								{/* Top Line End */}
 
 								<h2>Strategic Partnership Development</h2>
@@ -91,7 +91,7 @@ const About = () => {
 								{/* Top Line */}
 								<div
 									className="mt-5 mb-3"
-									style={{ backgroundColor: "#3C1712", height: "1px" }}></div>
+									style={{ backgroundColor: "#234458", height: "1px" }}></div>
 								{/* Top Line End */}
 
 								<h2>Optimizing Procurement Performance</h2>
@@ -142,7 +142,7 @@ const About = () => {
 										style={{ height: "30px" }}>
 										<div
 											className="progress-bar"
-											style={{ backgroundColor: "#3C1712", width: "100%" }}>
+											style={{ backgroundColor: "#234458", width: "100%" }}>
 											<span
 												className="p-2"
 												style={{ textAlign: "right" }}>
@@ -158,7 +158,7 @@ const About = () => {
 										style={{ height: "30px" }}>
 										<div
 											className="progress-bar"
-											style={{ backgroundColor: "#3C1712", width: "100%" }}>
+											style={{ backgroundColor: "#234458", width: "100%" }}>
 											<span
 												className="p-2"
 												style={{ textAlign: "right" }}>
@@ -174,7 +174,7 @@ const About = () => {
 										style={{ height: "30px" }}>
 										<div
 											className="progress-bar"
-											style={{ backgroundColor: "#3C1712", width: "95%" }}>
+											style={{ backgroundColor: "#234458", width: "95%" }}>
 											<span
 												className="p-2"
 												style={{ textAlign: "right" }}>
@@ -190,7 +190,7 @@ const About = () => {
 										style={{ height: "30px" }}>
 										<div
 											className="progress-bar"
-											style={{ backgroundColor: "#3C1712", width: "85%" }}>
+											style={{ backgroundColor: "#234458", width: "85%" }}>
 											<span
 												className="p-2"
 												style={{ textAlign: "right" }}>

@@ -26,7 +26,7 @@ const Services = () => {
 				</div>
 				<div
 					className="col-sm-6 text-center"
-					style={{ backgroundColor: "#3C1712" }}>
+					style={{ backgroundColor: "#234458" }}>
 					<div className="d-flex justify-content-center my-5 py-5">
 						<div
 							id="animatedDiv"

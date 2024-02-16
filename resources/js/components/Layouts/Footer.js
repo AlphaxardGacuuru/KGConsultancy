@@ -29,11 +29,11 @@ const Footer = () => {
 									Value for Money.
 								</h2>
 								<h5>Let’s talk</h5>
-								<Link
+								{/* <Link
 									to="/contact"
 									className="btn sonar-btn mt-100">
 									contact me
-								</Link>
+								</Link> */}
 							</div>
 						</div>
 					</div>

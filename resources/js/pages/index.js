@@ -145,7 +145,7 @@ const Index = () => {
 			<div className="row mt-5">
 				<div
 					className="col-sm-12 p-5"
-					style={{ backgroundColor: "#3C1712" }}>
+					style={{ backgroundColor: "#234458" }}>
 					<center>
 						<h1 style={{ color: "white" }}>About Us</h1>
 					</center>
@@ -162,7 +162,7 @@ const Index = () => {
 				</div>
 				<div
 					className="col-sm-6 text-center"
-					style={{ backgroundColor: "#3C1712" }}>
+					style={{ backgroundColor: "#234458" }}>
 					<div className="d-flex justify-content-center my-5 py-5">
 						<div className="p-5">
 							{/* Top Line */}

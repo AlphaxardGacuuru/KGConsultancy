@@ -2,7 +2,7 @@ import React from "react"
 
 const login = (props) => {
 	return (
-		<div className="container mt-5 pt-5">
+		<div className="container mt-5">
 			<div className="row justify-content-center mt-5">
 				<div className="col-md-8">
 					<div className="card">
@@ -21,19 +21,13 @@ const login = (props) => {
 										<input
 											id="email"
 											type="email"
-											className="form-control @error('email') is-invalid @enderror"
+											className="form-control"
 											name="email"
 											value=""
 											required
 											autoComplete="email"
 											autoFocus
 										/>
-
-										<span
-											className="invalid-feedback"
-											role="alert">
-											<strong>$message</strong>
-										</span>
 									</div>
 								</div>
 
@@ -48,17 +42,11 @@ const login = (props) => {
 										<input
 											id="password"
 											type="password"
-											className="form-control @error('password') is-invalid @enderror"
+											className="form-control"
 											name="password"
 											required
 											autoComplete="current-password"
 										/>
-
-										<span
-											className="invalid-feedback"
-											role="alert">
-											<strong>$message</strong>
-										</span>
 									</div>
 								</div>
 

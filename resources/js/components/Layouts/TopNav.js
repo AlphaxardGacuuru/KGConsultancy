@@ -78,7 +78,10 @@ const TopNav = () => {
 			<header
 				id="header-area"
 				className={`header-area ${sticky}`}
-				style={{ backgroundColor: "#234458" }}>
+				style={{
+					backgroundColor: "#234458",
+					backgroundImage: "url(storage/img/bg-img/bg1.jpg)",
+				}}>
 				<div className="container-fluid">
 					<div className="row">
 						<div className="col-12">
@@ -89,7 +92,6 @@ const TopNav = () => {
 										<LogoSVG />
 									</Link>
 								</div>
-
 								<div className="menu-content-area d-flex align-items-center">
 									{/* <!-- Header Social Area --> */}
 									<div className="header-social-area d-flex align-items-center">

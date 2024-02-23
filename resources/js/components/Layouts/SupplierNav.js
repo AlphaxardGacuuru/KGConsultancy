@@ -259,32 +259,6 @@ const SupplierNav = (props) => {
 				</div>
 				{/* <!-- ***** Side Menu Area End ***** --> */}
 				<div className="left-main px-4">
-					<h2>{props.page.name}</h2>
-
-					<div className="d-flex justify-content-start">
-						{props.page.path.map((path, key) => (
-							<div key={key}>
-								{key < props.page.path.length - 1 ? (
-									<MyLink
-										linkTo={`/supplier/${path}`}
-										className="btn btn-sm btn-outline-secondary my-3"
-										text={path}
-									/>
-								) : (
-									<Btn
-										btnClass="btn btn-sm btn-secondary my-3"
-										btnText={path}
-									/>
-								)}
-
-								{key < props.page.path.length - 1 && (
-									<span className="text-secondary">
-										<ChevronRightSVG />
-									</span>
-								)}
-							</div>
-						))}
-					</div>
 					{props.children}
 				</div>
 			</div>

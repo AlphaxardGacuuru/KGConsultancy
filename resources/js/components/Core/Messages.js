@@ -3,8 +3,8 @@ import React from "react"
 const Messages = ({ messages, setMessages, errors, setErrors }) => {
 	// Reset Messages and Errors to null after 3 seconds
 	if (errors.length > 0 || messages.length > 0) {
-		setTimeout(() => setErrors([]), 2900)
-		setTimeout(() => setMessages([]), 2900)
+		setTimeout(() => setErrors([]), 4900)
+		setTimeout(() => setMessages([]), 4900)
 	}
 
 	return (
@@ -16,8 +16,8 @@ const Messages = ({ messages, setMessages, errors, setErrors }) => {
 				{messages.map((message, key) => (
 					<div
 						key={key}
-						className="bg-success p-2 mt-2 text-white"
-						style={{ transition: "0.3s" }}>
+						className="bg-success p-2 mt-2 text-white shadow"
+						style={{ backgroundColor: "#234458", transition: "0.3s" }}>
 						{message}
 					</div>
 				))}
@@ -25,7 +25,7 @@ const Messages = ({ messages, setMessages, errors, setErrors }) => {
 				{errors.map((error, key) => (
 					<div
 						key={key}
-						className="p-2 mt-2 bg-white"
+						className="p-2 mt-2 bg-white shadow"
 						style={{ transition: "0.3s" }}>
 						{error}
 					</div>

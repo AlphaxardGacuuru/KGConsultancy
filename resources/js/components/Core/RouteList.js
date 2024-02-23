@@ -16,7 +16,8 @@ import AdminLogin from "@/pages/admin/login"
 // import AdminStaffCreate from "@/pages/admin/staff/create"
 // import AdminStaffEdit from "@/pages/admin/staff/[id]"
 
-// import SupplierLogin from "@/pages/supplier/login"
+import SupplierLogin from "@/pages/supplier/login"
+import SupplierRegister from "@/pages/supplier/register"
 // import Supplier from "@/pages/supplier/index"
 
 const RouteList = ({ GLOBAL_STATE }) => {
@@ -24,7 +25,15 @@ const RouteList = ({ GLOBAL_STATE }) => {
 		{
 			path: "/admin/login",
 			component: <AdminLogin {...GLOBAL_STATE} />,
-		}
+		},
+		{
+			path: "/supplier/login",
+			component: <SupplierLogin {...GLOBAL_STATE} />,
+		},
+		{
+			path: "/supplier/register",
+			component: <SupplierRegister {...GLOBAL_STATE} />,
+		},
 	]
 
 	const adminRoutes = []
@@ -47,7 +56,7 @@ const RouteList = ({ GLOBAL_STATE }) => {
 		{
 			path: "/portfolio",
 			component: <Portfolio {...GLOBAL_STATE} />,
-		}
+		},
 	]
 
 	return (

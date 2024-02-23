@@ -22,7 +22,7 @@
 
 	<!-- Favicon  -->
 	<link rel="icon"
-		  href="storage/img/favicon.ico">
+		  href="storage/img/core-img/profile.png">
 
 	<!-- Fonts -->
 	<link rel="dns-prefetch"

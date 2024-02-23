@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
  */
+
 Route::view('/{path?}', 'layouts/app');
 
-// require __DIR__ . '/auth.php';
+require __DIR__ . '/auth.php';

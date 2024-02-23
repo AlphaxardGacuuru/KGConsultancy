@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import CryptoJS from "crypto-js"
 
@@ -30,6 +30,17 @@ const register = (props) => {
 	const [hasTaxCompliance, setHasTaxCompliance] = useState(false)
 	const [hasLicense, setHasLicense] = useState(false)
 	const [loading, setLoading] = useState()
+
+	useEffect(() => {
+		if (props.auth.name != "Guest") {
+			// Handle Redirects
+			if (props.auth.accountType == "supplier") {
+				router.push("/supplier")
+			} else {
+				router.push("/admin")
+			}
+		}
+	}, [])
 
 	// Encrypt Token
 	const encryptedToken = (token) => {
@@ -71,9 +82,17 @@ const register = (props) => {
 				// Encrypt and Save Sanctum Token to Local Storage
 				props.setLocalStorage("sanctumToken", encryptedToken(res.data.data))
 				// Update Logged in user
-				props.get(`auth`, props.setAuth, "auth", false)
-				// Redirect to Home
-				setTimeout(() => router.push("/supplier"), 500)
+				Axios.get("/api/auth", {
+					headers: { Authorization: `Bearer ${res.data.data}` },
+				})
+					.then((res) => {
+						// Set LocalStorage
+						props.setLocalStorage("auth", res.data.data)
+						window.location.reload()
+						// Redirect to Home
+						setTimeout(() => router.push("/supplier"), 500)
+					})
+					.catch((err) => props.getErrors(err, false))
 			})
 			.catch((err) => {
 				setLoading(false)

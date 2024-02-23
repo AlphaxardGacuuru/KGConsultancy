@@ -85242,8 +85242,22 @@ var About = function About() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom_cjs_react_router_dom_min__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom/cjs/react-router-dom.min */ "./node_modules/react-router-dom/cjs/react-router-dom.min.js");
+/* harmony import */ var react_router_dom_cjs_react_router_dom_min__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_router_dom_cjs_react_router_dom_min__WEBPACK_IMPORTED_MODULE_1__);
+
 
 var login = function login(props) {
+  var router = Object(react_router_dom_cjs_react_router_dom_min__WEBPACK_IMPORTED_MODULE_1__["useHistory"])();
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    if (props.auth.name != "Guest") {
+      // Handle Redirects
+      if (props.auth.accountType == "supplier") {
+        router.push("/supplier");
+      } else {
+        router.push("/admin");
+      }
+    }
+  }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container mt-5"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -86059,9 +86073,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom_cjs_react_router_dom_min__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom/cjs/react-router-dom.min */ "./node_modules/react-router-dom/cjs/react-router-dom.min.js");
+/* harmony import */ var react_router_dom_cjs_react_router_dom_min__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_router_dom_cjs_react_router_dom_min__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 var login = function login(props) {
+  var router = Object(react_router_dom_cjs_react_router_dom_min__WEBPACK_IMPORTED_MODULE_2__["useHistory"])();
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    if (props.auth.name != "Guest") {
+      // Handle Redirects
+      if (props.auth.accountType == "supplier") {
+        router.push("/supplier");
+      } else {
+        router.push("/admin");
+      }
+    }
+  }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container mt-5"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -86260,6 +86288,16 @@ var register = function register(props) {
     _useState38 = _slicedToArray(_useState37, 2),
     loading = _useState38[0],
     setLoading = _useState38[1];
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    if (props.auth.name != "Guest") {
+      // Handle Redirects
+      if (props.auth.accountType == "supplier") {
+        router.push("/supplier");
+      } else {
+        router.push("/admin");
+      }
+    }
+  }, []);
 
   // Encrypt Token
   var encryptedToken = function encryptedToken(token) {
@@ -86299,11 +86337,21 @@ var register = function register(props) {
       // Encrypt and Save Sanctum Token to Local Storage
       props.setLocalStorage("sanctumToken", encryptedToken(res.data.data));
       // Update Logged in user
-      props.get("auth", props.setAuth, "auth", false);
-      // Redirect to Home
-      setTimeout(function () {
-        return router.push("/supplier");
-      }, 500);
+      Axios.get("/api/auth", {
+        headers: {
+          Authorization: "Bearer ".concat(res.data.data)
+        }
+      }).then(function (res) {
+        // Set LocalStorage
+        props.setLocalStorage("auth", res.data.data);
+        window.location.reload();
+        // Redirect to Home
+        setTimeout(function () {
+          return router.push("/supplier");
+        }, 500);
+      })["catch"](function (err) {
+        return props.getErrors(err, false);
+      });
     })["catch"](function (err) {
       setLoading(false);
       // Get Errors

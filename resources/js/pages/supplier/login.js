@@ -1,7 +1,21 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Link } from "react-router-dom"
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 
 const login = (props) => {
+	const router = useHistory()
+
+	useEffect(() => {
+		if (props.auth.name != "Guest") {
+			// Handle Redirects
+			if (props.auth.accountType == "supplier") {
+				router.push("/supplier")
+			} else {
+				router.push("/admin")
+			}
+		}
+	}, [])
+
 	return (
 		<div className="container mt-5">
 			<div className="row justify-content-center mt-5">

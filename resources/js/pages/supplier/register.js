@@ -456,7 +456,7 @@ const register = (props) => {
 									<label
 										htmlFor="staff"
 										className="col-md-4 col-form-label text-md-end">
-										Supplier Type
+										Staff
 									</label>
 
 									<div className="col-md-6">

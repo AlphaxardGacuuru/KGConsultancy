@@ -23,7 +23,7 @@ class User extends Authenticatable
         'password',
         'phone',
         'secondary_phone',
-        'whatsapp',
+        'whatsapp_phone',
         'phone',
 		'account_type'
     ];

@@ -36,9 +36,9 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            // 'phone' => 'required|string|max:12',
-            // 'secondaryPhone' => 'nullable|string|max:12',
-            // 'whatsAppPhone' => 'required|string|max:12',
+            'phone' => 'required|string|max:12',
+            'secondaryPhone' => 'nullable|string|min:10|max:13',
+            'whatsAppPhone' => 'required|string|min:10|max:13',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'supplerName' => 'required|string|max:255',

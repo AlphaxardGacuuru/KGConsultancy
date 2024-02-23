@@ -11,6 +11,7 @@ import DownloadSVG from "@/svgs/DownloadSVG"
 import MenuSVG from "@/svgs/MenuSVG"
 import PersonSVG from "@/svgs/PersonSVG"
 import ChevronRightSVG from "@/svgs/ChevronRightSVG"
+import LogoSVG from "@/svgs/LogoSVG"
 
 const SupplierNav = (props) => {
 	const location = useLocation()
@@ -108,11 +109,8 @@ const SupplierNav = (props) => {
 
 										{/* <!-- Logo Area  --> */}
 										<div className="logo-area">
-											<Link
-												to="/supplier"
-												className="text-white fs-1">
-												Web Uni
-												{/* <span className="main-logo">Party People</span> */}
+											<Link to="/">
+												<LogoSVG />
 											</Link>
 										</div>
 									</div>
@@ -138,7 +136,7 @@ const SupplierNav = (props) => {
 														data-bs-toggle="dropdown"
 														aria-expanded="false">
 														<Img
-															src={props.auth?.avatar}
+															// src={props.auth?.avatar}
 															className="rounded-circle bg-light p-1"
 															width="40px"
 															height="40px"
@@ -153,7 +151,7 @@ const SupplierNav = (props) => {
 															setAvatarVisibility("block")
 														}}>
 														<Img
-															src={props.auth?.avatar}
+															// src={props.auth?.avatar}
 															className="rounded-circle bg-light p-1 anti-hidden"
 															width="30px"
 															height="30px"
@@ -235,9 +233,12 @@ const SupplierNav = (props) => {
 				{/* <!-- ***** Side Menu Area Start ***** --> */}
 				<div className="leftMenu d-flex align-items-center justify-content-start bg-danger">
 					<div
-						className="sonarNav wow fadeInUp w-100 mt-4"
+						className="sonarNav wow fadeInUp w-100 mt-2"
 						data-wow-delay="1s">
 						<nav>
+							<br className="hidden" />
+							<br className="hidden" />
+							
 							<ul className="m-0 p-0">
 								{/* Profile Link */}
 								<li className="nav-item">
@@ -258,9 +259,7 @@ const SupplierNav = (props) => {
 					<br />
 				</div>
 				{/* <!-- ***** Side Menu Area End ***** --> */}
-				<div className="left-main px-4">
-					{props.children}
-				</div>
+				<div className="left-main px-4">{props.children}</div>
 			</div>
 
 			{/* Sliding Bottom Nav */}

@@ -47,8 +47,17 @@ const TopNav = () => {
 	// Show TopNav always when in Admin Login
 	const sticky = location.pathname.match("/admin/login") && "sticky"
 
+	// Show Top Nav based on Location
+	const showTopNav =
+		!location.pathname.match("/supplier") &&
+		!location.pathname.match("/supplier")
+			? "d-block"
+			: "d-none"
+
 	return (
-		<div id="MyElement">
+		<div
+			id="MyElement"
+			className={showTopNav}>
 			{/* Preloader Start */}
 			{loading && (
 				<div

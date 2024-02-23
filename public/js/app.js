@@ -83871,7 +83871,7 @@ var Img = function Img(_ref) {
   });
 };
 Img.defaultProps = {
-  src: "/storage/img/party-people.png",
+  src: "/storage/img/core-img/profile.png",
   alt: "image"
 };
 /* harmony default export */ __webpack_exports__["default"] = (Img);
@@ -84448,6 +84448,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _svgs_MenuSVG__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/svgs/MenuSVG */ "./resources/js/svgs/MenuSVG.js");
 /* harmony import */ var _svgs_PersonSVG__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/svgs/PersonSVG */ "./resources/js/svgs/PersonSVG.js");
 /* harmony import */ var _svgs_ChevronRightSVG__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @/svgs/ChevronRightSVG */ "./resources/js/svgs/ChevronRightSVG.js");
+/* harmony import */ var _svgs_LogoSVG__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @/svgs/LogoSVG */ "./resources/js/svgs/LogoSVG.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -84465,8 +84466,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var SupplierNav = function SupplierNav(props) {
-  var _props$auth, _props$auth2, _props$auth3, _props$auth4, _props$auth5, _props$auth6, _props$auth7;
+  var _props$auth, _props$auth2, _props$auth3, _props$auth4, _props$auth5;
   var location = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["useLocation"])();
   var router = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["useHistory"])();
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
@@ -84545,9 +84547,8 @@ var SupplierNav = function SupplierNav(props) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_svgs_MenuSVG__WEBPACK_IMPORTED_MODULE_8__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "logo-area"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/supplier",
-    className: "text-white fs-1"
-  }, "Web Uni"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    to: "/"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_svgs_LogoSVG__WEBPACK_IMPORTED_MODULE_11__["default"], null)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "menu-content-area d-flex align-items-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "d-flex align-items-center justify-content-between"
@@ -84564,8 +84565,9 @@ var SupplierNav = function SupplierNav(props) {
     className: "hidden",
     "data-bs-toggle": "dropdown",
     "aria-expanded": "false"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Core_Img__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    src: (_props$auth = props.auth) === null || _props$auth === void 0 ? void 0 : _props$auth.avatar,
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Core_Img__WEBPACK_IMPORTED_MODULE_3__["default"]
+  // src={props.auth?.avatar}
+  , {
     className: "rounded-circle bg-light p-1",
     width: "40px",
     height: "40px",
@@ -84576,8 +84578,9 @@ var SupplierNav = function SupplierNav(props) {
       setBottomMenu(bottomMenu ? "" : "menu-open");
       setAvatarVisibility("block");
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Core_Img__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    src: (_props$auth2 = props.auth) === null || _props$auth2 === void 0 ? void 0 : _props$auth2.avatar,
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Core_Img__WEBPACK_IMPORTED_MODULE_3__["default"]
+  // src={props.auth?.avatar}
+  , {
     className: "rounded-circle bg-light p-1 anti-hidden",
     width: "30px",
     height: "30px",
@@ -84592,7 +84595,7 @@ var SupplierNav = function SupplierNav(props) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "align-items-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Core_Img__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    src: (_props$auth3 = props.auth) === null || _props$auth3 === void 0 ? void 0 : _props$auth3.avatar,
+    src: (_props$auth = props.auth) === null || _props$auth === void 0 ? void 0 : _props$auth.avatar,
     className: "rounded-circle",
     width: "25px",
     height: "25px",
@@ -84601,9 +84604,9 @@ var SupplierNav = function SupplierNav(props) {
     className: "ps-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
     className: "text-wrap fs-6"
-  }, (_props$auth4 = props.auth) === null || _props$auth4 === void 0 ? void 0 : _props$auth4.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+  }, (_props$auth2 = props.auth) === null || _props$auth2 === void 0 ? void 0 : _props$auth2.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "text-wrap text-capitalize text-danger"
-  }, (_props$auth5 = props.auth) === null || _props$auth5 === void 0 ? void 0 : _props$auth5.accountType)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  }, (_props$auth3 = props.auth) === null || _props$auth3 === void 0 ? void 0 : _props$auth3.accountType)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/download",
     className: "p-2 px-3 dropdown-item",
     style: {
@@ -84628,9 +84631,13 @@ var SupplierNav = function SupplierNav(props) {
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "leftMenu d-flex align-items-center justify-content-start bg-danger"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "sonarNav wow fadeInUp w-100 mt-4",
+    className: "sonarNav wow fadeInUp w-100 mt-2",
     "data-wow-delay": "1s"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
+    className: "hidden"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
+    className: "hidden"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "m-0 p-0"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "nav-item"
@@ -84677,12 +84684,12 @@ var SupplierNav = function SupplierNav(props) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "ms-3 me-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Core_Img__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    src: (_props$auth6 = props.auth) === null || _props$auth6 === void 0 ? void 0 : _props$auth6.avatar,
+    src: (_props$auth4 = props.auth) === null || _props$auth4 === void 0 ? void 0 : _props$auth4.avatar,
     className: "rounded-circle",
     width: "25px",
     height: "25px",
     alt: "Avatar"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, (_props$auth7 = props.auth) === null || _props$auth7 === void 0 ? void 0 : _props$auth7.name)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, (_props$auth5 = props.auth) === null || _props$auth5 === void 0 ? void 0 : _props$auth5.name)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/download",
     className: "p-2 text-start",
     style: {
@@ -84807,8 +84814,12 @@ var TopNav = function TopNav() {
 
   // Show TopNav always when in Admin Login
   var sticky = location.pathname.match("/admin/login") && "sticky";
+
+  // Show Top Nav based on Location
+  var showTopNav = !location.pathname.match("/supplier") && !location.pathname.match("/supplier") ? "d-block" : "d-none";
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "MyElement"
+    id: "MyElement",
+    className: showTopNav
   }, loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "preloader",
     className: "bg-transparent"

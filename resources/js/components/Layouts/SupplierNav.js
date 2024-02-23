@@ -109,7 +109,7 @@ const SupplierNav = (props) => {
 
 										{/* <!-- Logo Area  --> */}
 										<div className="logo-area">
-											<Link to="/">
+											<Link to="/supplier">
 												<LogoSVG />
 											</Link>
 										</div>
@@ -238,7 +238,7 @@ const SupplierNav = (props) => {
 						<nav>
 							<br className="hidden" />
 							<br className="hidden" />
-							
+
 							<ul className="m-0 p-0">
 								{/* Profile Link */}
 								<li className="nav-item">

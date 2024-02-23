@@ -84547,7 +84547,7 @@ var SupplierNav = function SupplierNav(props) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_svgs_MenuSVG__WEBPACK_IMPORTED_MODULE_8__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "logo-area"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/"
+    to: "/supplier"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_svgs_LogoSVG__WEBPACK_IMPORTED_MODULE_11__["default"], null)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "menu-content-area d-flex align-items-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -84816,7 +84816,7 @@ var TopNav = function TopNav() {
   var sticky = location.pathname.match("/admin/login") && "sticky";
 
   // Show Top Nav based on Location
-  var showTopNav = !location.pathname.match("/supplier") && !location.pathname.match("/supplier") ? "d-block" : "d-none";
+  var showTopNav = location.pathname == "/" || location.pathname == "/about" || location.pathname == "/services" || location.pathname.match("/admin/login") || location.pathname.match("/supplier/login") || location.pathname.match("/supplier/register") ? "d-block" : "d-none";
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "MyElement",
     className: showTopNav

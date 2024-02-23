@@ -49,8 +49,12 @@ const TopNav = () => {
 
 	// Show Top Nav based on Location
 	const showTopNav =
-		!location.pathname.match("/supplier") &&
-		!location.pathname.match("/supplier")
+		location.pathname == "/" ||
+		location.pathname == "/about" ||
+		location.pathname == "/services" ||
+		location.pathname.match("/admin/login") ||
+		location.pathname.match("/supplier/login") ||
+		location.pathname.match("/supplier/register")
 			? "d-block"
 			: "d-none"
 

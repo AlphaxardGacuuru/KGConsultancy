@@ -234,9 +234,12 @@ const AdminMenu = (props) => {
 				{/* <!-- ***** Side Menu Area Start ***** --> */}
 				<div className="leftMenu d-flex align-items-center justify-content-start bg-primary">
 					<div
-						className="sonarNav wow fadeInUp w-100 mt-4"
+						className="sonarNav wow fadeInUp w-100 mt-2"
 						data-wow-delay="1s">
 						<nav>
+							<br className="hidden" />
+							<br className="hidden" />
+
 							<ul className="m-0 p-0">
 								{/* Dashboard Link */}
 								<li className="nav-item">
@@ -269,9 +272,7 @@ const AdminMenu = (props) => {
 					<br />
 				</div>
 				{/* <!-- ***** Side Menu Area End ***** --> */}
-				<div className="left-main px-4">
-					{props.children}
-				</div>
+				<div className="left-main px-4">{props.children}</div>
 			</div>
 
 			{/* Sliding Bottom Nav */}

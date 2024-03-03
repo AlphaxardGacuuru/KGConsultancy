@@ -18,7 +18,7 @@ import AdminLogin from "@/pages/admin/login"
 
 import SupplierLogin from "@/pages/supplier/login"
 import SupplierRegister from "@/pages/supplier/register"
-// import Supplier from "@/pages/supplier/index"
+import Supplier from "@/pages/supplier/index"
 
 const RouteList = ({ GLOBAL_STATE }) => {
 	const authRoutes = [
@@ -38,7 +38,12 @@ const RouteList = ({ GLOBAL_STATE }) => {
 
 	const adminRoutes = []
 
-	const supplierRoutes = []
+	const supplierRoutes = [
+		{
+			path: "/supplier",
+			component: <Supplier {...GLOBAL_STATE} />,
+		},
+	]
 
 	const routes = [
 		{

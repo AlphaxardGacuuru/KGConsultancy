@@ -19,4 +19,12 @@ class Supplier extends Model
         'countries_in_operation' => 'array',
         'directors' => 'array',
     ];
+
+    /*
+     * Relationships
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -25,7 +25,7 @@ class User extends Authenticatable
         'secondary_phone',
         'whatsapp_phone',
         'phone',
-		'account_type'
+        'account_type',
     ];
 
     /**
@@ -46,4 +46,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /*
+     * Relationships
+     */
+    public function supplier()
+    {
+        return $this->hasOne(Supplier::class);
+    }
 }

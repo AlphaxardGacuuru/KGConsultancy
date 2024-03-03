@@ -300,15 +300,18 @@ const register = (props) => {
 									</label>
 
 									<div className="col-md-6">
-										<input
+										<select
 											id="supplier-type"
-											type="text"
 											className="form-control"
 											name="supplier-type"
 											autoComplete="supplier-type"
 											onChange={(e) => setSupplierType(e.target.value)}
-											required={true}
-										/>
+											required={true}>
+											<option value="">Select Supplier Type</option>
+											<option value="Women Owned">Women Owned</option>
+											<option value="Disability">Disability</option>
+											<option value="General">General</option>
+										</select>
 									</div>
 								</div>
 								{/* Supplier Type End */}
@@ -438,15 +441,19 @@ const register = (props) => {
 									</label>
 
 									<div className="col-md-6">
-										<input
+										<select
 											id="category"
-											type="text"
 											className="form-control"
 											name="category"
 											autoComplete="category"
 											onChange={(e) => setCategory(e.target.value)}
-											required={true}
-										/>
+											required={true}>
+											<option value="">Select Category</option>
+											<option value="Services">Services</option>
+											<option value="Goods">Goods</option>
+											<option value="Works">Works</option>
+											<option value="Consultancy">Consultancy</option>
+										</select>
 									</div>
 								</div>
 								{/* Category End */}

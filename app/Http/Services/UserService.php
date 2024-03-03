@@ -2,6 +2,7 @@
 
 namespace App\Http\Services;
 
+use App\Http\Resources\SupplierResource;
 use App\Http\Resources\UserResource;
 
 class UserService extends Service
@@ -16,7 +17,12 @@ class UserService extends Service
 
             $auth = auth('sanctum')->user();
 
-            return new UserResource($auth);
+            // Check if user is supplier
+            if ($auth->account_type == "supplier") {
+                return new SupplierResource($auth->supplier);
+            } else {
+                return new UserResource($auth);
+            }
         } else {
             return response(["message" => "Not Authenticated"], 401);
         }

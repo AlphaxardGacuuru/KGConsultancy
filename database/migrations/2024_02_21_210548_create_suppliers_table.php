@@ -20,9 +20,9 @@ return new class extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->string('name');
+            $table->string('type')->nullable();
             $table->jsonb('countries_registered')->nullable();
             $table->jsonb('countries_in_operation')->nullable();
-            $table->string('type')->nullable();
             $table->string('category')->nullable();
             $table->jsonb('directors')->nullable();
             $table->integer('staff')->nullable();

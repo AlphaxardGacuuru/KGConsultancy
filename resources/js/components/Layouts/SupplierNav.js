@@ -95,7 +95,7 @@ const SupplierNav = (props) => {
 										<a
 											href="#"
 											id="menuIcon"
-											className="text-white me-3"
+											className="text-white fs-4 me-3"
 											onClick={(e) => {
 												e.preventDefault()
 												// Open Supplier Menu
@@ -259,7 +259,7 @@ const SupplierNav = (props) => {
 					<br />
 				</div>
 				{/* <!-- ***** Side Menu Area End ***** --> */}
-				<div className="left-main px-4">{props.children}</div>
+				<div className="left-main my-4 px-4">{props.children}</div>
 			</div>
 
 			{/* Sliding Bottom Nav */}

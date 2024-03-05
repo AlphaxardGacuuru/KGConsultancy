@@ -15,6 +15,7 @@ const index = (props) => {
 
 	useEffect(() => {
 		// Set page
+		props.setPage({ name: "Supplier Profile" })
 		// props.get(`bids/by-user-id/${props.auth.id}`, setBids)
 		// props.get(`tenders/by-user-id/${props.auth.id}`, setTenders)
 		// props.get(`reviews/by-user-id/${props.auth.id}`, setReviews)
@@ -99,7 +100,7 @@ const index = (props) => {
 							{props.auth.hasBusinessRegistration ? (
 								<span className="bg-success-subtle rounded-pill px-2">Yes</span>
 							) : (
-								<span className="bg-danger">No</span>
+								<span className="bg-danger-subtle rounded-pill px-2">No</span>
 							)}
 						</h6>
 						<h6>
@@ -107,7 +108,7 @@ const index = (props) => {
 							{props.auth.hasBusinessPermit ? (
 								<span className="bg-success-subtle rounded-pill px-2">Yes</span>
 							) : (
-								<span className="bg-danger">No</span>
+								<span className="bg-danger-subtle rounded-pill px-2">No</span>
 							)}
 						</h6>
 						<h6>
@@ -115,7 +116,7 @@ const index = (props) => {
 							{props.auth.hasTaxCompliance ? (
 								<span className="bg-success-subtle rounded-pill px-2">Yes</span>
 							) : (
-								<span className="bg-danger">No</span>
+								<span className="bg-danger-subtle rounded-pill px-2">No</span>
 							)}
 						</h6>
 						<h6>
@@ -127,7 +128,7 @@ const index = (props) => {
 							)}
 						</h6>
 						<MyLink2
-							linkTo={`/profile/${props.auth.id}/edit`}
+							linkTo={`/supplier/${props.auth.id}/edit`}
 							text="edit profile"
 							className="mt-2"
 						/>

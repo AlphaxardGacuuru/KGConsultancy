@@ -244,7 +244,10 @@ const SupplierNav = (props) => {
 								<li className="nav-item">
 									<Link
 										to={`/supplier`}
-										className={`nav-link ${activeStrict("/supplier")}`}>
+										className={`nav-link ${
+											activeStrict("/supplier") ||
+											active(/^\/supplier\/\d+\/edit$/)
+										}`}>
 										<div className="nav-link-icon">
 											<PersonSVG />
 										</div>
@@ -259,7 +262,10 @@ const SupplierNav = (props) => {
 					<br />
 				</div>
 				{/* <!-- ***** Side Menu Area End ***** --> */}
-				<div className="left-main my-4 px-4">{props.children}</div>
+				<div className="left-main my-4 px-4">
+					<h2 className="mb-4">{props.page.name}</h2>
+					{props.children}
+				</div>
 			</div>
 
 			{/* Sliding Bottom Nav */}

@@ -49,6 +49,7 @@ function App() {
 	const [adminMenu, setAdminMenu] = useState("left-open")
 	const [supplierMenu, setSupplierMenu] = useState("left-open")
 	const [studentMenu, setStudentMenu] = useState("left-open")
+	const [page, setPage] = useState({ name: "/", path: [] })
 
 	// Function for fetching data from API
 	const get = (endpoint, setState, storage = null, errors = true) => {
@@ -116,6 +117,8 @@ function App() {
 		setSupplierMenu,
 		studentMenu,
 		setStudentMenu,
+		page,
+		setPage,
 	}
 
 	return (

@@ -16,6 +16,7 @@ class SupplierResource extends JsonResource
     {
         return [
             "id" => $this->user->id,
+            "supplierId" => $this->id,
             "name" => $this->user->name,
             "phone" => $this->user->phone,
             "secondaryPhone" => $this->user->secondary_phone,
@@ -33,6 +34,8 @@ class SupplierResource extends JsonResource
             "hasBusinessPermit" => $this->has_business_permit ? true : false,
             "hasTaxCompliance" => $this->has_tax_compliance ? true : false,
             "hasLicense" => $this->has_license ? true : false,
+            "rating" => $this->rating(),
+            "ratings" => $this->ratings()->count(),
             "updatedAt" => $this->updated_at,
             "createdAt" => $this->created_at,
         ];

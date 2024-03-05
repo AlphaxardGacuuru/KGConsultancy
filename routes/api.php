@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -25,4 +26,5 @@ Route::get('auth', [UserController::class, 'auth']);
 Route::apiResources([
     "users" => UserController::class,
     "suppliers" => SupplierController::class,
+	"reviews" => ReviewController::class
 ]);

@@ -2,23 +2,26 @@ import React, { useEffect, useState } from "react"
 
 import MyLink2 from "@/components/Core/MyLink2"
 import Img from "@/components/Core/Img"
+import ReviewMedia from "@/components/Core/ReviewMedia"
 
 import BidSVG from "@/svgs/BidSVG"
 import TenderSVG from "@/svgs/TenderSVG"
 import ReviewSVG from "@/svgs/ReviewSVG"
+import StarFilledSVG from "@/svgs/StarFilledSVG"
+import StarSVG from "@/svgs/StarSVG"
 
 const index = (props) => {
 	const [tab, setTab] = useState("bids")
 	const [bids, setBids] = useState([])
 	const [tenders, setTenders] = useState([])
-	const [review, setReview] = useState([])
+	const [reviews, setReviews] = useState([])
 
 	useEffect(() => {
 		// Set page
 		props.setPage({ name: "Supplier Profile" })
 		// props.get(`bids/by-user-id/${props.auth.id}`, setBids)
 		// props.get(`tenders/by-user-id/${props.auth.id}`, setTenders)
-		// props.get(`reviews/by-user-id/${props.auth.id}`, setReviews)
+		props.get(`reviews/${props.auth.supplierId}`, setReviews)
 	}, [])
 
 	const active = (activeTab) => {
@@ -28,6 +31,20 @@ const index = (props) => {
 	const activeTab = (activeTab) => {
 		return activeTab == tab ? "d-block" : "d-none"
 	}
+
+	/*
+	 * Add rating
+	 */
+	const onRate = (rating) => {
+		Axios.post(`api/review-ratings`, {
+			supplierId: rateId,
+			rating: rating,
+		})
+			.then((res) => props.setMessages([res.data.message]))
+			.catch((err) => props.getErrors(err))
+	}
+
+	const ratings = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 	return (
 		<div className="row">
@@ -59,7 +76,7 @@ const index = (props) => {
 								(countriesRegistered, key) => (
 									<div
 										key={key}
-										className="bg-primary-subtle rounded-pill px-2 w-50">
+										className="bg-primary-subtle rounded-pill mb-1 px-2 w-50">
 										{countriesRegistered}
 									</div>
 								)
@@ -71,7 +88,7 @@ const index = (props) => {
 								(countriesInOperation, key) => (
 									<div
 										key={key}
-										className="bg-primary-subtle rounded-pill px-2 w-50">
+										className="bg-primary-subtle rounded-pill mb-1 px-2 w-50">
 										{countriesInOperation}
 									</div>
 								)
@@ -86,7 +103,7 @@ const index = (props) => {
 							{props.auth.directors.map((director, key) => (
 								<div
 									key={key}
-									className="bg-primary-subtle rounded-pill px-2 w-50">
+									className="bg-primary-subtle rounded-pill mb-1 px-2 w-50">
 									{director}
 								</div>
 							))}
@@ -156,10 +173,10 @@ const index = (props) => {
 					</div>
 					<div
 						className={`my-card shadow-sm flex-grow-1 text-center mb-2 py-2 px-4 ${active(
-							"review"
+							"reviews"
 						)}`}
 						style={{ cursor: "pointer" }}
-						onClick={() => setTab("review")}>
+						onClick={() => setTab("reviews")}>
 						Reviews
 					</div>
 				</div>
@@ -210,15 +227,39 @@ const index = (props) => {
 				{/* Tenders Tab End */}
 
 				{/* Review Tab */}
-				<div className={activeTab("review")}>
+				<div className={activeTab("reviews")}>
 					{/* Data */}
 					<div className="my-card shadow-sm mb-2 p-2">
 						<div className="d-flex justify-content-between">
 							{/* Total */}
 							<div className="d-flex justify-content-between w-100 align-items-center mx-4">
 								<div>
-									<span className="fs-4">{review.length}</span>
+									<span className="fs-4">{reviews.length}</span>
 									<h4>Total Reviews</h4>
+								</div>
+
+								{/* Rating */}
+								<div className="border-start border-end px-5">
+									<h4 className="text-center">Rating</h4>
+									<div className="d-flex justify-content-center">
+										{ratings.map((rating, key) => (
+											<span
+												key={key}
+												className="text-danger px-1">
+												{props.auth.rating >= rating ? (
+													<span>
+														<StarFilledSVG />
+													</span>
+												) : (
+													<span>
+														<StarSVG />
+													</span>
+												)}
+											</span>
+										))}
+									</div>
+									<h6 className="text-center">{props.auth.ratings} ratings</h6>
+									{/* Rating End */}
 								</div>
 								<div className="fs-1 py-3 px-4 bg-danger-subtle text-danger rounded-circle">
 									<ReviewSVG />
@@ -228,6 +269,18 @@ const index = (props) => {
 						</div>
 					</div>
 					{/* Data End */}
+
+					<hr className="border-2 w-50 my-4 mx-auto" />
+
+					{/* Reviews */}
+					{reviews.map((review, key) => (
+						<ReviewMedia
+							{...props}
+							key={key}
+							review={review}
+						/>
+					))}
+					{/* Reviews End */}
 				</div>
 				{/* Review Tab End */}
 			</div>

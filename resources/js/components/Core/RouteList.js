@@ -19,7 +19,7 @@ import AdminLogin from "@/pages/admin/login"
 import SupplierLogin from "@/pages/supplier/login"
 import SupplierRegister from "@/pages/supplier/register"
 import Supplier from "@/pages/supplier/index"
-import SupplierEdit from "@/pages/supplier/edit/[id]"
+import SupplierEdit from "@/pages/supplier/profile/edit/[id]"
 
 const RouteList = ({ GLOBAL_STATE }) => {
 	const authRoutes = [

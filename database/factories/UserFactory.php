@@ -61,7 +61,8 @@ class UserFactory extends Factory
             'phone' => '0722777990',
             'password' => Hash::make('joyce.koskei@gmail.com'),
             'remember_token' => Str::random(10),
-            'account_type' => 'instructor',
+            'account_type' => 'admin',
+            "created_at" => Carbon::now()->subDay(rand(3, 12)),
         ]);
     }
 
@@ -79,7 +80,7 @@ class UserFactory extends Factory
             'phone' => '0721721357',
             'password' => Hash::make('wgacuru@gmail.com'),
             'remember_token' => Str::random(10),
-            'account_type' => 'student',
+            'account_type' => 'admin',
         ]);
     }
 }

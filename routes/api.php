@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
@@ -28,3 +29,8 @@ Route::apiResources([
     "suppliers" => SupplierController::class,
 	"reviews" => ReviewController::class
 ]);
+
+/*
+* Admin Dashboard
+*/ 
+Route::get("admin", [AdminController::class, "index"]);

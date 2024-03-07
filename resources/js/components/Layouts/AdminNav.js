@@ -12,6 +12,7 @@ import MenuSVG from "@/svgs/MenuSVG"
 import PersonSVG from "@/svgs/PersonSVG"
 import HomeSVG from "@/svgs/HomeSVG"
 import StaffSVG from "@/svgs/StaffSVG"
+import LogoSVG from "@/svgs/LogoSVG"
 
 const AdminMenu = (props) => {
 	const location = useLocation()
@@ -93,10 +94,10 @@ const AdminMenu = (props) => {
 										<a
 											href="#"
 											id="menuIcon"
-											className="text-white me-3"
+											className="text-white fs-4 me-3"
 											onClick={(e) => {
 												e.preventDefault()
-												// Open Admin Menu
+												// Open Supplier Menu
 												props.setAdminMenu(props.adminMenu ? "" : "left-open")
 											}}>
 											<MenuSVG />
@@ -105,11 +106,8 @@ const AdminMenu = (props) => {
 
 										{/* <!-- Logo Area  --> */}
 										<div className="logo-area">
-											<Link
-												to="/admin"
-												className="text-white fs-1">
-												KG Consultancy
-												{/* <span className="main-logo">Party People</span> */}
+											<Link to="/admin">
+												<LogoSVG />
 											</Link>
 										</div>
 									</div>
@@ -253,11 +251,23 @@ const AdminMenu = (props) => {
 									</Link>
 								</li>
 								{/* Dashboard Link End */}
-								{/* Staff Links */}
+								{/* Suppliers Link */}
+								<li className="nav-item">
+									<Link
+										to={`/admin/suppliers`}
+										className={`nav-link ${activeStrict("/admin/suppliers")}`}>
+										<div className="nav-link-icon">
+											<PersonSVG />
+										</div>
+										<div className="nav-link-text">Suppliers</div>
+									</Link>
+								</li>
+								{/* Suppliers Link End */}
+								{/* Staff Link */}
 								<li className="nav-item">
 									<Link
 										to={`/admin/staff`}
-										className={`nav-link ${active("/admin/staff")}`}>
+										className={`nav-link ${activeStrict("/admin/staff")}`}>
 										<div className="nav-link-icon">
 											<StaffSVG />
 										</div>
@@ -272,7 +282,10 @@ const AdminMenu = (props) => {
 					<br />
 				</div>
 				{/* <!-- ***** Side Menu Area End ***** --> */}
-				<div className="left-main px-4">{props.children}</div>
+				<div className="left-main my-4 px-4">
+					<h2 className="mb-4">{props.page.name}</h2>
+					{props.children}
+				</div>
 			</div>
 
 			{/* Sliding Bottom Nav */}

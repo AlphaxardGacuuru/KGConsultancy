@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import CryptoJS from "crypto-js"
 
 import Btn from "@/components/core/Btn"
@@ -112,8 +112,8 @@ const register = (props) => {
 							Register
 						</div>
 
-						<div className="card-body">
-							<form onSubmit={onSubmit}>
+						<form onSubmit={onSubmit}>
+							<div className="card-body">
 								{/* Name */}
 								<div className="row mb-3">
 									<label
@@ -618,18 +618,24 @@ const register = (props) => {
 									</div>
 								</div>
 								{/* Has License End */}
+							</div>
 
-								<div className="row mb-0">
-									<div className="col-md-8 offset-md-8">
-										<Btn
-											type="submit"
-											btnText="create account"
-											loading={loading}
-										/>
-									</div>
+							<div className="card-footer d-flex justify-content-between">
+								<div>
+									Already have an account?
+									<Link
+										to="/supplier/login"
+										className="btn btn-link">
+										Sign in.
+									</Link>
 								</div>
-							</form>
-						</div>
+								<Btn
+									type="submit"
+									btnText="create account"
+									loading={loading}
+								/>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>

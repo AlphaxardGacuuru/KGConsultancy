@@ -37,7 +37,6 @@ const login = (props) => {
 											type="email"
 											className="form-control"
 											name="email"
-											value=""
 											required
 											autoComplete="email"
 											autoFocus

@@ -10,8 +10,9 @@ import AdminNav from "@/components/Layouts/AdminNav"
 import SupplierNav from "@/components/Layouts/SupplierNav"
 
 import AdminLogin from "@/pages/admin/login"
-// import AdminDashboard from "@/pages/admin/index"
+import AdminDashboard from "@/pages/admin/index"
 
+import AdminSuppliers from "@/pages/admin/suppliers/index"
 // import AdminStaff from "@/pages/admin/staff/index"
 // import AdminStaffCreate from "@/pages/admin/staff/create"
 // import AdminStaffEdit from "@/pages/admin/staff/[id]"
@@ -37,7 +38,16 @@ const RouteList = ({ GLOBAL_STATE }) => {
 		},
 	]
 
-	const adminRoutes = []
+	const adminRoutes = [
+		{
+			path: "/admin",
+			component: <AdminDashboard {...GLOBAL_STATE} />,
+		},
+		{
+			path: "/admin/suppliers",
+			component: <AdminSuppliers {...GLOBAL_STATE} />,
+		},
+	]
 
 	const supplierRoutes = [
 		{

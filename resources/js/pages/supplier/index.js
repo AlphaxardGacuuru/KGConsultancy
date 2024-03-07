@@ -19,6 +19,7 @@ const index = (props) => {
 	useEffect(() => {
 		// Set page
 		props.setPage({ name: "Supplier Profile" })
+
 		// props.get(`bids/by-user-id/${props.auth.id}`, setBids)
 		// props.get(`tenders/by-user-id/${props.auth.id}`, setTenders)
 		props.get(`reviews/${props.auth.supplierId}`, setReviews)
@@ -72,7 +73,7 @@ const index = (props) => {
 						</h6>
 						<h6>
 							<b className="me-1">Countries Registered</b>
-							{props.auth.countriesRegistered.map(
+							{props.auth.countriesRegistered?.map(
 								(countriesRegistered, key) => (
 									<div
 										key={key}
@@ -84,7 +85,7 @@ const index = (props) => {
 						</h6>
 						<h6>
 							<b className="me-1">Countries In Operation</b>
-							{props.auth.countriesInOperation.map(
+							{props.auth.countriesInOperation?.map(
 								(countriesInOperation, key) => (
 									<div
 										key={key}
@@ -100,7 +101,7 @@ const index = (props) => {
 						</h6>
 						<h6>
 							<b className="me-1">Directors</b>
-							{props.auth.directors.map((director, key) => (
+							{props.auth.directors?.map((director, key) => (
 								<div
 									key={key}
 									className="bg-primary-subtle rounded-pill mb-1 px-2 w-50">

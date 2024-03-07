@@ -1,6 +1,9 @@
-import React, { useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
+import CryptoJS from "crypto-js"
+
+import Btn from "@/components/core/Btn"
 
 const login = (props) => {
 	const router = useHistory()
@@ -16,6 +19,66 @@ const login = (props) => {
 		}
 	}, [])
 
+	const [email, setEmail] = useState()
+	const [password, setPassword] = useState()
+	const [loading, setLoading] = useState()
+
+	useEffect(() => {
+		if (props.auth.name != "Guest") {
+			// Handle Redirects
+			if (props.auth.accountType == "supplier") {
+				router.push("/supplier")
+			} else {
+				router.push("/admin")
+			}
+		}
+	}, [])
+
+	// Encrypt Token
+	const encryptedToken = (token) => {
+		const secretKey = "KGConsultancyAuthorizationToken"
+		// Encrypt
+		return CryptoJS.AES.encrypt(token, secretKey).toString()
+	}
+
+	const onSubmit = (e) => {
+		setLoading(true)
+		e.preventDefault()
+
+		Axios.get("/sanctum/csrf-cookie").then(() => {
+			Axios.post(`/login`, {
+				email: email,
+				password: password,
+				device_name: "deviceName",
+				remember: "checked",
+			})
+				.then((res) => {
+					props.setMessages([res.data.message])
+					// Remove loader
+					setLoading(false)
+					// Encrypt and Save Sanctum Token to Local Storage
+					props.setLocalStorage("sanctumToken", encryptedToken(res.data.data))
+					// Update Logged in user
+					Axios.get("/api/auth", {
+						headers: { Authorization: `Bearer ${res.data.data}` },
+					})
+						.then((res) => {
+							// Set LocalStorage
+							props.setLocalStorage("auth", res.data.data)
+							// Reload page
+							// window.location.href = `/#/instructor`
+							window.location.reload()
+						})
+						.catch((err) => props.getErrors(err, false))
+				})
+				.catch((err) => {
+					// Remove loader
+					setLoading(false)
+					props.getErrors(err)
+				})
+		})
+	}
+
 	return (
 		<div className="container mt-5">
 			<div className="row justify-content-center mt-5">
@@ -27,8 +90,8 @@ const login = (props) => {
 							Login
 						</div>
 
-						<div className="card-body">
-							<form method="POST">
+						<form onSubmit={onSubmit}>
+							<div className="card-body">
 								<div className="row mb-3">
 									<label
 										htmlFor="email"
@@ -42,10 +105,10 @@ const login = (props) => {
 											type="email"
 											className="form-control"
 											name="email"
-											value=""
 											required
 											autoComplete="email"
 											autoFocus
+											onChange={(e) => setEmail(e.target.value)}
 										/>
 									</div>
 								</div>
@@ -65,6 +128,7 @@ const login = (props) => {
 											name="password"
 											required
 											autoComplete="current-password"
+											onChange={(e) => setPassword(e.target.value)}
 										/>
 									</div>
 								</div>
@@ -87,25 +151,16 @@ const login = (props) => {
 										</div>
 									</div>
 								</div>
+							</div>
 
-								<div className="row mb-0">
-									<div className="col-md-8 offset-md-4">
-										<button
-											type="submit"
-											className="btn btn-primary">
-											Login
-										</button>
-
-										<a
-											className="btn btn-link"
-											href="{{ route('password.request') }}">
-											Forgot Your Password?
-										</a>
-									</div>
-								</div>
-
-								<div className="row mb-0">
-									<div className="col-md-8 offset-md-4">
+							<div className="row mb-0">
+								<div className="col-md-8 offset-md-4">
+									<a
+										className="btn btn-link"
+										href="{{ route('password.request') }}">
+										Forgot Your Password?
+									</a>
+									<div className="ms-3">
 										Don't have an account?
 										<Link
 											to="/supplier/register"
@@ -114,8 +169,16 @@ const login = (props) => {
 										</Link>
 									</div>
 								</div>
-							</form>
-						</div>
+							</div>
+
+							<div className="card-footer d-flex justify-content-end">
+								<Btn
+									type="submit"
+									btnText="login"
+									loading={loading}
+								/>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>

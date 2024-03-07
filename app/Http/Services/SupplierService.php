@@ -3,11 +3,30 @@
 namespace App\Http\Services;
 
 use App\Http\Resources\SupplierResource;
-use App\Models\User;
+use App\Models\Supplier;
 use Illuminate\Support\Facades\Hash;
 
 class SupplierService extends Service
 {
+    /*
+     * Get All Suppliers
+     */
+    public function index($request)
+    {
+        if ($request->filled("idAndName")) {
+            $instructors = Supplier::orderBy("id", "DESC")
+                ->get();
+
+            return response([
+                "data" => $instructors,
+            ], 200);
+        }
+
+        $instructors = Supplier::orderBy("id", "DESC")->paginate(20);
+
+        return SupplierResource::collection($instructors);
+    }
+
     /*
      * Get One Supplier
      */

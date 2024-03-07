@@ -83810,6 +83810,169 @@ if (document.getElementById("app")) {
 
 /***/ }),
 
+/***/ "./resources/js/components/Charts/Bar.js":
+/*!***********************************************!*\
+  !*** ./resources/js/components/Charts/Bar.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+var Bar = function Bar(props) {
+  var ctx = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])();
+
+  /*
+   * Colors
+   */
+  // "rgba(255, 99, 132, 1)", RED
+  // "rgba(255, 159, 64, 1)", ORANGE
+  // "rgba(255, 205, 86, 1)", YELLOW
+  // "rgba(75, 192, 192, 1)", TEAL
+  // "rgba(54, 162, 235, 1)", BLUE
+  // "rgba(153, 102, 255, 1)", PURPLE
+  // "rgba(201, 203, 207, 1)", GREY
+  // "rgba(24, 135, 84, 1)", GREEN
+
+  var config = {
+    type: "bar",
+    data: {
+      labels: props.labels,
+      datasets: props.datasets
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  };
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    new Chart(ctx.current, config);
+  }, []);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "p-2",
+    style: {
+      width: "100%",
+      height: "auto"
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("canvas", {
+    ref: ctx
+  }));
+};
+/* harmony default export */ __webpack_exports__["default"] = (Bar);
+
+/***/ }),
+
+/***/ "./resources/js/components/Charts/Doughnut.js":
+/*!****************************************************!*\
+  !*** ./resources/js/components/Charts/Doughnut.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+var Doughnut = function Doughnut(props) {
+  var ctx = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])();
+  var config = {
+    type: "doughnut",
+    options: {
+      cutout: "90%",
+      radius: "100%"
+    },
+    data: {
+      labels: props.labels,
+      datasets: props.datasets
+    }
+  };
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    new Chart(ctx.current, config);
+  }, []);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "p-2",
+    style: {
+      width: "20em",
+      height: "20em"
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("canvas", {
+    ref: ctx
+  }));
+};
+/* harmony default export */ __webpack_exports__["default"] = (Doughnut);
+
+/***/ }),
+
+/***/ "./resources/js/components/Charts/Line.js":
+/*!************************************************!*\
+  !*** ./resources/js/components/Charts/Line.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+var Line = function Line(props) {
+  var ctx = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])();
+
+  /*
+   * Colors
+   */
+  // "rgba(255, 99, 132, 1)", RED
+  // "rgba(255, 159, 64, 1)", ORANGE
+  // "rgba(255, 205, 86, 1)", YELLOW
+  // "rgba(75, 192, 192, 1)", TEAL
+  // "rgba(54, 162, 235, 1)", BLUE
+  // "rgba(153, 102, 255, 1)", PURPLE
+  // "rgba(201, 203, 207, 1)", GREY
+  // "rgba(24, 135, 84, 1)", GREEN
+
+  var config = {
+    type: "line",
+    data: {
+      labels: props.labels,
+      datasets: props.datasets
+    },
+    options: {
+      responsive: true,
+      scales: {
+        x: {
+          display: false
+        },
+        y: {
+          display: false
+        }
+      }
+    }
+  };
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    new Chart(ctx.current, config);
+  }, []);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "p-2",
+    style: {
+      width: "100%",
+      height: "auto"
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("canvas", {
+    ref: ctx
+  }));
+};
+/* harmony default export */ __webpack_exports__["default"] = (Line);
+
+/***/ }),
+
 /***/ "./resources/js/components/Core/Btn.js":
 /*!*********************************************!*\
   !*** ./resources/js/components/Core/Btn.js ***!
@@ -83999,6 +84162,56 @@ MyLink.defaultProps = {
 
 /***/ }),
 
+/***/ "./resources/js/components/Core/PaginationLinks.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/Core/PaginationLinks.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+var PaginationLinks = function PaginationLinks(_ref) {
+  var _list$meta;
+  var getPaginated = _ref.getPaginated,
+    setState = _ref.setState,
+    list = _ref.list;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+    "aria-label": "Page navigation example"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: "pagination justify-content-start"
+  }, (_list$meta = list.meta) === null || _list$meta === void 0 ? void 0 : _list$meta.links.map(function (link, key) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      key: key,
+      className: "page-item ".concat(link.active ? "active" : "".concat(link.url ? " bg-white" : "disabled")),
+      style: {
+        backgroundColor: "white",
+        cursor: "pointer"
+      },
+      onClick: function onClick() {
+        // Use URL API to remove domain
+        var url = link.url.replace(/^(?:\/\/|[^/]+)*\/api/, "");
+
+        // Check if url is available
+        if (link.url) {
+          getPaginated(url, setState);
+        }
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      className: "page-link",
+      dangerouslySetInnerHTML: {
+        __html: link.label
+      }
+    }));
+  })));
+};
+/* harmony default export */ __webpack_exports__["default"] = (PaginationLinks);
+
+/***/ }),
+
 /***/ "./resources/js/components/Core/ReviewMedia.js":
 /*!*****************************************************!*\
   !*** ./resources/js/components/Core/ReviewMedia.js ***!
@@ -84081,10 +84294,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Layouts_AdminNav__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/components/Layouts/AdminNav */ "./resources/js/components/Layouts/AdminNav.js");
 /* harmony import */ var _components_Layouts_SupplierNav__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/components/Layouts/SupplierNav */ "./resources/js/components/Layouts/SupplierNav.js");
 /* harmony import */ var _pages_admin_login__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/pages/admin/login */ "./resources/js/pages/admin/login.js");
-/* harmony import */ var _pages_supplier_login__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/pages/supplier/login */ "./resources/js/pages/supplier/login.js");
-/* harmony import */ var _pages_supplier_register__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @/pages/supplier/register */ "./resources/js/pages/supplier/register.js");
-/* harmony import */ var _pages_supplier_index__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @/pages/supplier/index */ "./resources/js/pages/supplier/index.js");
-/* harmony import */ var _pages_supplier_profile_edit_id___WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @/pages/supplier/profile/edit/[id] */ "./resources/js/pages/supplier/profile/edit/[id].js");
+/* harmony import */ var _pages_admin_index__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/pages/admin/index */ "./resources/js/pages/admin/index.js");
+/* harmony import */ var _pages_admin_suppliers_index__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @/pages/admin/suppliers/index */ "./resources/js/pages/admin/suppliers/index.js");
+/* harmony import */ var _pages_supplier_login__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @/pages/supplier/login */ "./resources/js/pages/supplier/login.js");
+/* harmony import */ var _pages_supplier_register__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @/pages/supplier/register */ "./resources/js/pages/supplier/register.js");
+/* harmony import */ var _pages_supplier_index__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @/pages/supplier/index */ "./resources/js/pages/supplier/index.js");
+/* harmony import */ var _pages_supplier_profile_edit_id___WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @/pages/supplier/profile/edit/[id] */ "./resources/js/pages/supplier/profile/edit/[id].js");
 
 
 
@@ -84094,7 +84309,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// import AdminDashboard from "@/pages/admin/index"
+
 
 // import AdminStaff from "@/pages/admin/staff/index"
 // import AdminStaffCreate from "@/pages/admin/staff/create"
@@ -84111,18 +84326,24 @@ var RouteList = function RouteList(_ref) {
     component: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_admin_login__WEBPACK_IMPORTED_MODULE_8__["default"], GLOBAL_STATE)
   }, {
     path: "/supplier/login",
-    component: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_supplier_login__WEBPACK_IMPORTED_MODULE_9__["default"], GLOBAL_STATE)
+    component: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_supplier_login__WEBPACK_IMPORTED_MODULE_11__["default"], GLOBAL_STATE)
   }, {
     path: "/supplier/register",
-    component: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_supplier_register__WEBPACK_IMPORTED_MODULE_10__["default"], GLOBAL_STATE)
+    component: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_supplier_register__WEBPACK_IMPORTED_MODULE_12__["default"], GLOBAL_STATE)
   }];
-  var adminRoutes = [];
+  var adminRoutes = [{
+    path: "/admin",
+    component: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_admin_index__WEBPACK_IMPORTED_MODULE_9__["default"], GLOBAL_STATE)
+  }, {
+    path: "/admin/suppliers",
+    component: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_admin_suppliers_index__WEBPACK_IMPORTED_MODULE_10__["default"], GLOBAL_STATE)
+  }];
   var supplierRoutes = [{
     path: "/supplier",
-    component: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_supplier_index__WEBPACK_IMPORTED_MODULE_11__["default"], GLOBAL_STATE)
+    component: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_supplier_index__WEBPACK_IMPORTED_MODULE_13__["default"], GLOBAL_STATE)
   }, {
     path: "/supplier/:id/edit",
-    component: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_supplier_profile_edit_id___WEBPACK_IMPORTED_MODULE_12__["default"], GLOBAL_STATE)
+    component: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_supplier_profile_edit_id___WEBPACK_IMPORTED_MODULE_14__["default"], GLOBAL_STATE)
   }];
   var routes = [{
     path: "/",
@@ -84201,12 +84422,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _svgs_PersonSVG__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/svgs/PersonSVG */ "./resources/js/svgs/PersonSVG.js");
 /* harmony import */ var _svgs_HomeSVG__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @/svgs/HomeSVG */ "./resources/js/svgs/HomeSVG.js");
 /* harmony import */ var _svgs_StaffSVG__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @/svgs/StaffSVG */ "./resources/js/svgs/StaffSVG.js");
+/* harmony import */ var _svgs_LogoSVG__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @/svgs/LogoSVG */ "./resources/js/svgs/LogoSVG.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -84290,18 +84513,17 @@ var AdminMenu = function AdminMenu(props) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "#",
     id: "menuIcon",
-    className: "text-white me-3",
+    className: "text-white fs-4 me-3",
     onClick: function onClick(e) {
       e.preventDefault();
-      // Open Admin Menu
+      // Open Supplier Menu
       props.setAdminMenu(props.adminMenu ? "" : "left-open");
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_svgs_MenuSVG__WEBPACK_IMPORTED_MODULE_8__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "logo-area"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/admin",
-    className: "text-white fs-1"
-  }, "KG Consultancy"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    to: "/admin"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_svgs_LogoSVG__WEBPACK_IMPORTED_MODULE_12__["default"], null)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "menu-content-area d-flex align-items-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "d-flex align-items-center justify-content-between"
@@ -84402,15 +84624,26 @@ var AdminMenu = function AdminMenu(props) {
   }, "Dashboard"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "nav-item"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/admin/suppliers",
+    className: "nav-link ".concat(activeStrict("/admin/suppliers"))
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "nav-link-icon"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_svgs_PersonSVG__WEBPACK_IMPORTED_MODULE_9__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "nav-link-text"
+  }, "Suppliers"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "nav-item"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/admin/staff",
-    className: "nav-link ".concat(active("/admin/staff"))
+    className: "nav-link ".concat(activeStrict("/admin/staff"))
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-link-icon"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_svgs_StaffSVG__WEBPACK_IMPORTED_MODULE_11__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-link-text"
   }, "Staff")))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "left-main px-4"
-  }, props.children)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "left-main my-4 px-4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    className: "mb-4"
+  }, props.page.name), props.children)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: bottomMenu
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "bottomMenu"
@@ -85383,6 +85616,330 @@ var About = function About() {
 
 /***/ }),
 
+/***/ "./resources/js/pages/admin/index.js":
+/*!*******************************************!*\
+  !*** ./resources/js/pages/admin/index.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Core_MyLink__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/Core/MyLink */ "./resources/js/components/Core/MyLink.js");
+/* harmony import */ var _components_Core_Btn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/Core/Btn */ "./resources/js/components/Core/Btn.js");
+/* harmony import */ var _components_Core_Img__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/Core/Img */ "./resources/js/components/Core/Img.js");
+/* harmony import */ var _components_Charts_Bar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/components/Charts/Bar */ "./resources/js/components/Charts/Bar.js");
+/* harmony import */ var _components_Charts_Line__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/components/Charts/Line */ "./resources/js/components/Charts/Line.js");
+/* harmony import */ var _components_Charts_Doughnut__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/components/Charts/Doughnut */ "./resources/js/components/Charts/Doughnut.js");
+/* harmony import */ var _svgs_PersonSVG__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/svgs/PersonSVG */ "./resources/js/svgs/PersonSVG.js");
+/* harmony import */ var _svgs_PeopleSVG__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/svgs/PeopleSVG */ "./resources/js/svgs/PeopleSVG.js");
+/* harmony import */ var _svgs_BidSVG__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/svgs/BidSVG */ "./resources/js/svgs/BidSVG.js");
+/* harmony import */ var _svgs_TenderSVG__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @/svgs/TenderSVG */ "./resources/js/svgs/TenderSVG.js");
+/* harmony import */ var _svgs_ArrowUpSVG__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @/svgs/ArrowUpSVG */ "./resources/js/svgs/ArrowUpSVG.js");
+/* harmony import */ var _svgs_ArrowDownSVG__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @/svgs/ArrowDownSVG */ "./resources/js/svgs/ArrowDownSVG.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var index = function index(props) {
+  var _dashboard$suppliers, _dashboard$bids, _dashboard$rfqs, _dashboard$tenders, _dashboard$suppliers2, _dashboard$bids2, _dashboard$tenders2, _dashboard$suppliers3, _dashboard$suppliers4, _dashboard$suppliers5, _dashboard$suppliers6, _dashboard$suppliers7, _dashboard$suppliers8, _dashboard$suppliers9, _dashboard$suppliers10, _dashboard$suppliers11, _dashboard$suppliers12, _dashboard$suppliers13, _dashboard$bids3, _dashboard$bids4, _dashboard$bids5, _dashboard$bids6, _dashboard$bids7, _dashboard$bids8, _dashboard$bids9, _dashboard$rfqs2, _dashboard$rfqs3, _dashboard$rfqs4, _dashboard$rfqs5, _dashboard$rfqs6, _dashboard$rfqs7, _dashboard$rfqs8, _dashboard$tenders3, _dashboard$tenders4, _dashboard$tenders5, _dashboard$tenders6, _dashboard$tenders7, _dashboard$tenders8, _dashboard$suppliers14, _dashboard$suppliers15, _dashboard$suppliers16, _dashboard$suppliers17, _dashboard$suppliers18, _dashboard$suppliers19;
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({}),
+    _useState2 = _slicedToArray(_useState, 2),
+    dashboard = _useState2[0],
+    setDashboard = _useState2[1];
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+    _useState4 = _slicedToArray(_useState3, 2),
+    suppliers = _useState4[0],
+    setSuppliers = _useState4[1];
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+    _useState6 = _slicedToArray(_useState5, 2),
+    bids = _useState6[0],
+    setBids = _useState6[1];
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+    _useState8 = _slicedToArray(_useState7, 2),
+    tenders = _useState8[0],
+    setTenders = _useState8[1];
+  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+    _useState10 = _slicedToArray(_useState9, 2),
+    rfqs = _useState10[0],
+    setRfqs = _useState10[1];
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    // Set page
+    props.setPage({
+      name: "Dashboard",
+      path: ["/"]
+    });
+    Axios.get("/api/admin").then(function (res) {
+      return setDashboard(res.data);
+    });
+    props.get("suppliers", setSuppliers);
+    // props.get("bids", setBids)
+    // props.get("rfq", setRfqs)
+    // props.get("tenders", setTenders)
+  }, []);
+  var barGraphDatasets1 = [{
+    label: "Suppliers this month",
+    data: (_dashboard$suppliers = dashboard.suppliers) === null || _dashboard$suppliers === void 0 || (_dashboard$suppliers = _dashboard$suppliers.lastMonth) === null || _dashboard$suppliers === void 0 ? void 0 : _dashboard$suppliers.data,
+    backgroundColor: "rgba(54, 162, 235, 1)",
+    borderColor: "rgb(255, 255, 255)",
+    borderWidth: 1,
+    borderRadius: "50",
+    barThickness: "20"
+  }, {
+    label: "Bids this month",
+    data: (_dashboard$bids = dashboard.bids) === null || _dashboard$bids === void 0 || (_dashboard$bids = _dashboard$bids.lastMonth) === null || _dashboard$bids === void 0 ? void 0 : _dashboard$bids.data,
+    backgroundColor: "rgba(255, 99, 132, 1)",
+    borderColor: "rgb(255, 255, 255)",
+    borderWidth: 1,
+    borderRadius: "50",
+    barThickness: "20"
+  }, {
+    label: "RFQs this month",
+    data: (_dashboard$rfqs = dashboard.rfqs) === null || _dashboard$rfqs === void 0 || (_dashboard$rfqs = _dashboard$rfqs.lastMonth) === null || _dashboard$rfqs === void 0 ? void 0 : _dashboard$rfqs.data,
+    backgroundColor: "rgba(255, 99, 132, 1)",
+    borderColor: "rgb(255, 255, 255)",
+    borderWidth: 1,
+    borderRadius: "50",
+    barThickness: "20"
+  }, {
+    label: "Tenders this month",
+    data: (_dashboard$tenders = dashboard.tenders) === null || _dashboard$tenders === void 0 || (_dashboard$tenders = _dashboard$tenders.lastMonth) === null || _dashboard$tenders === void 0 ? void 0 : _dashboard$tenders.data,
+    backgroundColor: "rgba(255, 205, 86, 1)",
+    borderColor: "rgb(255, 255, 255)",
+    borderWidth: 1,
+    borderRadius: "50",
+    barThickness: "20"
+  }];
+  var lineGraphDatasets1 = [{
+    label: "Last Week",
+    data: (_dashboard$suppliers2 = dashboard.suppliers) === null || _dashboard$suppliers2 === void 0 ? void 0 : _dashboard$suppliers2.lastWeek,
+    backgroundColor: "rgba(54, 162, 235, 1)",
+    borderColor: "rgb(54, 162, 235)"
+    // borderWidth: 1,
+  }];
+  var lineGraphDatasets2 = [{
+    label: "Last Week",
+    data: (_dashboard$bids2 = dashboard.bids) === null || _dashboard$bids2 === void 0 ? void 0 : _dashboard$bids2.lastWeek,
+    backgroundColor: "rgba(255, 99, 132, 1)",
+    borderColor: "rgb(255, 99, 132)"
+    // borderWidth: 1,
+  }];
+  var lineGraphDatasets3 = [{
+    label: "Last Week",
+    data: (_dashboard$tenders2 = dashboard.tenders) === null || _dashboard$tenders2 === void 0 ? void 0 : _dashboard$tenders2.lastWeek,
+    backgroundColor: "rgba(255, 159, 64, 1)",
+    borderColor: "rgb(255, 159, 64)"
+    // borderWidth: 1,
+  }];
+  var doughnutGraphDatasets1 = [{
+    label: "Last Week",
+    data: [(_dashboard$suppliers3 = dashboard.suppliers) === null || _dashboard$suppliers3 === void 0 || (_dashboard$suppliers3 = _dashboard$suppliers3.byCategory[0]) === null || _dashboard$suppliers3 === void 0 ? void 0 : _dashboard$suppliers3.count, (_dashboard$suppliers4 = dashboard.suppliers) === null || _dashboard$suppliers4 === void 0 || (_dashboard$suppliers4 = _dashboard$suppliers4.byCategory[1]) === null || _dashboard$suppliers4 === void 0 ? void 0 : _dashboard$suppliers4.count, (_dashboard$suppliers5 = dashboard.suppliers) === null || _dashboard$suppliers5 === void 0 || (_dashboard$suppliers5 = _dashboard$suppliers5.byCategory[2]) === null || _dashboard$suppliers5 === void 0 ? void 0 : _dashboard$suppliers5.count, (_dashboard$suppliers6 = dashboard.suppliers) === null || _dashboard$suppliers6 === void 0 || (_dashboard$suppliers6 = _dashboard$suppliers6.byCategory[3]) === null || _dashboard$suppliers6 === void 0 ? void 0 : _dashboard$suppliers6.count],
+    backgroundColor: ["rgba(54, 162, 235, 1)", "rgba(255, 99, 132, 1)", "rgba(255, 205, 86, 1)", "rgba(255, 105, 86, 1)"],
+    borderColor: ["rgba(54, 162, 235, 1)", "rgba(255, 99, 132, 1)", "rgba(255, 205, 86, 1)", "rgba(255, 105, 86, 1)"]
+    // borderWidth: 1,
+  }];
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-sm-12"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "d-flex flex-wrap justify-content-start"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "border-top-0 border-end-0 border-bottom-0 border-5 border-primary rounded m-1 me-4 p-2 my-card"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "d-flex justify-content-between align-items-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "px-4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Suppliers"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, (_dashboard$suppliers7 = dashboard.suppliers) === null || _dashboard$suppliers7 === void 0 ? void 0 : _dashboard$suppliers7.total)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "px-4 fs-2 bg-primary-subtle text-primary rounded"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_svgs_PersonSVG__WEBPACK_IMPORTED_MODULE_7__["default"], null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "d-flex justify-content-end align-items-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: ""
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, ((_dashboard$suppliers8 = dashboard.suppliers) === null || _dashboard$suppliers8 === void 0 ? void 0 : _dashboard$suppliers8.growth) > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "text-success"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_svgs_ArrowUpSVG__WEBPACK_IMPORTED_MODULE_11__["default"], null), (_dashboard$suppliers9 = dashboard.suppliers) === null || _dashboard$suppliers9 === void 0 ? void 0 : _dashboard$suppliers9.growth), ((_dashboard$suppliers10 = dashboard.suppliers) === null || _dashboard$suppliers10 === void 0 ? void 0 : _dashboard$suppliers10.growth) == 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "text-secondary"
+  }, (_dashboard$suppliers11 = dashboard.suppliers) === null || _dashboard$suppliers11 === void 0 ? void 0 : _dashboard$suppliers11.growth), ((_dashboard$suppliers12 = dashboard.suppliers) === null || _dashboard$suppliers12 === void 0 ? void 0 : _dashboard$suppliers12.growth) < 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "text-danger"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_svgs_ArrowDownSVG__WEBPACK_IMPORTED_MODULE_12__["default"], null), (_dashboard$suppliers13 = dashboard.suppliers) === null || _dashboard$suppliers13 === void 0 ? void 0 : _dashboard$suppliers13.growth)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "d-flex justify-content-end align-items-center"
+  }, dashboard.suppliers && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Charts_Line__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    labels: [1, 2, 3, 4, 5, 6, 7],
+    datasets: lineGraphDatasets1
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "border-top-0 border-end-0 border-bottom-0 border-5 border-primary rounded m-1 me-4 p-2 my-card"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "d-flex justify-content-between align-items-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "px-4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Bids"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, (_dashboard$bids3 = dashboard.bids) === null || _dashboard$bids3 === void 0 ? void 0 : _dashboard$bids3.total)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "px-4 fs-2 bg-primary-subtle text-primary rounded"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_svgs_BidSVG__WEBPACK_IMPORTED_MODULE_9__["default"], null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "d-flex justify-content-end align-items-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: ""
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, ((_dashboard$bids4 = dashboard.bids) === null || _dashboard$bids4 === void 0 ? void 0 : _dashboard$bids4.growth) > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "text-success"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_svgs_ArrowUpSVG__WEBPACK_IMPORTED_MODULE_11__["default"], null), (_dashboard$bids5 = dashboard.bids) === null || _dashboard$bids5 === void 0 ? void 0 : _dashboard$bids5.growth), ((_dashboard$bids6 = dashboard.bids) === null || _dashboard$bids6 === void 0 ? void 0 : _dashboard$bids6.growth) == 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "text-secondary"
+  }, (_dashboard$bids7 = dashboard.bids) === null || _dashboard$bids7 === void 0 ? void 0 : _dashboard$bids7.growth), ((_dashboard$bids8 = dashboard.bids) === null || _dashboard$bids8 === void 0 ? void 0 : _dashboard$bids8.growth) < 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "text-danger"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_svgs_ArrowDownSVG__WEBPACK_IMPORTED_MODULE_12__["default"], null), (_dashboard$bids9 = dashboard.bids) === null || _dashboard$bids9 === void 0 ? void 0 : _dashboard$bids9.growth)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "d-flex justify-content-end align-items-center"
+  }, dashboard.bids && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Charts_Line__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    labels: [1, 2, 3, 4, 5, 6, 7],
+    datasets: lineGraphDatasets2
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "border-top-0 border-end-0 border-bottom-0 border-5 border-primary rounded m-1 me-4 p-2 my-card"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "d-flex justify-content-between align-items-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "px-4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "RFQs"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, (_dashboard$rfqs2 = dashboard.rfqs) === null || _dashboard$rfqs2 === void 0 ? void 0 : _dashboard$rfqs2.total)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "px-4 fs-2 bg-primary-subtle text-primary rounded"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_svgs_TenderSVG__WEBPACK_IMPORTED_MODULE_10__["default"], null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "d-flex justify-content-end align-items-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: ""
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, ((_dashboard$rfqs3 = dashboard.rfqs) === null || _dashboard$rfqs3 === void 0 ? void 0 : _dashboard$rfqs3.growth) > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "text-success"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_svgs_ArrowUpSVG__WEBPACK_IMPORTED_MODULE_11__["default"], null), (_dashboard$rfqs4 = dashboard.rfqs) === null || _dashboard$rfqs4 === void 0 ? void 0 : _dashboard$rfqs4.growth), ((_dashboard$rfqs5 = dashboard.rfqs) === null || _dashboard$rfqs5 === void 0 ? void 0 : _dashboard$rfqs5.growth) == 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "text-secondary"
+  }, (_dashboard$rfqs6 = dashboard.rfqs) === null || _dashboard$rfqs6 === void 0 ? void 0 : _dashboard$rfqs6.growth), ((_dashboard$rfqs7 = dashboard.rfqs) === null || _dashboard$rfqs7 === void 0 ? void 0 : _dashboard$rfqs7.growth) < 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "text-danger"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_svgs_ArrowDownSVG__WEBPACK_IMPORTED_MODULE_12__["default"], null), (_dashboard$rfqs8 = dashboard.rfqs) === null || _dashboard$rfqs8 === void 0 ? void 0 : _dashboard$rfqs8.growth)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "d-flex justify-content-end align-items-center"
+  }, dashboard.rfqs && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Charts_Line__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    labels: [1, 2, 3, 4, 5, 6, 7],
+    datasets: lineGraphDatasets2
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "border-top-0 border-end-0 border-bottom-0 border-5 border-primary rounded m-1 me-4 p-2 my-card"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "d-flex justify-content-between align-items-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "px-4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Tenders"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, (_dashboard$tenders3 = dashboard.tenders) === null || _dashboard$tenders3 === void 0 ? void 0 : _dashboard$tenders3.total)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "px-4 fs-2 bg-primary-subtle text-primary rounded"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_svgs_TenderSVG__WEBPACK_IMPORTED_MODULE_10__["default"], null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "d-flex justify-content-end align-items-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: ""
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, ((_dashboard$tenders4 = dashboard.tenders) === null || _dashboard$tenders4 === void 0 ? void 0 : _dashboard$tenders4.growth) > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "text-success"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_svgs_ArrowUpSVG__WEBPACK_IMPORTED_MODULE_11__["default"], null), (_dashboard$tenders5 = dashboard.tenders) === null || _dashboard$tenders5 === void 0 ? void 0 : _dashboard$tenders5.growth), ((_dashboard$tenders6 = dashboard.tenders) === null || _dashboard$tenders6 === void 0 ? void 0 : _dashboard$tenders6.growth) == 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "text-secondary"
+  }, (_dashboard$tenders7 = dashboard.tenders) === null || _dashboard$tenders7 === void 0 ? void 0 : _dashboard$tenders7.growth), ((_dashboard$tenders8 = dashboard.tenders) === null || _dashboard$tenders8 === void 0 ? void 0 : _dashboard$tenders8.growth) < 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "text-danger"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_svgs_ArrowDownSVG__WEBPACK_IMPORTED_MODULE_12__["default"], null), (_dashboard$suppliers14 = dashboard.suppliers) === null || _dashboard$suppliers14 === void 0 ? void 0 : _dashboard$suppliers14.growth)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "d-flex justify-content-end align-items-center"
+  }, dashboard.tenders && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Charts_Line__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    labels: [1, 2, 3, 4, 5, 6, 7],
+    datasets: lineGraphDatasets3
+  })))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+    className: "my-3"
+  }, "Suppliers This Month"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-sm-8"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "my-card rounded hidden-scroll"
+  }, dashboard.suppliers && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Charts_Bar__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    labels: (_dashboard$suppliers15 = dashboard.suppliers) === null || _dashboard$suppliers15 === void 0 ? void 0 : _dashboard$suppliers15.lastMonth.labels,
+    datasets: barGraphDatasets1
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-sm-4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "my-card p-4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, (_dashboard$suppliers16 = dashboard.suppliers) === null || _dashboard$suppliers16 === void 0 ? void 0 : _dashboard$suppliers16.total), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Suppliers By Category"), dashboard.suppliers && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Charts_Doughnut__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    labels: ["Services", "Goods", "Works", "Consultancy"],
+    datasets: doughnutGraphDatasets1
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-sm-12"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+    className: "my-3"
+  }, "Recent Suppliers"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "table-responsive"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+    className: "table table-hover"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Phone"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Secondary Phone"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "WhatsApp Phone"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Supplier Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "SupplierType"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Countries Registered"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Countries In Operation"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Category"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Directors"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Staff"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Has Business Registration"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Has Business Permit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Has Tax Compliance"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Has License"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Rating"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Date Joined"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, (_dashboard$suppliers17 = dashboard.suppliers) === null || _dashboard$suppliers17 === void 0 ? void 0 : _dashboard$suppliers17.list.map(function (supplier, key) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+      key: key
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Core_Img__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      src: supplier.avatar,
+      className: "rounded-circle",
+      width: "25px",
+      height: "25px",
+      alt: "Avatar"
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, supplier.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, supplier.phone), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, supplier.secondaryPhone), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, supplier.whatsAppPhone), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, supplier.email), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, supplier.supplierName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, supplier.supplierType), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, supplier.countriesRegistered), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, supplier.countriesInOperation), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, supplier.category), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, supplier.directors), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, supplier.staff), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, supplier.hasBusinessRegistration), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, supplier.hasBusinessPermit), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, supplier.hasTaxCompliance), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, supplier.hasLicense), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, supplier.rating), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, supplier.createdAt));
+  }))))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-sm-6"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+    className: "my-3"
+  }, "Suppliers by Country Registered"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "my-card border p-4"
+  }, (_dashboard$suppliers18 = dashboard.suppliers) === null || _dashboard$suppliers18 === void 0 ? void 0 : _dashboard$suppliers18.byCountryRegistered.map(function (item, key) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      key: key,
+      className: "d-flex justify-content-between w-100 mb-1"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "text-nowrap"
+    }, item.country), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "ms-2 rounded-pill w-100 bg-light"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "bg-primary rounded-pill text-white text-center fw-light",
+      style: {
+        width: item.count
+      }
+    }, item.count)));
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-sm-6"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+    className: "my-3"
+  }, "Suppliers by Country in Operation"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "my-card border p-4"
+  }, (_dashboard$suppliers19 = dashboard.suppliers) === null || _dashboard$suppliers19 === void 0 ? void 0 : _dashboard$suppliers19.byCountryInOperation.map(function (item, key) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      key: key,
+      className: "d-flex justify-content-between w-100 mb-1"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "text-nowrap"
+    }, item.country), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "ms-2 rounded-pill w-100 bg-light"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "bg-primary rounded-pill text-white text-center fw-light",
+      style: {
+        width: item.count
+      }
+    }, item.count)));
+  })))));
+};
+/* harmony default export */ __webpack_exports__["default"] = (index);
+
+/***/ }),
+
 /***/ "./resources/js/pages/admin/login.js":
 /*!*******************************************!*\
   !*** ./resources/js/pages/admin/login.js ***!
@@ -85436,7 +85993,6 @@ var login = function login(props) {
     type: "email",
     className: "form-control",
     name: "email",
-    value: "",
     required: true,
     autoComplete: "email",
     autoFocus: true
@@ -85481,6 +86037,276 @@ var login = function login(props) {
   }, "Forgot Your Password?")))))))));
 };
 /* harmony default export */ __webpack_exports__["default"] = (login);
+
+/***/ }),
+
+/***/ "./resources/js/pages/admin/suppliers/index.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/pages/admin/suppliers/index.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Core_Btn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/Core/Btn */ "./resources/js/components/Core/Btn.js");
+/* harmony import */ var _components_Core_Img__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/Core/Img */ "./resources/js/components/Core/Img.js");
+/* harmony import */ var _components_Core_MyLink__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/Core/MyLink */ "./resources/js/components/Core/MyLink.js");
+/* harmony import */ var _components_Core_PaginationLinks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/components/Core/PaginationLinks */ "./resources/js/components/Core/PaginationLinks.js");
+/* harmony import */ var _svgs_PersonSVG__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/svgs/PersonSVG */ "./resources/js/svgs/PersonSVG.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+var index = function index(props) {
+  var _suppliers$meta, _suppliers$data;
+  // Get Suppliers
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+    _useState2 = _slicedToArray(_useState, 2),
+    suppliers = _useState2[0],
+    setSuppliers = _useState2[1];
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+    _useState4 = _slicedToArray(_useState3, 2),
+    loading = _useState4[0],
+    setLoading = _useState4[1];
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
+    _useState6 = _slicedToArray(_useState5, 2),
+    nameQuery = _useState6[0],
+    setNameQuery = _useState6[1];
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
+    _useState8 = _slicedToArray(_useState7, 2),
+    genderQuery = _useState8[0],
+    setGenderQuery = _useState8[1];
+  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
+    _useState10 = _slicedToArray(_useState9, 2),
+    facultyQuery = _useState10[0],
+    setFacultyQuery = _useState10[1];
+  var _useState11 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
+    _useState12 = _slicedToArray(_useState11, 2),
+    departmentQuery = _useState12[0],
+    setDepartmentQuery = _useState12[1];
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    // Set page
+    props.setPage({
+      name: "Suppliers",
+      path: ["suppliers"]
+    });
+    props.getPaginated("suppliers", setSuppliers);
+  }, []);
+
+  /*
+   * Delete
+   */
+  var onDelete = function onDelete(supplierId) {
+    // Toggle loader
+    setLoading(true);
+    Axios["delete"]("/api/suppliers/".concat(supplierId)).then(function (res) {
+      props.setMessages([res.data.message]);
+      // Toggle loader
+      setLoading(true);
+      // Delete rows
+      props.getPaginated("suppliers", setSuppliers);
+    })["catch"](function (err) {
+      // Toggle loader
+      setLoading(true);
+      props.getErrors(err);
+    });
+  };
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-sm-12"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card shadow-sm p-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "d-flex justify-content-between"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "d-flex justify-content-between w-100 align-items-center mx-4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "fs-4"
+  }, (_suppliers$meta = suppliers.meta) === null || _suppliers$meta === void 0 ? void 0 : _suppliers$meta.total), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Total Suppliers")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "fs-1 py-3 px-4 bg-primary-subtle text-primary rounded-circle"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_svgs_PersonSVG__WEBPACK_IMPORTED_MODULE_5__["default"], null))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card shadow-sm p-4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "d-flex flex-wrap"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "flex-grow-1 me-2 mb-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    id: "",
+    type: "text",
+    name: "name",
+    placeholder: "Search by Name",
+    className: "form-control",
+    onChange: function onChange(e) {
+      return setNameQuery(e.target.value);
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "flex-grow-1 me-2 mb-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    id: "",
+    type: "text",
+    name: "name",
+    placeholder: "Search by Gender",
+    className: "form-control me-2",
+    onChange: function onChange(e) {
+      return setGenderQuery(e.target.value);
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: ""
+  }, "Search by Gender"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "male"
+  }, "Male"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "female"
+  }, "Female"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "flex-grow-1 me-2 mb-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    id: "",
+    type: "text",
+    name: "name",
+    placeholder: "Search by Faculty",
+    className: "form-control me-2",
+    onChange: function onChange(e) {
+      return setFacultyQuery(e.target.value);
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: ""
+  }, "Search by Faculty"), faculties.map(function (faculty, key) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      key: key,
+      value: faculty.id
+    }, faculty.name);
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "flex-grow-1 me-2 mb-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    id: "",
+    type: "text",
+    name: "name",
+    placeholder: "Search by Gender",
+    className: "form-control me-2",
+    onChange: function onChange(e) {
+      return setDepartmentQuery(e.target.value);
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: ""
+  }, "Search by Department"), departments.map(function (department, key) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      key: key,
+      value: department.id
+    }, department.name);
+  }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "table-responsive mb-5"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+    className: "table table-hover"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    colSpan: "9"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    className: "text-end"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Core_MyLink__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    linkTo: "/admin/suppliers/create",
+    text: "add supplier"
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "#"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Phone"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Gender"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Faculty"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Department"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Date Joined"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Action"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, (_suppliers$data = suppliers.data) === null || _suppliers$data === void 0 ? void 0 : _suppliers$data.filter(function (supplier) {
+    var name = supplier.name.toLowerCase();
+    var query = nameQuery.toLowerCase();
+    return name.match(query);
+  }).filter(function (supplier) {
+    if (genderQuery) {
+      return supplier.gender == genderQuery;
+    } else {
+      return true;
+    }
+  }).filter(function (supplier) {
+    if (facultyQuery) {
+      return supplier.facultyId == facultyQuery;
+    } else {
+      return true;
+    }
+  }).filter(function (supplier) {
+    if (departmentQuery) {
+      return supplier.departmentId == departmentQuery;
+    } else {
+      return true;
+    }
+  }).map(function (supplier, key) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+      key: key
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, props.iterator(key, suppliers)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Core_Img__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      src: supplier.avatar,
+      className: "rounded-circle",
+      style: {
+        width: "7em"
+      },
+      alt: "Avatar"
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, supplier.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, supplier.email), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, supplier.phone), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+      className: "text-capitalize"
+    }, supplier.gender), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, supplier.facultyName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, supplier.departmentName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, supplier.createdAt), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+      className: "text-end"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "d-flex"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Core_MyLink__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      linkTo: "/admin/suppliers/".concat(supplier.id, "/edit"),
+      text: "edit",
+      className: "btn-sm"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "mx-1"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "modal fade",
+      id: "deleteModal".concat(key),
+      tabIndex: "-1",
+      "aria-labelledby": "deleteModalLabel",
+      "aria-hidden": "true"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "modal-dialog"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "modal-content"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "modal-header"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+      id: "deleteModalLabel",
+      className: "modal-title fs-5 text-danger"
+    }, "Delete Supplier"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      type: "button",
+      className: "btn-close",
+      "data-bs-dismiss": "modal",
+      "aria-label": "Close"
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "modal-body text-wrap"
+    }, "Are you sure you want to delete", " ", supplier.name, "."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "modal-footer justify-content-between"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      type: "button",
+      className: "btn btn-light rounded-pill",
+      "data-bs-dismiss": "modal"
+    }, "Close"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      type: "button",
+      className: "btn btn-danger rounded-pill",
+      "data-bs-dismiss": "modal",
+      onClick: function onClick() {
+        return onDelete(supplier.id);
+      }
+    }, "Delete"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      type: "button",
+      className: "btn btn-sm btn-outline-danger rounded-pill",
+      "data-bs-toggle": "modal",
+      "data-bs-target": "#deleteModal".concat(key)
+    }, "Delete")))));
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Core_PaginationLinks__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    list: suppliers,
+    getPaginated: props.getPaginated,
+    setState: setSuppliers
+  }))));
+};
+/* harmony default export */ __webpack_exports__["default"] = (index);
 
 /***/ }),
 
@@ -86249,6 +87075,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var index = function index(props) {
+  var _props$auth$countries, _props$auth$countries2, _props$auth$directors;
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("bids"),
     _useState2 = _slicedToArray(_useState, 2),
     tab = _useState2[0],
@@ -86270,6 +87097,7 @@ var index = function index(props) {
     props.setPage({
       name: "Supplier Profile"
     });
+
     // props.get(`bids/by-user-id/${props.auth.id}`, setBids)
     // props.get(`tenders/by-user-id/${props.auth.id}`, setTenders)
     props.get("reviews/".concat(props.auth.supplierId), setReviews);
@@ -86311,14 +87139,14 @@ var index = function index(props) {
     className: "me-1"
   }, "Supplier Type:"), props.auth.supplierType), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", {
     className: "me-1"
-  }, "Countries Registered"), props.auth.countriesRegistered.map(function (countriesRegistered, key) {
+  }, "Countries Registered"), (_props$auth$countries = props.auth.countriesRegistered) === null || _props$auth$countries === void 0 ? void 0 : _props$auth$countries.map(function (countriesRegistered, key) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: key,
       className: "bg-primary-subtle rounded-pill mb-1 px-2 w-50"
     }, countriesRegistered);
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", {
     className: "me-1"
-  }, "Countries In Operation"), props.auth.countriesInOperation.map(function (countriesInOperation, key) {
+  }, "Countries In Operation"), (_props$auth$countries2 = props.auth.countriesInOperation) === null || _props$auth$countries2 === void 0 ? void 0 : _props$auth$countries2.map(function (countriesInOperation, key) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: key,
       className: "bg-primary-subtle rounded-pill mb-1 px-2 w-50"
@@ -86327,7 +87155,7 @@ var index = function index(props) {
     className: "me-1"
   }, "Category:"), props.auth.category), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", {
     className: "me-1"
-  }, "Directors"), props.auth.directors.map(function (director, key) {
+  }, "Directors"), (_props$auth$directors = props.auth.directors) === null || _props$auth$directors === void 0 ? void 0 : _props$auth$directors.map(function (director, key) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: key,
       className: "bg-primary-subtle rounded-pill mb-1 px-2 w-50"
@@ -86466,6 +87294,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var react_router_dom_cjs_react_router_dom_min__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom/cjs/react-router-dom.min */ "./node_modules/react-router-dom/cjs/react-router-dom.min.js");
 /* harmony import */ var react_router_dom_cjs_react_router_dom_min__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_router_dom_cjs_react_router_dom_min__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var crypto_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! crypto-js */ "./node_modules/crypto-js/index.js");
+/* harmony import */ var crypto_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(crypto_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_core_Btn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/components/core/Btn */ "./resources/js/components/core/Btn.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 
@@ -86481,6 +87320,71 @@ var login = function login(props) {
       }
     }
   }, []);
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+    _useState2 = _slicedToArray(_useState, 2),
+    email = _useState2[0],
+    setEmail = _useState2[1];
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+    _useState4 = _slicedToArray(_useState3, 2),
+    password = _useState4[0],
+    setPassword = _useState4[1];
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+    _useState6 = _slicedToArray(_useState5, 2),
+    loading = _useState6[0],
+    setLoading = _useState6[1];
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    if (props.auth.name != "Guest") {
+      // Handle Redirects
+      if (props.auth.accountType == "supplier") {
+        router.push("/supplier");
+      } else {
+        router.push("/admin");
+      }
+    }
+  }, []);
+
+  // Encrypt Token
+  var encryptedToken = function encryptedToken(token) {
+    var secretKey = "KGConsultancyAuthorizationToken";
+    // Encrypt
+    return crypto_js__WEBPACK_IMPORTED_MODULE_3___default.a.AES.encrypt(token, secretKey).toString();
+  };
+  var onSubmit = function onSubmit(e) {
+    setLoading(true);
+    e.preventDefault();
+    Axios.get("/sanctum/csrf-cookie").then(function () {
+      Axios.post("/login", {
+        email: email,
+        password: password,
+        device_name: "deviceName",
+        remember: "checked"
+      }).then(function (res) {
+        props.setMessages([res.data.message]);
+        // Remove loader
+        setLoading(false);
+        // Encrypt and Save Sanctum Token to Local Storage
+        props.setLocalStorage("sanctumToken", encryptedToken(res.data.data));
+        // Update Logged in user
+        Axios.get("/api/auth", {
+          headers: {
+            Authorization: "Bearer ".concat(res.data.data)
+          }
+        }).then(function (res) {
+          // Set LocalStorage
+          props.setLocalStorage("auth", res.data.data);
+          // Reload page
+          // window.location.href = `/#/instructor`
+          window.location.reload();
+        })["catch"](function (err) {
+          return props.getErrors(err, false);
+        });
+      })["catch"](function (err) {
+        // Remove loader
+        setLoading(false);
+        props.getErrors(err);
+      });
+    });
+  };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container mt-5"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -86494,10 +87398,10 @@ var login = function login(props) {
     style: {
       backgroundColor: "#234458"
     }
-  }, "Login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "Login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    onSubmit: onSubmit
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-body"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-    method: "POST"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row mb-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -86510,10 +87414,12 @@ var login = function login(props) {
     type: "email",
     className: "form-control",
     name: "email",
-    value: "",
     required: true,
     autoComplete: "email",
-    autoFocus: true
+    autoFocus: true,
+    onChange: function onChange(e) {
+      return setEmail(e.target.value);
+    }
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row mb-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -86527,7 +87433,10 @@ var login = function login(props) {
     className: "form-control",
     name: "password",
     required: true,
-    autoComplete: "current-password"
+    autoComplete: "current-password",
+    onChange: function onChange(e) {
+      return setPassword(e.target.value);
+    }
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row mb-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -86542,24 +87451,25 @@ var login = function login(props) {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     className: "form-check-label",
     htmlFor: "remember"
-  }, "Remember Me")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "Remember Me"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row mb-0"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-md-8 offset-md-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    type: "submit",
-    className: "btn btn-primary"
-  }, "Login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "btn btn-link",
     href: "{{ route('password.request') }}"
-  }, "Forgot Your Password?"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "row mb-0"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-md-8 offset-md-4"
+  }, "Forgot Your Password?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ms-3"
   }, "Don't have an account?", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/supplier/register",
     className: "btn btn-link"
-  }, "Sign up.")))))))));
+  }, "Sign up.")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-footer d-flex justify-content-end"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_core_Btn__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    type: "submit",
+    btnText: "login",
+    loading: loading
+  })))))));
 };
 /* harmony default export */ __webpack_exports__["default"] = (login);
 
@@ -87329,10 +88239,10 @@ var register = function register(props) {
     style: {
       backgroundColor: "#234458"
     }
-  }, "Register"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card-body"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+  }, "Register"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     onSubmit: onSubmit
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-body"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row mb-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -87715,17 +88625,76 @@ var register = function register(props) {
     onChange: function onChange(e) {
       return setHasLicense(e.target.value);
     }
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "row mb-0"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-md-8 offset-md-8"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_core_Btn__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-footer d-flex justify-content-between"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Already have an account?", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom_cjs_react_router_dom_min__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/supplier/login",
+    className: "btn btn-link"
+  }, "Sign in.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_core_Btn__WEBPACK_IMPORTED_MODULE_3__["default"], {
     type: "submit",
     btnText: "create account",
     loading: loading
-  })))))))));
+  })))))));
 };
 /* harmony default export */ __webpack_exports__["default"] = (register);
+
+/***/ }),
+
+/***/ "./resources/js/svgs/ArrowDownSVG.js":
+/*!*******************************************!*\
+  !*** ./resources/js/svgs/ArrowDownSVG.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+var ArrowDownSVG = function ArrowDownSVG() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "1em",
+    height: "1em",
+    fill: "currentColor",
+    className: "bi bi-arrow-down",
+    viewBox: "0 0 16 16"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    fillRule: "evenodd",
+    d: "M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1"
+  }));
+};
+/* harmony default export */ __webpack_exports__["default"] = (ArrowDownSVG);
+
+/***/ }),
+
+/***/ "./resources/js/svgs/ArrowUpSVG.js":
+/*!*****************************************!*\
+  !*** ./resources/js/svgs/ArrowUpSVG.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+var ArrowUpSVG = function ArrowUpSVG() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "1em",
+    height: "1em",
+    fill: "currentColor",
+    className: "bi bi-arrow-up",
+    viewBox: "0 0 16 16"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    fillRule: "evenodd",
+    d: "M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5"
+  }));
+};
+/* harmony default export */ __webpack_exports__["default"] = (ArrowUpSVG);
 
 /***/ }),
 
@@ -88088,6 +89057,34 @@ var MinusSVG = function MinusSVG() {
   }));
 };
 /* harmony default export */ __webpack_exports__["default"] = (MinusSVG);
+
+/***/ }),
+
+/***/ "./resources/js/svgs/PeopleSVG.js":
+/*!****************************************!*\
+  !*** ./resources/js/svgs/PeopleSVG.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+var PeopleSVG = function PeopleSVG() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "1em",
+    height: "1em",
+    fill: "currentColor",
+    className: "mb-2 bi bi-people",
+    viewBox: "0 0 16 16"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    d: "M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8Zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816ZM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0Zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"
+  }));
+};
+/* harmony default export */ __webpack_exports__["default"] = (PeopleSVG);
 
 /***/ }),
 

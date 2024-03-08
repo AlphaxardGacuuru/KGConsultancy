@@ -6,6 +6,8 @@ import MyLink from "@/components/Core/MyLink"
 import PaginationLinks from "@/components/Core/PaginationLinks"
 
 import PersonSVG from "@/svgs/PersonSVG"
+import EditSVG from "@/svgs/EditSVG"
+import EyeSVG from "@/svgs/EyeSVG"
 
 const index = (props) => {
 	// Get Suppliers
@@ -14,8 +16,6 @@ const index = (props) => {
 
 	const [nameQuery, setNameQuery] = useState("")
 	const [genderQuery, setGenderQuery] = useState("")
-	const [facultyQuery, setFacultyQuery] = useState("")
-	const [departmentQuery, setDepartmentQuery] = useState("")
 
 	useEffect(() => {
 		// Set page
@@ -49,7 +49,7 @@ const index = (props) => {
 		<div className="row">
 			<div className="col-sm-12">
 				{/* Data */}
-				<div className="card shadow-sm p-2">
+				<div className="my-card shadow-sm p-2">
 					<div className="d-flex justify-content-between">
 						{/* Total */}
 						<div className="d-flex justify-content-between w-100 align-items-center mx-4">
@@ -69,7 +69,7 @@ const index = (props) => {
 				<br />
 
 				{/* Filters */}
-				<div className="card shadow-sm p-4">
+				<div className="my-card shadow-sm p-4">
 					<div className="d-flex flex-wrap">
 						{/* Name */}
 						<div className="flex-grow-1 me-2 mb-2">
@@ -98,46 +98,6 @@ const index = (props) => {
 							</select>
 						</div>
 						{/* Gender End */}
-						{/* Faculty */}
-						<div className="flex-grow-1 me-2 mb-2">
-							<select
-								id=""
-								type="text"
-								name="name"
-								placeholder="Search by Faculty"
-								className="form-control me-2"
-								onChange={(e) => setFacultyQuery(e.target.value)}>
-								<option value="">Search by Faculty</option>
-								{faculties.map((faculty, key) => (
-									<option
-										key={key}
-										value={faculty.id}>
-										{faculty.name}
-									</option>
-								))}
-							</select>
-						</div>
-						{/* Faculty End */}
-						{/* Department */}
-						<div className="flex-grow-1 me-2 mb-2">
-							<select
-								id=""
-								type="text"
-								name="name"
-								placeholder="Search by Gender"
-								className="form-control me-2"
-								onChange={(e) => setDepartmentQuery(e.target.value)}>
-								<option value="">Search by Department</option>
-								{departments.map((department, key) => (
-									<option
-										key={key}
-										value={department.id}>
-										{department.name}
-									</option>
-								))}
-							</select>
-						</div>
-						{/* Department End */}
 					</div>
 				</div>
 				{/* Filters End */}
@@ -148,23 +108,24 @@ const index = (props) => {
 					<table className="table table-hover">
 						<thead>
 							<tr>
-								<th colSpan="9"></th>
-								<th className="text-end">
-									<MyLink
-										linkTo="/admin/suppliers/create"
-										text="add supplier"
-									/>
-								</th>
-							</tr>
-							<tr>
 								<th>#</th>
-								<th></th>
 								<th>Name</th>
-								<th>Email</th>
 								<th>Phone</th>
-								<th>Gender</th>
-								<th>Faculty</th>
-								<th>Department</th>
+								<th>Secondary Phone</th>
+								<th>WhatsApp Phone</th>
+								<th>Email</th>
+								<th>Supplier Name</th>
+								<th>Supplier Type</th>
+								<th>Countries Registered</th>
+								<th>Countries In Operation</th>
+								<th>Category</th>
+								<th>Directors</th>
+								<th>Staff</th>
+								<th>Has Business Registration</th>
+								<th>Has Business Permit</th>
+								<th>Has Tax Compliance</th>
+								<th>Has License</th>
+								<th>Rating</th>
 								<th>Date Joined</th>
 								<th>Action</th>
 							</tr>
@@ -177,121 +138,123 @@ const index = (props) => {
 
 									return name.match(query)
 								})
-								.filter((supplier) => {
-									if (genderQuery) {
-										return supplier.gender == genderQuery
-									} else {
-										return true
-									}
-								})
-								.filter((supplier) => {
-									if (facultyQuery) {
-										return supplier.facultyId == facultyQuery
-									} else {
-										return true
-									}
-								})
-								.filter((supplier) => {
-									if (departmentQuery) {
-										return supplier.departmentId == departmentQuery
-									} else {
-										return true
-									}
-								})
 								.map((supplier, key) => (
 									<tr key={key}>
-										<td>{props.iterator(key, suppliers)}</td>
-										<td>
-											<Img
-												src={supplier.avatar}
-												className="rounded-circle"
-												style={{ width: "7em" }}
-												alt="Avatar"
-											/>
-										</td>
+										<td>{key + 1}</td>
 										<td>{supplier.name}</td>
-										<td>{supplier.email}</td>
 										<td>{supplier.phone}</td>
-										<td className="text-capitalize">{supplier.gender}</td>
-										<td>{supplier.facultyName}</td>
-										<td>{supplier.departmentName}</td>
+										<td>{supplier.secondaryPhone}</td>
+										<td>{supplier.whatsAppPhone}</td>
+										<td>{supplier.email}</td>
+										<td>{supplier.supplierName}</td>
+										<td>{supplier.supplierType}</td>
+										<td>
+											{supplier.countriesRegistered?.map(
+												(countriesRegistered, key) => (
+													<span
+														key={key}
+														className="bg-primary-subtle rounded-pill me-2 px-2">
+														{countriesRegistered}
+													</span>
+												)
+											)}
+										</td>
+										<td>
+											{supplier.countriesInOperation?.map(
+												(countriesInOperation, key) => (
+													<span
+														key={key}
+														className="bg-primary-subtle rounded-pill me-2 px-2">
+														{countriesInOperation}
+													</span>
+												)
+											)}
+										</td>
+										<td>{supplier.category}</td>
+										<td>
+											{supplier.directors?.map((directors, key) => (
+												<span
+													key={key}
+													className="bg-primary-subtle rounded-pill me-2 px-2">
+													{directors}
+												</span>
+											))}
+										</td>
+										<td>{supplier.staff}</td>
+										<td>
+											{supplier.hasBusinessRegistration ? (
+												<span className="bg-success-subtle rounded-pill px-2">
+													Yes
+												</span>
+											) : (
+												<span className="bg-danger-subtle rounded-pill px-2">
+													No
+												</span>
+											)}
+										</td>
+										<td>
+											{supplier.hasBusinessPermit ? (
+												<span className="bg-success-subtle rounded-pill px-2">
+													Yes
+												</span>
+											) : (
+												<span className="bg-danger-subtle rounded-pill px-2">
+													No
+												</span>
+											)}
+										</td>
+										<td>
+											{supplier.hasTaxCompliance ? (
+												<span className="bg-success-subtle rounded-pill px-2">
+													Yes
+												</span>
+											) : (
+												<span className="bg-danger-subtle rounded-pill px-2">
+													No
+												</span>
+											)}
+										</td>
+										<td>
+											{supplier.hasLicense ? (
+												<span className="bg-success-subtle rounded-pill px-2">
+													Yes
+												</span>
+											) : (
+												<span className="bg-danger-subtle rounded-pill px-2">
+													No
+												</span>
+											)}
+										</td>
+										<td>{supplier.rating}</td>
 										<td>{supplier.createdAt}</td>
 										<td className="text-end">
 											<div className="d-flex">
 												<MyLink
-													linkTo={`/admin/suppliers/${supplier.id}/edit`}
-													text="edit"
-													className="btn-sm"
+													linkTo={`/admin/suppliers/view/${supplier.id}`}
+													text={<EyeSVG />}
+													className="btn-sm me-2"
 												/>
 
-												<div className="mx-1">
-													{/* Confirm Delete Modal End */}
-													<div
-														className="modal fade"
-														id={`deleteModal${key}`}
-														tabIndex="-1"
-														aria-labelledby="deleteModalLabel"
-														aria-hidden="true">
-														<div className="modal-dialog">
-															<div className="modal-content">
-																<div className="modal-header">
-																	<h1
-																		id="deleteModalLabel"
-																		className="modal-title fs-5 text-danger">
-																		Delete Supplier
-																	</h1>
-																	<button
-																		type="button"
-																		className="btn-close"
-																		data-bs-dismiss="modal"
-																		aria-label="Close"></button>
-																</div>
-																<div className="modal-body text-wrap">
-																	Are you sure you want to delete{" "}
-																	{supplier.name}.
-																</div>
-																<div className="modal-footer justify-content-between">
-																	<button
-																		type="button"
-																		className="btn btn-light rounded-pill"
-																		data-bs-dismiss="modal">
-																		Close
-																	</button>
-																	<button
-																		type="button"
-																		className="btn btn-danger rounded-pill"
-																		data-bs-dismiss="modal"
-																		onClick={() => onDelete(supplier.id)}>
-																		Delete
-																	</button>
-																</div>
-															</div>
-														</div>
-													</div>
-													{/* Confirm Delete Modal End */}
-
-													{/* Button trigger modal */}
-													<button
-														type="button"
-														className="btn btn-sm btn-outline-danger rounded-pill"
-														data-bs-toggle="modal"
-														data-bs-target={`#deleteModal${key}`}>
-														Delete
-													</button>
-												</div>
+												<MyLink
+													linkTo={`/admin/suppliers/edit/${supplier.id}`}
+													text={<EditSVG />}
+													className="btn-sm"
+												/>
 											</div>
 										</td>
 									</tr>
 								))}
 						</tbody>
 					</table>
-					{/* Pagination Links */}
-					<PaginationLinks
-						list={suppliers}
-						getPaginated={props.getPaginated}
-						setState={setSuppliers}
-					/>
-					{/* Pagination Links End */}
+					<div className="my-2">
+						{/* Pagination Links */}
+						<PaginationLinks
+							list={suppliers}
+							getPaginated={props.getPaginated}
+							setState={setSuppliers}
+						/>
+						{/* Pagination Links End */}
+					</div>
 				</div>
 			</div>
 		</div>

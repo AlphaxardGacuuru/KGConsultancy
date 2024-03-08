@@ -116,11 +116,11 @@ const AdminMenu = (props) => {
 									<div className="menu-content-area d-flex align-items-center">
 										<div className="d-flex align-items-center justify-content-between">
 											{/* Main Site Link */}
-											<Link
-												to="/"
-												className="btn btn-outline-light rounded-pill mx-2 hidden">
-												Visit Website
-											</Link>
+											<MyLink
+												linkTo="/"
+												text="Visit Website"
+												className="btn btn-outline-light rounded mx-2 hidden"
+											/>
 											{/* Main Site Link End */}
 										</div>
 										<div className="header-social-area d-flex align-items-center">
@@ -255,7 +255,7 @@ const AdminMenu = (props) => {
 								<li className="nav-item">
 									<Link
 										to={`/admin/suppliers`}
-										className={`nav-link ${activeStrict("/admin/suppliers")}`}>
+										className={`nav-link ${active("/admin/suppliers")}`}>
 										<div className="nav-link-icon">
 											<PersonSVG />
 										</div>

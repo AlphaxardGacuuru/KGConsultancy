@@ -201,7 +201,7 @@ class AdminService extends Service
 
                 return [
                     "country" => $country,
-                    "count" => floor($count * 100) / 100,
+                    "count" => number_format($count, 2) . "%",
                 ];
             })->values();
     }

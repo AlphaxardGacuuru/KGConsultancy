@@ -3,7 +3,7 @@ import { Link, useLocation, useHistory, withRouter } from "react-router-dom"
 
 import Btn from "@/components/Core/Btn"
 import Img from "@/components/Core/Img"
-import MyLink from "@/components/Core/MyLink"
+import MyLink2 from "@/components/Core/MyLink2"
 
 import CloseSVG from "@/svgs/CloseSVG"
 import LogoutSVG from "@/svgs/LogoutSVG"
@@ -109,7 +109,7 @@ const SupplierNav = (props) => {
 
 										{/* <!-- Logo Area  --> */}
 										<div className="logo-area">
-											<Link to="/supplier">
+											<Link to={`/supplier/view/${props.auth.id}`}>
 												<LogoSVG />
 											</Link>
 										</div>
@@ -118,11 +118,11 @@ const SupplierNav = (props) => {
 									{/* Top Nav Links Area */}
 									<div className="menu-content-area d-flex align-items-center">
 										<div className="d-flex align-items-center justify-content-between">
-											<Link
-												to="/"
-												className="btn btn-outline-light rounded-pill mx-2 hidden">
-												Visit Website
-											</Link>
+											<MyLink2
+												linkTo="/"
+												text="Visit Website"
+												className="btn btn-outline-light rounded mx-2 hidden"
+											/>
 										</div>
 										<div className="header-social-area d-flex align-items-center">
 											<>
@@ -243,10 +243,10 @@ const SupplierNav = (props) => {
 								{/* Profile Link */}
 								<li className="nav-item">
 									<Link
-										to={`/supplier`}
+										to={`/supplier/view/${props.auth.id}`}
 										className={`nav-link ${
-											activeStrict("/supplier") ||
-											active(/^\/supplier\/\d+\/edit$/)
+											active(/^\/supplier\/view\/\d+$/) ||
+											active(/^\/supplier\/edit\/\d+$/)
 										}`}>
 										<div className="nav-link-icon">
 											<PersonSVG />

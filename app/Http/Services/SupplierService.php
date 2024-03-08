@@ -32,9 +32,9 @@ class SupplierService extends Service
      */
     public function show($id)
     {
-        $user = User::find($id);
+        $supplier = Supplier::find($id);
 
-        return new SupplierResource($user->supplier);
+        return new SupplierResource($supplier);
     }
 
     /*

@@ -3,7 +3,7 @@ import React from "react"
 const Btn = ({ btnStyle, btnClass, btnText, onClick, loading, disabled }) => (
 	<button
 		style={btnStyle}
-		className={`btn rounded-pill text-capitalize ${btnClass}`}
+		className={`btn rounded text-capitalize ${btnClass}`}
 		onClick={onClick}
 		disabled={disabled}>
 		{btnText}

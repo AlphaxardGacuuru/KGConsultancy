@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
-import { useParams } from "react-router-dom/cjs/react-router-dom.min"
+import { useLocation, useParams } from "react-router-dom/cjs/react-router-dom.min"
 
+import Btn from "@/components/core/Btn"
 import Btn2 from "@/components/core/Btn2"
 
 import PlusSVG from "@/svgs/PlusSVG"
@@ -9,6 +10,8 @@ import MinusSVG from "@/svgs/MinusSVG"
 
 const edit = (props) => {
 	const { id } = useParams()
+
+	const location = useLocation()
 
 	const [supplier, setSupplier] = useState({})
 
@@ -35,7 +38,7 @@ const edit = (props) => {
 		// Set Page
 		props.setPage({ name: "Edit Supplier Profile" })
 
-		Axios.get(`/api/suppliers/${id}`).then((res) => {
+		Axios.get(`/api/users/${id}`).then((res) => {
 			setSupplier(res.data.data)
 			setCountriesRegistered(res.data.data.countriesRegistered)
 			setCountriesInOperation(res.data.data.countriesInOperation)
@@ -54,7 +57,7 @@ const edit = (props) => {
 		setLoading(true)
 		e.preventDefault()
 
-		Axios.put(`/api/suppliers/${id}`, {
+		Axios.put(`/api/users/${id}`, {
 			name: name,
 			phone: phone,
 			secondaryPhone: secondaryPhone,
@@ -603,11 +606,19 @@ const edit = (props) => {
 
 						<div className="card-footer">
 							<div className="text-end">
-								<Btn2
-									type="submit"
-									btnText="update account"
-									loading={loading}
-								/>
+								{location.pathname.match("/admin") ? (
+									<Btn
+										type="submit"
+										btnText="update account"
+										loading={loading}
+									/>
+								) : (
+									<Btn2
+										type="submit"
+										btnText="update account"
+										loading={loading}
+									/>
+								)}
 							</div>
 						</div>
 					</form>

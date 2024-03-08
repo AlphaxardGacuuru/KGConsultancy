@@ -13,13 +13,15 @@ import AdminLogin from "@/pages/admin/login"
 import AdminDashboard from "@/pages/admin/index"
 
 import AdminSuppliers from "@/pages/admin/suppliers/index"
+import AdminSupplierView from "@/pages/supplier/profile/[id]"
+import AdminSupplierEdit from "@/pages/supplier/profile/edit/[id]"
+
 // import AdminStaff from "@/pages/admin/staff/index"
 // import AdminStaffCreate from "@/pages/admin/staff/create"
 // import AdminStaffEdit from "@/pages/admin/staff/[id]"
 
-import SupplierLogin from "@/pages/supplier/login"
 import SupplierRegister from "@/pages/supplier/register"
-import Supplier from "@/pages/supplier/index"
+import Supplier from "@/pages/supplier/profile/[id]"
 import SupplierEdit from "@/pages/supplier/profile/edit/[id]"
 
 const RouteList = ({ GLOBAL_STATE }) => {
@@ -30,7 +32,7 @@ const RouteList = ({ GLOBAL_STATE }) => {
 		},
 		{
 			path: "/supplier/login",
-			component: <SupplierLogin {...GLOBAL_STATE} />,
+			component: <AdminLogin {...GLOBAL_STATE} />,
 		},
 		{
 			path: "/supplier/register",
@@ -47,15 +49,23 @@ const RouteList = ({ GLOBAL_STATE }) => {
 			path: "/admin/suppliers",
 			component: <AdminSuppliers {...GLOBAL_STATE} />,
 		},
+		{
+			path: "/admin/suppliers/view/:id",
+			component: <AdminSupplierView {...GLOBAL_STATE} />,
+		},
+		{
+			path: "/admin/suppliers/edit/:id",
+			component: <AdminSupplierEdit {...GLOBAL_STATE} />,
+		},
 	]
 
 	const supplierRoutes = [
 		{
-			path: "/supplier",
+			path: "/supplier/view/:id",
 			component: <Supplier {...GLOBAL_STATE} />,
 		},
 		{
-			path: "/supplier/:id/edit",
+			path: "/supplier/edit/:id",
 			component: <SupplierEdit {...GLOBAL_STATE} />,
 		},
 	]

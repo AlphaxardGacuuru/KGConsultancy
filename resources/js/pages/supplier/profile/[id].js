@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react"
+import {
+	useLocation,
+	useParams,
+} from "react-router-dom/cjs/react-router-dom.min"
 
+import MyLink from "@/components/Core/MyLink"
 import MyLink2 from "@/components/Core/MyLink2"
 import Img from "@/components/Core/Img"
 import ReviewMedia from "@/components/Core/ReviewMedia"
@@ -9,8 +14,15 @@ import TenderSVG from "@/svgs/TenderSVG"
 import ReviewSVG from "@/svgs/ReviewSVG"
 import StarFilledSVG from "@/svgs/StarFilledSVG"
 import StarSVG from "@/svgs/StarSVG"
+import EditSVG from "@/svgs/EditSVG"
 
 const index = (props) => {
+	const { id } = useParams()
+	
+	const location = useLocation()
+
+	const [supplier, setSupplier] = useState({})
+
 	const [tab, setTab] = useState("bids")
 	const [bids, setBids] = useState([])
 	const [tenders, setTenders] = useState([])
@@ -20,9 +32,10 @@ const index = (props) => {
 		// Set page
 		props.setPage({ name: "Supplier Profile" })
 
-		// props.get(`bids/by-user-id/${props.auth.id}`, setBids)
-		// props.get(`tenders/by-user-id/${props.auth.id}`, setTenders)
-		props.get(`reviews/${props.auth.supplierId}`, setReviews)
+		props.get(`users/${id}`, setSupplier)
+		// props.get(`bids/by-user-id/${supplier.id}`, setBids)
+		// props.get(`tenders/by-user-id/${supplier.id}`, setTenders)
+		props.get(`reviews/${id}`, setReviews)
 	}, [])
 
 	const active = (activeTab) => {
@@ -32,6 +45,8 @@ const index = (props) => {
 	const activeTab = (activeTab) => {
 		return activeTab == tab ? "d-block" : "d-none"
 	}
+
+	const color = () => (location.pathname.match("/admin") ? "primary" : "danger")
 
 	/*
 	 * Add rating
@@ -52,40 +67,38 @@ const index = (props) => {
 			<div className="col-sm-4">
 				<div className="my-card shadow mb-2 p-4 text-center">
 					<center>
-						<h4>{props.auth.name}</h4>
-						<h6>{props.auth.phone}</h6>
-						<h6>{props.auth.email}</h6>
+						<h4>{supplier.name}</h4>
+						<h6>{supplier.phone}</h6>
+						<h6>{supplier.email}</h6>
 						<h6>
 							<b className="me-1">Secondary Phone:</b>
-							{props.auth.secondaryPhone}
+							{supplier.secondaryPhone}
 						</h6>
 						<h6>
 							<b className="me-1">WhatsApp Phone:</b>
-							{props.auth.whatsAppPhone}
+							{supplier.whatsAppPhone}
 						</h6>
 						<h6>
 							<b className="me-1">Supplier Name:</b>
-							{props.auth.supplierName}
+							{supplier.supplierName}
 						</h6>
 						<h6>
 							<b className="me-1">Supplier Type:</b>
-							{props.auth.supplierType}
+							{supplier.supplierType}
 						</h6>
 						<h6>
 							<b className="me-1">Countries Registered</b>
-							{props.auth.countriesRegistered?.map(
-								(countriesRegistered, key) => (
-									<div
-										key={key}
-										className="bg-primary-subtle rounded-pill mb-1 px-2 w-50">
-										{countriesRegistered}
-									</div>
-								)
-							)}
+							{supplier.countriesRegistered?.map((countriesRegistered, key) => (
+								<div
+									key={key}
+									className="bg-primary-subtle rounded-pill mb-1 px-2 w-50">
+									{countriesRegistered}
+								</div>
+							))}
 						</h6>
 						<h6>
 							<b className="me-1">Countries In Operation</b>
-							{props.auth.countriesInOperation?.map(
+							{supplier.countriesInOperation?.map(
 								(countriesInOperation, key) => (
 									<div
 										key={key}
@@ -97,11 +110,11 @@ const index = (props) => {
 						</h6>
 						<h6>
 							<b className="me-1">Category:</b>
-							{props.auth.category}
+							{supplier.category}
 						</h6>
 						<h6>
 							<b className="me-1">Directors</b>
-							{props.auth.directors?.map((director, key) => (
+							{supplier.directors?.map((director, key) => (
 								<div
 									key={key}
 									className="bg-primary-subtle rounded-pill mb-1 px-2 w-50">
@@ -111,11 +124,11 @@ const index = (props) => {
 						</h6>
 						<h6>
 							<b className="me-1">Staff:</b>
-							{props.auth.staff}
+							{supplier.staff}
 						</h6>
 						<h6>
 							<b className="me-1">Has Business Registration:</b>
-							{props.auth.hasBusinessRegistration ? (
+							{supplier.hasBusinessRegistration ? (
 								<span className="bg-success-subtle rounded-pill px-2">Yes</span>
 							) : (
 								<span className="bg-danger-subtle rounded-pill px-2">No</span>
@@ -123,7 +136,7 @@ const index = (props) => {
 						</h6>
 						<h6>
 							<b className="me-1">Has Business Permit:</b>
-							{props.auth.hasBusinessPermit ? (
+							{supplier.hasBusinessPermit ? (
 								<span className="bg-success-subtle rounded-pill px-2">Yes</span>
 							) : (
 								<span className="bg-danger-subtle rounded-pill px-2">No</span>
@@ -131,7 +144,7 @@ const index = (props) => {
 						</h6>
 						<h6>
 							<b className="me-1">Has Tax Compliance:</b>
-							{props.auth.hasTaxCompliance ? (
+							{supplier.hasTaxCompliance ? (
 								<span className="bg-success-subtle rounded-pill px-2">Yes</span>
 							) : (
 								<span className="bg-danger-subtle rounded-pill px-2">No</span>
@@ -139,17 +152,25 @@ const index = (props) => {
 						</h6>
 						<h6>
 							<b className="me-1">Has License:</b>
-							{props.auth.hasLicense ? (
+							{supplier.hasLicense ? (
 								<span className="bg-success-subtle rounded-pill px-2">Yes</span>
 							) : (
 								<span className="bg-danger-subtle rounded-pill px-2">No</span>
 							)}
 						</h6>
-						<MyLink2
-							linkTo={`/supplier/${props.auth.id}/edit`}
-							text="edit profile"
-							className="mt-2"
-						/>
+						{location.pathname.match("/admin") ? (
+							<MyLink
+								linkTo={`/admin/suppliers/edit/${supplier.id}`}
+								text={<EditSVG />}
+								className="mt-2"
+							/>
+						) : (
+							<MyLink2
+								linkTo={`/supplier/edit/${supplier.id}`}
+								text={<EditSVG />}
+								className="mt-2"
+							/>
+						)}
 					</center>
 				</div>
 			</div>
@@ -194,7 +215,8 @@ const index = (props) => {
 									<span className="fs-4">{bids.length}</span>
 									<h4>Total Bids</h4>
 								</div>
-								<div className="fs-1 py-3 px-4 bg-danger-subtle text-danger rounded-circle">
+								<div
+									className={`fs-1 py-3 px-4 bg-${color()}-subtle text-${color()} rounded-circle`}>
 									<BidSVG />
 								</div>
 							</div>
@@ -216,7 +238,8 @@ const index = (props) => {
 									<span className="fs-4">{tenders.length}</span>
 									<h4>Total Tenders</h4>
 								</div>
-								<div className="fs-1 py-3 px-4 bg-danger-subtle text-danger rounded-circle">
+								<div
+									className={`fs-1 py-3 px-4 bg-${color()}-subtle text-${color()} rounded-circle`}>
 									<TenderSVG />
 								</div>
 							</div>
@@ -246,8 +269,8 @@ const index = (props) => {
 										{ratings.map((rating, key) => (
 											<span
 												key={key}
-												className="text-danger px-1">
-												{props.auth.rating >= rating ? (
+												className={`text-${color()} px-1`}>
+												{supplier.rating >= rating ? (
 													<span>
 														<StarFilledSVG />
 													</span>
@@ -259,10 +282,11 @@ const index = (props) => {
 											</span>
 										))}
 									</div>
-									<h6 className="text-center">{props.auth.ratings} ratings</h6>
+									<h6 className="text-center">{supplier.ratings} ratings</h6>
 									{/* Rating End */}
 								</div>
-								<div className="fs-1 py-3 px-4 bg-danger-subtle text-danger rounded-circle">
+								<div
+									className={`fs-1 py-3 px-4 bg-${color()}-subtle text-${color()} rounded-circle`}>
 									<ReviewSVG />
 								</div>
 							</div>

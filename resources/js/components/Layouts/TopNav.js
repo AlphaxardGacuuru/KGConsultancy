@@ -10,7 +10,7 @@ import InstagramSVG from "@/svgs/InstagramSVG"
 import FacebookSVG from "@/svgs/FacebookSVG"
 import LogoSVG from "@/svgs/LogoSVG"
 
-const TopNav = () => {
+const TopNav = (props) => {
 	const location = useLocation()
 
 	const [loading, setLoading] = useState(true)
@@ -234,7 +234,7 @@ const TopNav = () => {
 							<li className="nav-item">
 								<Link
 									className="nav-link"
-									to="/supplier"
+									to={`/supplier/view/${props.auth.id}`}
 									style={{
 										opacity: location.pathname == "/supplier/login" ? 1 : 0.4,
 									}}

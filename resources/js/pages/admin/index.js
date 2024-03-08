@@ -352,61 +352,37 @@ const index = (props) => {
 							<table className="table table-hover">
 								<thead>
 									<tr>
-										<th></th>
 										<th>Name</th>
 										<th>Phone</th>
-										<th>Secondary Phone</th>
-										<th>WhatsApp Phone</th>
 										<th>Email</th>
 										<th>Supplier Name</th>
 										<th>SupplierType</th>
-										<th>Countries Registered</th>
-										<th>Countries In Operation</th>
 										<th>Category</th>
-										<th>Directors</th>
 										<th>Staff</th>
-										<th>Has Business Registration</th>
-										<th>Has Business Permit</th>
-										<th>Has Tax Compliance</th>
-										<th>Has License</th>
-										<th>Rating</th>
 										<th>Date Joined</th>
 									</tr>
 								</thead>
 								<tbody>
 									{dashboard.suppliers?.list.map((supplier, key) => (
 										<tr key={key}>
-											<td>
-												<Img
-													src={supplier.avatar}
-													className="rounded-circle"
-													width="25px"
-													height="25px"
-													alt="Avatar"
-												/>
-											</td>
 											<td>{supplier.name}</td>
 											<td>{supplier.phone}</td>
-											<td>{supplier.secondaryPhone}</td>
-											<td>{supplier.whatsAppPhone}</td>
 											<td>{supplier.email}</td>
 											<td>{supplier.supplierName}</td>
 											<td>{supplier.supplierType}</td>
-											<td>{supplier.countriesRegistered}</td>
-											<td>{supplier.countriesInOperation}</td>
-											<td>{supplier.category}</td>
-											<td>{supplier.directors}</td>
+											<td className="text-capitalize">{supplier.category}</td>
 											<td>{supplier.staff}</td>
-											<td>{supplier.hasBusinessRegistration}</td>
-											<td>{supplier.hasBusinessPermit}</td>
-											<td>{supplier.hasTaxCompliance}</td>
-											<td>{supplier.hasLicense}</td>
-											<td>{supplier.rating}</td>
 											<td>{supplier.createdAt}</td>
 										</tr>
 									))}
 								</tbody>
 							</table>
+						</div>
+						<div className="bg-light p-2">
+							<MyLink
+								linkTo="/admin/suppliers"
+								text="view more"
+							/>
 						</div>
 						{/* Recent Suppliers Table End */}
 					</div>

@@ -11,6 +11,7 @@ import DownloadSVG from "@/svgs/DownloadSVG"
 import MenuSVG from "@/svgs/MenuSVG"
 import PersonSVG from "@/svgs/PersonSVG"
 import HomeSVG from "@/svgs/HomeSVG"
+import RoleSVG from "@/svgs/RoleSVG"
 import StaffSVG from "@/svgs/StaffSVG"
 import LogoSVG from "@/svgs/LogoSVG"
 
@@ -263,6 +264,18 @@ const AdminMenu = (props) => {
 									</Link>
 								</li>
 								{/* Suppliers Link End */}
+								{/* Role Link */}
+								<li className="nav-item">
+									<Link
+										to={`/admin/roles`}
+										className={`nav-link ${active("/admin/roles")}`}>
+										<div className="nav-link-icon">
+											<RoleSVG />
+										</div>
+										<div className="nav-link-text">Roles</div>
+									</Link>
+								</li>
+								{/* Role Link End */}
 								{/* Staff Link */}
 								<li className="nav-item">
 									<Link

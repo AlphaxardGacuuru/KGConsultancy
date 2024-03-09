@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\RatingController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -27,10 +29,12 @@ Route::get('auth', [UserController::class, 'auth']);
 Route::apiResources([
     "users" => UserController::class,
     "suppliers" => SupplierController::class,
-	"reviews" => ReviewController::class
+    "ratings" => RatingController::class,
+    "reviews" => ReviewController::class,
+    "roles" => RoleController::class,
 ]);
 
 /*
-* Admin Dashboard
-*/ 
+ * Admin Dashboard
+ */
 Route::get("admin", [AdminController::class, "index"]);

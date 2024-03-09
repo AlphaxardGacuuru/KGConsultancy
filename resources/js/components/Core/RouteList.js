@@ -16,9 +16,13 @@ import AdminSuppliers from "@/pages/admin/suppliers/index"
 import AdminSupplierView from "@/pages/supplier/profile/[id]"
 import AdminSupplierEdit from "@/pages/supplier/profile/edit/[id]"
 
-// import AdminStaff from "@/pages/admin/staff/index"
-// import AdminStaffCreate from "@/pages/admin/staff/create"
-// import AdminStaffEdit from "@/pages/admin/staff/[id]"
+import AdminRole from "@/pages/admin/roles"
+import AdminRoleCreate from "@/pages/admin/roles/create"
+import AdminRoleEdit from "@/pages/admin/roles/edit/[id]"
+
+import AdminStaff from "@/pages/admin/staff/index"
+import AdminStaffCreate from "@/pages/admin/staff/create"
+import AdminStaffEdit from "@/pages/admin/staff/edit/[id]"
 
 import SupplierRegister from "@/pages/supplier/register"
 import Supplier from "@/pages/supplier/profile/[id]"
@@ -56,6 +60,24 @@ const RouteList = ({ GLOBAL_STATE }) => {
 		{
 			path: "/admin/suppliers/edit/:id",
 			component: <AdminSupplierEdit {...GLOBAL_STATE} />,
+		},
+		{ path: "/admin/roles", component: <AdminRole {...GLOBAL_STATE} /> },
+		{
+			path: "/admin/roles/create",
+			component: <AdminRoleCreate {...GLOBAL_STATE} />,
+		},
+		{
+			path: "/admin/roles/edit/:id",
+			component: <AdminRoleEdit {...GLOBAL_STATE} />,
+		},
+		{ path: "/admin/staff", component: <AdminStaff {...GLOBAL_STATE} /> },
+		{
+			path: "/admin/staff/create",
+			component: <AdminStaffCreate {...GLOBAL_STATE} />,
+		},
+		{
+			path: "/admin/staff/edit/:id",
+			component: <AdminStaffEdit {...GLOBAL_STATE} />,
 		},
 	]
 

@@ -5,30 +5,6 @@ import { Link, useHistory } from "react-router-dom"
 import Btn from "@/components/Core/Btn"
 import MyLink from "@/components/Core/MyLink"
 
-// Import React FilePond
-import { FilePond, registerPlugin } from "react-filepond"
-
-// Import FilePond styles
-import "filepond/dist/filepond.min.css"
-
-// Import the Image EXIF Orientation and Image Preview plugins
-// Note: These need to be installed separately
-import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation"
-import FilePondPluginImagePreview from "filepond-plugin-image-preview"
-import FilePondPluginFileValidateType from "filepond-plugin-file-validate-type"
-import FilePondPluginImageCrop from "filepond-plugin-image-crop"
-import FilePondPluginImageTransform from "filepond-plugin-image-transform"
-import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
-
-// Register the plugins
-registerPlugin(
-	FilePondPluginImageExifOrientation,
-	FilePondPluginImagePreview,
-	FilePondPluginFileValidateType,
-	FilePondPluginImageCrop,
-	FilePondPluginImageTransform
-)
-
 const create = (props) => {
 	const router = useHistory()
 
@@ -89,28 +65,6 @@ const create = (props) => {
 					<center>
 						<h1>Create Staff</h1>
 						<br />
-						{/* <label htmlFor="">Profile Pic</label>
-							<div className="avatar-container mb-4">
-							<FilePond
-								name="filepond-avatar"
-								labelIdle='Drag & Drop your Image or <span class="filepond--label-action text-dark"> Browse </span>'
-								stylePanelLayout="compact circle"
-								imageCropAspectRatio="1:1"
-								acceptedFileTypes={["image/*"]}
-								stylePanelAspectRatio="1:1"
-								allowRevert={false}
-								server={{
-									url: `/api/filepond/admins`,
-									process: {
-										url: `/avatar`,
-										onload: (res) => {
-											props.setMessages([JSON.parse(res).message])
-										},
-										onerror: (err) => console.log(err.response),
-									},
-								}}
-							/>
-						</div> */}
 
 						<form onSubmit={onSubmit}>
 							{/* Name */}

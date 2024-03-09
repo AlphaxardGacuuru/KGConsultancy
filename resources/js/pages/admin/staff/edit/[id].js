@@ -1,174 +1,176 @@
 import React, { useEffect, useState } from "react"
 // import Axios from "axios"
-import { Link, useHistory, useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 import Btn from "@/components/Core/Btn"
 import MyLink from "@/components/Core/MyLink"
 
 const edit = (props) => {
-	const { id } = useParams()
-	const router = useHistory()
+	var { id } = useParams()
 
-	const [admin, setAdmin] = useState({})
-
-	// Declare states
-	const [roles, setRoles] = useState([])
-	const [userRoles, setUserRoles] = useState([])
+	const [staff, setStaff] = useState({})
 	const [name, setName] = useState("")
-	const [email, setEmail] = useState("")
 	const [phone, setPhone] = useState("")
-	const [btnLoading, setBtnLoading] = useState()
+	const [email, setEmail] = useState("")
+	const [roleId, setRoleId] = useState("")
+	const [roles, setRoles] = useState([])
+	const [loading, setLoading] = useState()
 
 	useEffect(() => {
-		Axios.get(`api/admin/admins/${id}`, setAdmin).then((res) => {
-			setAdmin(res.data.data)
-			setUserRoles(res.data.data.roles.map((role) => role.id))
-		})
+		// Set page
+		props.setPage({ name: "Edit Staff", path: ["staff"] })
+		props.get(`users/${id}`, setStaff)
+		props.get("roles", setRoles)
 	}, [])
-	useEffect(() => props.get("admin/roles", setRoles), [])
-
-	// Handle Permission checkboxes
-	const handleSetUserRoles = (roleId) => {
-		var exists = userRoles.includes(roleId)
-
-		var newRoles = exists
-			? userRoles.filter((item) => item != roleId)
-			: [...userRoles, roleId]
-
-		setUserRoles(newRoles)
-	}
 
 	const onSubmit = (e) => {
 		e.preventDefault()
 
 		// Show loader for button
-		setBtnLoading(true)
+		setLoading(true)
 
 		// Send data to UsersController
-		Axios.post(`/api/admin/admins/${id}`, {
+		Axios.post(`/api/staff/${id}`, {
 			name: name,
-			email: email,
 			phone: phone,
-			userRoles: userRoles,
+			email: email,
+			roleId: roleId,
 			_method: "PUT",
 		})
 			.then((res) => {
 				// Remove loader for button
-				setBtnLoading(false)
+				setLoading(false)
 				props.setMessages([res.data.message])
-				// Fetch Admin
-				props.get(`admin/admins/${id}`, setAdmin)
+				// Window location reload
+				window.location.reload()
 			})
 			.catch((err) => {
 				// Remove loader for button
-				setBtnLoading(false)
+				setLoading(false)
 				props.getErrors(err)
 			})
 	}
 
 	return (
-		<div className="row px-4">
-			<div className="col-sm-12">
-				{/* Profile Pic Form */}
-				<br />
-				<div className="form-group">
-					<center>
-						<h1>Edit Staff</h1>
-						<br />
-
-						<form onSubmit={onSubmit}>
+		<div className="row">
+			<div className="col-sm-2"></div>
+			<div className="col-sm-8">
+				<div className="card">
+					<div className="card-header">Staff Details</div>
+					<form onSubmit={onSubmit}>
+						<div className="card-body">
 							{/* Name */}
-							<label
-								htmlFor=""
-								className="float-start">
-								Name
-							</label>
-							<input
-								type="text"
-								name="firstname"
-								className="form-control"
-								placeholder={admin.name}
-								onChange={(e) => setName(e.target.value)}
-							/>
-							{/* Name End */}
-							<br />
-							{/* Email */}
-							<label
-								htmlFor=""
-								className="float-start">
-								Email
-							</label>
-							<input
-								type="text"
-								name="email"
-								className="form-control"
-								placeholder={admin.email}
-								onChange={(e) => setEmail(e.target.value)}
-							/>
-							{/* Email End */}
-							<br />
-							{/* Phone */}
-							<label
-								htmlFor=""
-								className="float-start">
-								Phone
-							</label>
-							<input
-								type="tel"
-								name="phone"
-								className="form-control"
-								placeholder={admin.phone}
-								onChange={(e) => setPhone(e.target.value)}
-							/>
-							{/* Phone End */}
-							<br />
-							{/* Roles */}
-							<div className="form-group">
-								<label htmlFor="">Roles</label>
-								<div className="d-flex justify-content-center flex-wrap">
-									{roles.map((role, key) => (
-										<div
-											key={key}
-											className="border-bottom m-1 p-2">
-											<label key={key}>
-												<input
-													type="checkbox"
-													id=""
-													name="entities"
-													defaultChecked={admin.roleNames.includes(role.name)}
-													onClick={(e) => handleSetUserRoles(role.id)}
-												/>
-												<span className="text-capitalize me-2">
-													{" "}
-													{role.name}
-												</span>
-											</label>
-										</div>
-									))}
+							<div className="row mb-3">
+								<label
+									htmlFor="name"
+									className="col-md-4 col-form-label text-md-end">
+									Name
+								</label>
+
+								<div className="col-md-6">
+									<input
+										id="name"
+										type="text"
+										className="form-control"
+										name="name"
+										autoComplete="name"
+										autoFocus={true}
+										defaultValue={staff.name}
+										onChange={(e) => setName(e.target.value)}
+									/>
 								</div>
 							</div>
-							{/* Roles End */}
+							{/* Name End */}
 
-							<br />
-							<Btn
-								type="submit"
-								btnText="save changes"
-								loading={btnLoading}
-							/>
-							<br />
-							<br />
-							<MyLink
-								linkTo="/admin/staff"
-								text="back to admins"
-							/>
-						</form>
+							{/* Phone */}
+							<div className="row mb-3">
+								<label
+									htmlFor="phone"
+									className="col-md-4 col-form-label text-md-end">
+									Phone
+								</label>
 
-						<br />
-						<br />
-						<br />
-					</center>
+								<div className="col-md-6">
+									<input
+										id="phone"
+										type="text"
+										className="form-control"
+										name="phone"
+										autoComplete="Phone"
+										autoFocus={true}
+										defaultValue={staff.phone}
+										onChange={(e) => setPhone(e.target.value)}
+									/>
+								</div>
+							</div>
+							{/* Phone End */}
+
+							{/* Email */}
+							<div className="row mb-3">
+								<label
+									htmlFor="email"
+									className="col-md-4 col-form-label text-md-end">
+									Email
+								</label>
+
+								<div className="col-md-6">
+									<input
+										id="email"
+										type="text"
+										className="form-control"
+										name="email"
+										autoComplete="Email"
+										autoFocus={true}
+										defaultValue={staff.email}
+										onChange={(e) => setEmail(e.target.value)}
+									/>
+								</div>
+							</div>
+							{/* Email End */}
+
+							{/* Role */}
+							<div className="row mb-3">
+								<label
+									htmlFor="role"
+									className="col-md-4 col-form-label text-md-end">
+									Role
+								</label>
+
+								<div className="col-md-6">
+									<select
+										id="role"
+										name="role"
+										className="form-control"
+										onChange={(e) => setRoleId(e.target.value)}>
+										<option value="">Select Role</option>
+										{roles.map((role, key) => (
+											<option
+												key={key}
+												value={role.id}
+												className="text-capitalize"
+												selected={role.id == staff.roleId}>
+												{role.name}
+											</option>
+										))}
+									</select>
+								</div>
+							</div>
+							{/* Role End */}
+						</div>
+
+						<div className="card-footer">
+							<div className="text-end">
+								<Btn
+									type="submit"
+									btnText="update staff"
+									loading={loading}
+								/>
+							</div>
+						</div>
+					</form>
 				</div>
 			</div>
+			<div className="col-sm-2"></div>
 		</div>
 	)
 }

@@ -3,26 +3,33 @@ import React, { useState, useEffect } from "react"
 import Btn from "@/components/Core/Btn"
 import MyLink from "@/components/Core/MyLink"
 
+import PlusSVG from "@/svgs/PlusSVG"
+import EditSVG from "@/svgs/EditSVG"
+
 const index = (props) => {
-	const [admins, setAdmins] = useState([])
+	const [staff, setStaff] = useState([])
 	const [loading, setLoading] = useState()
 
-	useEffect(() => props.get("admin/admins", setAdmins), [])
+	useEffect(() => {
+		// Set page
+		props.setPage({ name: "Staff", path: ["staff"] })
+		props.get("staff", setStaff)
+	}, [])
 
 	/*
 	 * Delete
 	 */
-	const onDelete = (adminId) => {
+	const onDelete = (staffId) => {
 		// Toggle loader
 		setLoading(true)
 
-		Axios.delete(`api/admin/admins/${adminId}`)
+		Axios.delete(`api/users/${staffId}`)
 			.then((res) => {
 				props.setMessages([res.data.message])
 				// Toggle loader
 				setLoading(true)
 				// Delete rows
-				setAdmins(admins.filter((admin) => admin.id != adminId))
+				setStaff(staff.filter((staff) => staff.id != staffId))
 			})
 			.catch((err) => {
 				// Toggle loader
@@ -34,56 +41,57 @@ const index = (props) => {
 	return (
 		<div className="row px-4">
 			<div className="col-sm-12">
-				<h1>Staff</h1>
-
-				<div className="d-flex justify-content-end mb-2">
-					{/* Create Link */}
-					<MyLink
-						linkTo="/admin/staff/create"
-						text="create"
-					/>
-				</div>
-				{/* Create Link End */}
+				{/* Staff */}
 				<div
-					className="hidden-scroll p-4"
+					className="hidden-scroll p-4 shadow-sm"
 					style={{ backgroundColor: "#FFF" }}>
 					<table className="table table-hover">
 						<thead>
 							<tr>
+								<td
+									colSpan="5"
+									className="bg-white"></td>
+								<td className="text-end bg-white">
+									{/* Create Link */}
+									<MyLink
+										linkTo="/admin/staff/create"
+										icons={<PlusSVG />}
+										text="create"
+									/>
+								</td>
+							</tr>
+							<tr>
 								<th>#</th>
 								<th>Name</th>
+								<th>Phone</th>
 								<th>Email</th>
-								<th>Roles</th>
+								<th>Role</th>
 								<th>Action</th>
 							</tr>
 						</thead>
-						<tbody>
-							{admins.map((admin, key) => (
+						<tbody className="table-group-divider">
+							{staff.map((staff, key) => (
 								<tr key={key}>
 									<td>{key + 1}</td>
-									<td>{admin.name}</td>
-									<td>{admin.email}</td>
-									<td>
-										{admin.roleNames.map((role, key) => (
-											<span key={key}>| {role}</span>
-										))}
-									</td>
+									<td>{staff.name}</td>
+									<td>{staff.phone}</td>
+									<td>{staff.email}</td>
+									<td>{staff.role}</td>
 									<td>
 										<div className="d-flex">
 											<div className="me-1">
-												{/* Edit Link */}
 												<MyLink
-													className="btn-sm"
-													linkTo={`/admin/staff/edit/${admin.id}`}
+													linkTo={`/admin/staff/edit/${staff.id}`}
+													icon={<EditSVG />}
 													text="edit"
+													className="btn-sm"
 												/>
-												{/* Edit Link End */}
 											</div>
 											<div className="mx-1">
 												{/* Confirm Delete Modal End */}
 												<div
 													className="modal fade"
-													id={`deleteModal${key}`}
+													id={`deleteModal${staff.id}`}
 													tabIndex="-1"
 													aria-labelledby="deleteModalLabel"
 													aria-hidden="true">
@@ -93,7 +101,7 @@ const index = (props) => {
 																<h1
 																	id="deleteModalLabel"
 																	className="modal-title fs-5 text-danger">
-																	Delete User
+																	Delete Staff
 																</h1>
 																<button
 																	type="button"
@@ -101,9 +109,9 @@ const index = (props) => {
 																	data-bs-dismiss="modal"
 																	aria-label="Close"></button>
 															</div>
-															<div className="modal-body">
-																Are you sure you want to delete {admin.name} the
-																user. This process is irreversible.
+															<div className="modal-body text-wrap">
+																Are you sure you want to delete {staff.name}.
+																This process is irreversible.
 															</div>
 															<div className="modal-footer justify-content-between">
 																<button
@@ -116,7 +124,7 @@ const index = (props) => {
 																	type="button"
 																	className="btn btn-danger  text-white"
 																	data-bs-dismiss="modal"
-																	onClick={() => onDelete(admin.id)}>
+																	onClick={(e) => onDelete(staff.id)}>
 																	DELETE
 																</button>
 															</div>
@@ -130,7 +138,7 @@ const index = (props) => {
 													type="button"
 													className="btn btn-sm btn-danger  text-white"
 													data-bs-toggle="modal"
-													data-bs-target={`#deleteModal${key}`}>
+													data-bs-target={`#deleteModal${staff.id}`}>
 													DELETE
 												</button>
 											</div>
@@ -141,6 +149,7 @@ const index = (props) => {
 						</tbody>
 					</table>
 				</div>
+				{/* Staff Area End */}
 			</div>
 		</div>
 	)

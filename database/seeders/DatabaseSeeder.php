@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             SupplierSeeder::class,
             RatingSeeder::class,
             ReviewSeeder::class,
+            RoleSeeder::class,
+            UserRoleSeeder::class,
         ]);
     }
 }

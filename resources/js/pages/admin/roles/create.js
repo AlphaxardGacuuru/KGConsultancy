@@ -19,7 +19,7 @@ const create = (props) => {
 	const [permissions, setPermissions] = useState([])
 	const [loading, setLoading] = useState()
 
-	var entities = ["suppliers", "staff", "role"]
+	var entities = ["suppliers", "staff", "roles"]
 
 	var CRUD = ["create", "read", "update", "delete"]
 
@@ -49,7 +49,7 @@ const create = (props) => {
 				setLoading(false)
 				props.setMessages([res.data.message])
 				// Redirect
-				setTimeout(() => router.push("/admin/role"), 500)
+				setTimeout(() => router.push("/admin/roles"), 500)
 			})
 			.catch((err) => {
 				// Remove loader for button
@@ -63,7 +63,7 @@ const create = (props) => {
 			<div className="col-sm-2"></div>
 			<div className="col-sm-8">
 				<div className="card">
-					<div className="card-header">Supplier Details</div>
+					<div className="card-header">Role Details</div>
 					<form onSubmit={onSubmit}>
 						<div className="card-body">
 							{/* Name */}

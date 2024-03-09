@@ -27,7 +27,7 @@ const edit = (props) => {
 			.catch((err) => props.getErrors(err))
 	}, [])
 
-	var entities = ["suppliers", "staff", "role"]
+	var entities = ["suppliers", "staff", "roles"]
 
 	var CRUD = ["create", "read", "update", "delete"]
 
@@ -74,7 +74,7 @@ const edit = (props) => {
 			<div className="col-sm-2"></div>
 			<div className="col-sm-8">
 				<div className="card">
-					<div className="card-header">Supplier Details</div>
+					<div className="card-header">Role Details</div>
 					<form onSubmit={onSubmit}>
 						<div className="card-body">
 							{/* Name */}

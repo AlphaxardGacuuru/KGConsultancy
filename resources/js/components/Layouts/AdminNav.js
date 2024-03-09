@@ -15,7 +15,7 @@ import RoleSVG from "@/svgs/RoleSVG"
 import StaffSVG from "@/svgs/StaffSVG"
 import LogoSVG from "@/svgs/LogoSVG"
 
-const AdminMenu = (props) => {
+const AdminNav = (props) => {
 	const location = useLocation()
 	const router = useHistory()
 
@@ -180,6 +180,9 @@ const AdminMenu = (props) => {
 																	<p className="text-wrap text-capitalize text-primary">
 																		{props.auth?.accountType}
 																	</p>
+																	<p className="text-wrap text-capitalize text-primary">
+																		{props.auth?.role}
+																	</p>
 																</div>
 															</div>
 														</Link>
@@ -253,40 +256,52 @@ const AdminMenu = (props) => {
 								</li>
 								{/* Dashboard Link End */}
 								{/* Suppliers Link */}
-								<li className="nav-item">
-									<Link
-										to={`/admin/suppliers`}
-										className={`nav-link ${active("/admin/suppliers")}`}>
-										<div className="nav-link-icon">
-											<PersonSVG />
-										</div>
-										<div className="nav-link-text">Suppliers</div>
-									</Link>
-								</li>
+								{props.auth.permissions?.find((permission) =>
+									permission.match("suppliers")
+								) && (
+									<li className="nav-item">
+										<Link
+											to={`/admin/suppliers`}
+											className={`nav-link ${active("/admin/suppliers")}`}>
+											<div className="nav-link-icon">
+												<PersonSVG />
+											</div>
+											<div className="nav-link-text">Suppliers</div>
+										</Link>
+									</li>
+								)}
 								{/* Suppliers Link End */}
 								{/* Role Link */}
-								<li className="nav-item">
-									<Link
-										to={`/admin/roles`}
-										className={`nav-link ${active("/admin/roles")}`}>
-										<div className="nav-link-icon">
-											<RoleSVG />
-										</div>
-										<div className="nav-link-text">Roles</div>
-									</Link>
-								</li>
+								{props.auth.permissions?.find((permission) =>
+									permission.match("roles")
+								) && (
+									<li className="nav-item">
+										<Link
+											to={`/admin/roles`}
+											className={`nav-link ${active("/admin/roles")}`}>
+											<div className="nav-link-icon">
+												<RoleSVG />
+											</div>
+											<div className="nav-link-text">Roles</div>
+										</Link>
+									</li>
+								)}
 								{/* Role Link End */}
 								{/* Staff Link */}
-								<li className="nav-item">
-									<Link
-										to={`/admin/staff`}
-										className={`nav-link ${activeStrict("/admin/staff")}`}>
-										<div className="nav-link-icon">
-											<StaffSVG />
-										</div>
-										<div className="nav-link-text">Staff</div>
-									</Link>
-								</li>
+								{props.auth.permissions?.find((permission) =>
+									permission.match("staff")
+								) && (
+									<li className="nav-item">
+										<Link
+											to={`/admin/staff`}
+											className={`nav-link ${active("/admin/staff")}`}>
+											<div className="nav-link-icon">
+												<StaffSVG />
+											</div>
+											<div className="nav-link-text">Staff</div>
+										</Link>
+									</li>
+								)}
 								{/* Staff Link End */}
 							</ul>
 						</nav>
@@ -378,4 +393,4 @@ const AdminMenu = (props) => {
 	)
 }
 
-export default withRouter(AdminMenu)
+export default withRouter(AdminNav)

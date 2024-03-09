@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Services\UserService;
-use Illuminate\Validation\Rules\Password;
+use App\Http\Services\StaffService;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules\Password;
 
-class UserController extends Controller
+class StaffController extends Controller
 {
-    public function __construct(protected UserService $service)
+    public function __construct(protected StaffService $service)
     {
         //
     }
@@ -31,7 +31,20 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            "name" => "required|string|unique:roles",
+            'phone' => 'required|string|unique:users|min:10|max:13',
+            'email' => 'required|string|email|max:255|unique:users',
+            "roleId" => "required|integer",
+        ]);
+
+        [$saved, $message, $role] = $this->service->store($request);
+
+        return response([
+            "status" => $saved,
+            "message" => $message,
+            "data" => $role,
+        ], 200);
     }
 
     /**
@@ -57,16 +70,8 @@ class UserController extends Controller
         $this->validate($request, [
             'name' => 'nullable|string|max:255',
             'phone' => 'nullable|string|min:10|max:13',
-            'secondaryPhone' => 'nullable|string|min:10|max:13',
-            'whatsAppPhone' => 'nullable|string|min:10|max:13',
             'password' => ['nullable', 'confirmed', Password::defaults()],
-            'supplerName' => 'nullable|string|max:255',
-            'supplierType' => 'nullable|string|max:255',
-            'countriesRegistered' => 'nullable|array|max:255',
-            'countriesInOperation' => 'nullable|array|max:255',
-            'category' => 'nullable|string|max:255',
-            'staff' => 'nullable|integer|max:255',
-            'directors' => 'nullable|array|max:255',
+            "roleId" => "required|integer",
         ]);
 
         [$saved, $message, $supplier] = $this->service->update($request, $id);
@@ -86,20 +91,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        [$deleted, $message, $role] = $this->service->destroy($id);
-
-        return response([
-            "status" => $deleted,
-            "message" => $message,
-            "data" => $role,
-        ], 200);
-    }
-
-    /*
-     * Get the Auth User
-     */
-    public function auth()
-    {
-        return $this->service->auth();
+        //
     }
 }

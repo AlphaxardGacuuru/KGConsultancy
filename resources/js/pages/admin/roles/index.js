@@ -74,7 +74,7 @@ const index = (props) => {
 									<td>{key + 1}</td>
 									<td>{role.name}</td>
 									<td className="text-wrap">{role.description}</td>
-									<td>
+									<td className="d-flex flex-wrap">
 										{role.permissions?.map((permissions, key) => (
 											<span
 												key={key}

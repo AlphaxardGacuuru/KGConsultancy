@@ -14,17 +14,17 @@ class SupplierService extends Service
     public function index($request)
     {
         if ($request->filled("idAndName")) {
-            $instructors = Supplier::orderBy("id", "DESC")
+            $staff = Supplier::orderBy("id", "DESC")
                 ->get();
 
             return response([
-                "data" => $instructors,
+                "data" => $staff,
             ], 200);
         }
 
-        $instructors = Supplier::orderBy("id", "DESC")->paginate(20);
+        $staff = Supplier::orderBy("id", "DESC")->paginate(20);
 
-        return SupplierResource::collection($instructors);
+        return SupplierResource::collection($staff);
     }
 
     /*

@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\StaffController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -32,6 +33,7 @@ Route::apiResources([
     "ratings" => RatingController::class,
     "reviews" => ReviewController::class,
     "roles" => RoleController::class,
+    "staff" => StaffController::class,
 ]);
 
 /*

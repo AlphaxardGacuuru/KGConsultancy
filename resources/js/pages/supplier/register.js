@@ -35,7 +35,7 @@ const register = (props) => {
 		if (props.auth.name != "Guest") {
 			// Handle Redirects
 			if (props.auth.accountType == "supplier") {
-				router.push("/supplier")
+				router.push(`/supplier/view/${props.auth.id}`)
 			} else {
 				router.push("/admin")
 			}
@@ -78,7 +78,7 @@ const register = (props) => {
 		})
 			.then((res) => {
 				setLoading(false)
-				props.setMessages(["Account Updated"])
+				props.setMessages(["Account Created"])
 				// Encrypt and Save Sanctum Token to Local Storage
 				props.setLocalStorage("sanctumToken", encryptedToken(res.data.data))
 				// Update Logged in user
@@ -90,7 +90,10 @@ const register = (props) => {
 						props.setLocalStorage("auth", res.data.data)
 						window.location.reload()
 						// Redirect to Home
-						setTimeout(() => router.push("/supplier"), 500)
+						setTimeout(
+							() => router.push(`/supplier/view/${res.data.data.id}`),
+							500
+						)
 					})
 					.catch((err) => props.getErrors(err, false))
 			})

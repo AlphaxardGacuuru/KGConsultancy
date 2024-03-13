@@ -19,7 +19,7 @@ const create = (props) => {
 	const [permissions, setPermissions] = useState([])
 	const [loading, setLoading] = useState()
 
-	var entities = ["suppliers", "staff", "roles"]
+	var entities = ["suppliers", "staff", "roles", "chats"]
 
 	var CRUD = ["create", "read", "update", "delete"]
 

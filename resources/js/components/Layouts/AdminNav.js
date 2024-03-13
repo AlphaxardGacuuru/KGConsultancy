@@ -14,6 +14,7 @@ import HomeSVG from "@/svgs/HomeSVG"
 import RoleSVG from "@/svgs/RoleSVG"
 import StaffSVG from "@/svgs/StaffSVG"
 import LogoSVG from "@/svgs/LogoSVG"
+import ChatSVG from "@/svgs/ChatSVG"
 
 const AdminNav = (props) => {
 	const location = useLocation()
@@ -303,6 +304,22 @@ const AdminNav = (props) => {
 									</li>
 								)}
 								{/* Staff Link End */}
+								{/* Chats Link */}
+								{props.auth.permissions?.find((permission) =>
+									permission.match("chats")
+								) && (
+									<li className="nav-item">
+										<Link
+											to={`/admin/chats`}
+											className={`nav-link ${active("/admin/chats")}`}>
+											<div className="nav-link-icon">
+												<ChatSVG />
+											</div>
+											<div className="nav-link-text">Chats</div>
+										</Link>
+									</li>
+								)}
+								{/* Chats Link End */}
 							</ul>
 						</nav>
 					</div>

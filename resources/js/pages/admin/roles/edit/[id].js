@@ -27,7 +27,7 @@ const edit = (props) => {
 			.catch((err) => props.getErrors(err))
 	}, [])
 
-	var entities = ["suppliers", "staff", "roles"]
+	var entities = ["suppliers", "staff", "roles", "chats"]
 
 	var CRUD = ["create", "read", "update", "delete"]
 

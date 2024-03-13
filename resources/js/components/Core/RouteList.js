@@ -24,9 +24,17 @@ import AdminStaff from "@/pages/admin/staff/index"
 import AdminStaffCreate from "@/pages/admin/staff/create"
 import AdminStaffEdit from "@/pages/admin/staff/edit/[id]"
 
+import AdminChat from "@/pages/admin/chats/index"
+import AdminChatNew from "@/pages/admin/chats/new"
+import AdminChatView from "@/pages/admin/chats/[id]"
+
 import SupplierRegister from "@/pages/supplier/register"
 import Supplier from "@/pages/supplier/profile/[id]"
 import SupplierEdit from "@/pages/supplier/profile/edit/[id]"
+
+import SupplierChat from "@/pages/admin/chats/index"
+import SupplierChatNew from "@/pages/admin/chats/new"
+import SupplierChatView from "@/pages/admin/chats/[id]"
 
 const RouteList = ({ GLOBAL_STATE }) => {
 	const authRoutes = [
@@ -79,6 +87,18 @@ const RouteList = ({ GLOBAL_STATE }) => {
 			path: "/admin/staff/edit/:id",
 			component: <AdminStaffEdit {...GLOBAL_STATE} />,
 		},
+		{
+			path: "/admin/chats",
+			component: <AdminChat {...GLOBAL_STATE} />,
+		},
+		{
+			path: "/admin/chats/new",
+			component: <AdminChatNew {...GLOBAL_STATE} />,
+		},
+		{
+			path: "/admin/chats/[id]",
+			component: <AdminChatView {...GLOBAL_STATE} />,
+		},
 	]
 
 	const supplierRoutes = [
@@ -89,6 +109,18 @@ const RouteList = ({ GLOBAL_STATE }) => {
 		{
 			path: "/supplier/edit/:id",
 			component: <SupplierEdit {...GLOBAL_STATE} />,
+		},
+		{
+			path: "/supplier/chats",
+			component: <SupplierChat {...GLOBAL_STATE} />,
+		},
+		{
+			path: "/supplier/chats/new",
+			component: <SupplierChatNew {...GLOBAL_STATE} />,
+		},
+		{
+			path: "/supplier/chats/[id]",
+			component: <SupplierChatView {...GLOBAL_STATE} />,
 		},
 	]
 

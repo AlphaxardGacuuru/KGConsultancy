@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\RoleController;
@@ -34,6 +35,7 @@ Route::apiResources([
     "reviews" => ReviewController::class,
     "roles" => RoleController::class,
     "staff" => StaffController::class,
+    "chats" => ChatController::class,
 ]);
 
 /*

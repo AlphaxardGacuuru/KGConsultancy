@@ -12,6 +12,7 @@ import MenuSVG from "@/svgs/MenuSVG"
 import PersonSVG from "@/svgs/PersonSVG"
 import ChevronRightSVG from "@/svgs/ChevronRightSVG"
 import LogoSVG from "@/svgs/LogoSVG"
+import ChatSVG from "@/svgs/ChatSVG"
 
 const SupplierNav = (props) => {
 	const location = useLocation()
@@ -255,6 +256,18 @@ const SupplierNav = (props) => {
 									</Link>
 								</li>
 								{/* Profile Link End */}
+								{/* Chats Link */}
+								<li className="nav-item">
+									<Link
+										to={`/supplier/chats`}
+										className={`nav-link ${active("chats")}`}>
+										<div className="nav-link-icon">
+											<ChatSVG />
+										</div>
+										<div className="nav-link-text">Chats</div>
+									</Link>
+								</li>
+								{/* Chats Link End */}
 							</ul>
 						</nav>
 					</div>

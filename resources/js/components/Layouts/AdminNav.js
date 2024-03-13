@@ -178,10 +178,10 @@ const AdminNav = (props) => {
 																	<h6 className="text-wrap fs-6">
 																		{props.auth?.name}
 																	</h6>
-																	<p className="text-wrap text-capitalize text-primary">
+																	<p className="text-wrap text-capitalize text-primary mb-0">
 																		{props.auth?.accountType}
 																	</p>
-																	<p className="text-wrap text-capitalize text-primary">
+																	<p className="text-wrap text-capitalize text-primary mb-0">
 																		{props.auth?.role}
 																	</p>
 																</div>

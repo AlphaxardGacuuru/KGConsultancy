@@ -85,7 +85,7 @@ const SocialMediaInput = (props) => {
 	return (
 		<form
 			onSubmit={onSubmit}
-			className="mycontact-form bg-white"
+			className="my-card form-control bg-white mx-auto col-lg-6"
 			autoComplete="off">
 			<center>
 				<div className="d-flex p-1">
@@ -123,10 +123,7 @@ const SocialMediaInput = (props) => {
 							className={`fs-5 ${showEmojiPicker && "text-primary"}`}
 							style={{ cursor: "pointer" }}
 							onClick={() => {
-								if (!attachment) {
-									setShowEmojiPicker(!showEmojiPicker)
-									setShowAttachmentPicker(true && false)
-								}
+								setShowEmojiPicker(!showEmojiPicker)
 							}}>
 							<EmojiSVG />
 						</div>

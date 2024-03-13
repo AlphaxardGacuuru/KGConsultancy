@@ -1,117 +1,106 @@
 import React, { useState, useRef, useEffect } from "react"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom/cjs/react-router-dom.min"
 
 import Img from "@/components/Core/Img"
 import BackSVG from "@/svgs/BackSVG"
 
 export default function NewChat(props) {
+	const location = useLocation()
+
 	const [search, setSearch] = useState("")
+	const [suppliers, setSuppliers] = useState([])
 
 	const searchInput = useRef(null)
 
 	setTimeout(() => searchInput.current.focus(), 100)
 
 	useEffect(() => {
-		props.get("users", props.setUsers)
+		// Set page
+		props.setPage({ name: "New Chat", path: ["chats"] })
+		props.get("suppliers", setSuppliers)
 	}, [])
-
-	// Get user results
-	var userResults = props.users
-		.filter((user) => user.username != props.auth.username)
-		.filter((user) => user.username.match(search) || user.name.match(search))
 
 	return (
 		<div className="row">
-			<div className="col-sm-4"></div>
-			<div className="col-sm-4">
-				{/* <!-- ***** Header Area Start ***** --> */}
-				<header
-					style={{ backgroundColor: "#232323" }}
-					className="header-area">
-					<div className="d-flex p-2">
-						<div className="pt-3">
-							<Link to="/chat">
-								<BackSVG />
-							</Link>
+			<div className="col-sm-2"></div>
+			<div className="col-sm-8">
+				<div className="my-card shadow mb-4 p-4">
+					<div className="d-flex flex-wrap">
+						{/* Name */}
+						<div className="flex-grow-1 me-2 mb-2">
+							<input
+								ref={searchInput}
+								type="text"
+								name="name"
+								placeholder="Search by Name or Email"
+								className="form-control"
+								onChange={(e) => {
+									var regex = new RegExp(e.target.value, "gi")
+									setSearch(regex)
+								}}
+							/>
 						</div>
-						<div className="flex-grow-1">
-							{/* <!-- Contact form --> */}
-							<div className="mycontact-form">
-								<input
-									ref={searchInput}
-									className="my-form"
-									placeholder="Select user"
-									style={{ width: "100%" }}
-									onChange={(e) => {
-										var regex = new RegExp(e.target.value, "gi")
-										setSearch(regex)
-									}}
-								/>
-							</div>
-						</div>
+						{/* Name End */}
 					</div>
-				</header>
-				<br />
-				<br />
-				<br />
-				<br />
+				</div>
 
 				{/* <!-- ****** Artists Area Start ****** --> */}
 				<div className="hidden-scroll">
-					{userResults.map((user, key) => (
-						<div
-							key={key}
-							className="d-flex">
-							<div className="p-1">
-								<Link to={`/chat/${user.username}`}>
-									<Img
-										src={user.avatar}
-										className="rounded-circle"
-										width="50px"
-										height="50px"
-									/>
-								</Link>
-							</div>
+					{suppliers
+						.filter((supplier) => {
+							return (
+								supplier.name.toLowerCase().match(search) ||
+								supplier.email.match(search)
+							)
+						})
+						.map((supplier, key) => (
 							<div
-								className="p-2 flex-grow-1"
-								style={{ width: "65%" }}>
-								<Link to={`/chat/show/${user.username}`}>
-									<h6
-										className="m-0"
-										style={{
-											width: "100%",
-											whiteSpace: "nowrap",
-											overflow: "hidden",
-											textOverflow: "clip",
-										}}>
-										<b>{user.name}</b>
-										<small>{user.username}</small>
-									</h6>
-									<p
-										className="m-0"
-										style={{
-											width: "100%",
-											whiteSpace: "nowrap",
-											overflow: "hidden",
-											textOverflow: "clip",
-											margin: 0,
-										}}>
-										{user.bio}
-									</p>
-								</Link>
+								key={key}
+								className="my-card d-flex m-2 p-2">
+								<div className="p-1">
+									<Link
+										to={
+											location.pathname.match("admin")
+												? `/admin/chats/view/${supplier.id}`
+												: `/supplier/chats/view/${supplier.id}`
+										}>
+										<Img
+											src={supplier.avatar}
+											className="rounded-circle"
+											width="50px"
+											height="50px"
+										/>
+									</Link>
+								</div>
+								<div
+									className="p-2 flex-grow-1"
+									style={{ width: "65%" }}>
+									<Link
+										to={
+											location.pathname.match("admin")
+												? `/admin/chats/view/${supplier.id}`
+												: `/supplier/chats/view/${supplier.id}`
+										}>
+										<h6
+											className="m-0"
+											style={{
+												width: "100%",
+												whiteSpace: "nowrap",
+												overflow: "hidden",
+												textOverflow: "clip",
+											}}>
+											<b>{supplier.name}</b>
+											<p className="mb-0">{supplier.email}</p>
+										</h6>
+									</Link>
+								</div>
 							</div>
-							<div className="p-1">
-								<small>
-									<i className="float-end me-1">{user.accountType}</i>
-								</small>
-							</div>
-						</div>
-					))}
+						))}
 				</div>
 				{/* <!-- ****** Artists Area End ****** - */}
 			</div>
 
-			<div className="col-sm-4"></div>
+			<div className="col-sm-2"></div>
 		</div>
 	)
 }

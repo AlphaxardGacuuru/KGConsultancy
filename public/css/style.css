@@ -2486,7 +2486,7 @@ img {
 /* card */
 .my-card {
 	/* Add shadows to create the "card" effect */
-	box-shadow: 0 4px 8px 0 rgba(35, 35, 35, 0.5);
+	box-shadow: 0 4px 8px 0 rgba(35, 35, 35, 0.2);
 	transition: 0.3s;
 	/* margin: 3%; */
 	border: 1px solid rgba(0, 0, 0, 0.1);
@@ -2495,7 +2495,7 @@ img {
 
 /* On mouse-over, add a deeper shadow */
 .my-card:hover {
-	box-shadow: 0 8px 16px 0 rgba(35, 35, 35, 0.5);
+	box-shadow: 0 8px 16px 0 rgba(35, 35, 35, 0.2);
 }
 
 /* crop thumbnails */
@@ -2840,7 +2840,7 @@ div.hidden-scroll span {
 
 /* Chat Floating button */
 #chatFloatBtn {
-	padding-top: 4px;
+	/* padding-top: 4px; */
 	position: fixed;
 	bottom: 30px;
 	right: 30px;
@@ -2848,7 +2848,7 @@ div.hidden-scroll span {
 	border: none;
 	outline: none;
 	cursor: pointer;
-	color: #007BFF;
+	/* color: #007BFF; */
 	background-color: rgb(255, 255, 255);
 	border-radius: 50%;
 	box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
@@ -2880,5 +2880,109 @@ div.hidden-scroll span {
 		height: 50px;
 		width: 50px;
 		line-height: 55px;
+	}
+}
+
+/* Chat */
+.chat div {
+	margin: 2px 0px;
+	max-width: 90%;
+	word-wrap: break-word;
+	cursor: pointer;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.chat div:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.chat-item {
+	color: #FFF;
+	background-color: #234458;
+	border-top-left-radius: 30px;
+	border-bottom-left-radius: 30px;
+	padding: 5px 5px 0px 20px;
+	border-right: 1px solid #FFF;
+}
+
+.chat-item-reverse {
+	color: #232323;
+	background-color: #FFFFFF;
+	border-top-right-radius: 30px;
+	border-bottom-right-radius: 30px;
+	padding: 5px 20px 0px 5px;
+}
+
+.chat-item-trash {
+	color: #FFFFFF;
+	background-color: #234458;
+	border-radius: 0px;
+	margin: 2px 0px;
+	padding: 10px 5px 0px 5px;
+}
+
+/* Chat End */
+
+/* :: Header Area CSS */
+.bottomNav {
+	position: fixed;
+	z-index: 9;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: auto;
+	-webkit-transition-duration: 500ms;
+	transition-duration: 500ms;
+	/* background-color: #232323; */
+	padding: 0px 0px;
+	/* display: none; */
+}
+
+.bottomNav .logo-area a {
+	color: #232323;
+	font-size: 36px;
+	font-weight: 100;
+}
+
+@media only screen and (max-width: 767px) {
+	.bottomNav .logo-area a {
+		font-size: 24px;
+		/* display: block; */
+	}
+}
+
+.bottomNav .menu-content-area .header-social-area {
+	margin-right: 30px;
+}
+
+.bottomNav .menu-content-area .header-social-area a {
+	font-size: 18px;
+	padding: 0 0px;
+	color: #ffffff;
+}
+
+@media only screen and (max-width: 767px) {
+	.bottomNav .menu-content-area .header-social-area a {
+		padding: 0 0px;
+		font-size: 14px;
+		/* display: block; */
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.bottomNav .menu-content-area .header-social-area {
+		margin-right: 15px;
+		/* display: block; */
+	}
+}
+
+.bottomNav.sticky {
+	background-color: #232323;
+}
+
+@media only screen and (max-width: 767px) {
+	.bottomNav {
+		padding: 0px 0;
+		/* display: block; */
 	}
 }

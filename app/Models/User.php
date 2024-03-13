@@ -79,6 +79,7 @@ class User extends Authenticatable
     /*
      * Relationships
      */
+	
     public function supplier()
     {
         return $this->hasOne(Supplier::class);

@@ -96,7 +96,7 @@ const RouteList = ({ GLOBAL_STATE }) => {
 			component: <AdminChatNew {...GLOBAL_STATE} />,
 		},
 		{
-			path: "/admin/chats/[id]",
+			path: "/admin/chats/view/:id",
 			component: <AdminChatView {...GLOBAL_STATE} />,
 		},
 	]
@@ -119,7 +119,7 @@ const RouteList = ({ GLOBAL_STATE }) => {
 			component: <SupplierChatNew {...GLOBAL_STATE} />,
 		},
 		{
-			path: "/supplier/chats/[id]",
+			path: "/supplier/chats/view/:id",
 			component: <SupplierChatView {...GLOBAL_STATE} />,
 		},
 	]

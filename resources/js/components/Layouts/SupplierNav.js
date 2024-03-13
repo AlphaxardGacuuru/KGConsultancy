@@ -178,7 +178,7 @@ const SupplierNav = (props) => {
 																	<h6 className="text-wrap fs-6">
 																		{props.auth?.name}
 																	</h6>
-																	<p className="text-wrap text-capitalize text-danger">
+																	<p className="text-wrap text-capitalize text-danger mb-0">
 																		{props.auth?.accountType}
 																	</p>
 																</div>

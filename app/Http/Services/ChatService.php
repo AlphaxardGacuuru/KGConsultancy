@@ -15,48 +15,42 @@ class ChatService extends Service
      */
     public function index()
     {
-        $getChat = Chat::where('user_id', $this->id)
+        $arrayOfUserIds = Chat::where('user_id', $this->id)
             ->orWhere('to', $this->id)
             ->orderBy('id', 'DESC')
-            ->get();
+            ->get()
+            ->map(function ($chat) {
+                return [
+                    $chat->user_id != $this->id ? $chat->user_id : null,
+                    $chat->to != $this->id ? $chat->to : null,
+                ];
+            })
+            ->flatten()
+            ->filter()
+            ->unique();
 
-        $chatThreadsZero = [];
         $chatThreads = [];
 
-        // Get sender and recipient
-        foreach ($getChat as $key => $chatItem) {
-            array_push($chatThreadsZero, $chatItem->user_id);
-            array_push($chatThreadsZero, $chatItem->to);
-        }
-
-        // Get only unique entries
-        $chatThreadsZero = array_unique($chatThreadsZero);
-
-        // Remove auth user_id
-        $key = array_search($this->id, $chatThreadsZero);
-
-        unset($chatThreadsZero[$key]);
-
         // Get threads
-        foreach ($chatThreadsZero as $key => $user_id) {
+        foreach ($arrayOfUserIds as $userId) {
             $chat = Chat::where('user_id', $this->id)
-                ->where('to', $user_id)
-                ->orWhere('user_id', $user_id)
+                ->where('to', $userId)
+                ->orWhere('user_id', $userId)
                 ->where('to', $this->id)
                 ->orderBy('id', 'DESC')
                 ->first();
 
             // Get user info
-            $chatUser = User::where('user_id', $user_id)->first();
+            $chatUser = User::find($userId);
 
             array_push($chatThreads, [
                 'id' => $chat->id,
                 'avatar' => $chatUser->avatar,
                 'name' => $chatUser->name,
-                'user_id' => $user_id,
+                'userId' => $userId,
                 'to' => $chat->to,
                 'text' => $chat->text,
-                'hasMedia' => $chat->media,
+                // 'hasMedia' => $chat->media,
                 'createdAt' => $chat->created_at,
             ]);
         }
@@ -70,16 +64,16 @@ class ChatService extends Service
      * @param  \App\Models\Chat  $chat
      * @return \Illuminate\Http\Response
      */
-    public function show($user_id)
+    public function show($id)
     {
-        $getChat = Chat::where("user_id", $this->id)
-            ->where("to", $user_id)
-            ->orWhere("user_id", $user_id)
+        $chats = Chat::where("user_id", $this->id)
+            ->where("to", $id)
+            ->orWhere("user_id", $id)
             ->where("to", $this->id)
             ->orderBy('id', 'ASC')
-            ->paginate(10);
+            ->get();
 
-        return ChatResource::collection($getChat);
+        return ChatResource::collection($chats);
     }
 
     /**
@@ -95,7 +89,7 @@ class ChatService extends Service
         $chat->user_id = auth("sanctum")->user()->id;
         $chat->to = $request->input('to');
         $chat->text = $request->input('text');
-        $chat->media = $request->input('media');
+        // $chat->media = $request->input('media');
         $saved = $chat->save();
 
         $message = "Chat sent";
@@ -111,14 +105,14 @@ class ChatService extends Service
      */
     public function destroy($id)
     {
-        $chatItem = Chat::find($id);
+        $chat = Chat::find($id);
 
-        $media = substr($chatItem->media, 9);
+        // $media = substr($chat->media, 9);
 
-        Storage::delete('public/' . $media);
+        // Storage::delete('public/' . $media);
 
-        $deleted = Chat::find($id)->delete();
+        $deleted = $chat->delete();
 
-        return [$deleted, "Chat deleted"];
+        return [$deleted, "Chat deleted", $chat];
     }
 }

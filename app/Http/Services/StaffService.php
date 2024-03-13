@@ -16,7 +16,9 @@ class StaffService extends Service
     public function index($request)
     {
         if ($request->filled("idAndName")) {
-            $staff = User::with("roles")->orderBy("id", "DESC")
+            $staff = User::with("roles")
+                ->where("account_type", "admin")
+                ->orderBy("id", "DESC")
                 ->get();
 
             return response([

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\NewChatEvent;
 use App\Http\Services\ChatService;
 use App\Models\Chat;
 use Illuminate\Http\Request;
@@ -38,6 +39,8 @@ class ChatController extends Controller
 
         [$saved, $message, $chat] = $this->service->store($request);
 
+        NewChatEvent::dispatchIf($saved, $chat, $chat->recipient);
+
         return response([
             "status" => $saved,
             "message" => $message,
@@ -51,9 +54,9 @@ class ChatController extends Controller
      * @param  \App\Models\Chat  $chat
      * @return \Illuminate\Http\Response
      */
-    public function show(Chat $chat)
+    public function show($id)
     {
-        //
+        return $this->service->show($id);
     }
 
     /**

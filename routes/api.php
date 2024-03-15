@@ -42,3 +42,9 @@ Route::apiResources([
  * Admin Dashboard
  */
 Route::get("admin", [AdminController::class, "index"]);
+
+Route::get('/mailable', function () {
+    $user = App\Models\User::find(1);
+ 
+    return new App\Mail\WelcomeMail($user);
+});

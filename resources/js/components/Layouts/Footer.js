@@ -6,9 +6,11 @@ const Footer = () => {
 
 	// Show Admin Nav based on Location
 	const showFooter =
-		!location.pathname.match("/admin") &&
+		!location.pathname.match("reset-password") &&
+		!location.pathname.match("verify-email") &&
+		!location.pathname.match("/forgot-password") &&
 		!location.pathname.match("/supplier") &&
-		!location.pathname.match("verify-email")
+		!location.pathname.match("/admin")
 			? "d-block"
 			: "d-none"
 

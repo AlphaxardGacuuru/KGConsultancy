@@ -11,6 +11,8 @@ import SupplierNav from "@/components/Layouts/SupplierNav"
 
 import AdminLogin from "@/pages/admin/login"
 import VerifyEmail from "@/pages/admin/verify-email"
+import ForgotPassword from "@/pages/admin/forgot-password"
+import ResetPassword from "@/pages/admin/reset-password"
 
 import AdminDashboard from "@/pages/admin/index"
 
@@ -56,6 +58,14 @@ const RouteList = ({ GLOBAL_STATE }) => {
 		{
 			path: "/verify-email/:id/:hash/:expires/:signature",
 			component: <VerifyEmail {...GLOBAL_STATE} />,
+		},
+		{
+			path: "/forgot-password",
+			component: <ForgotPassword {...GLOBAL_STATE} />,
+		},
+		{
+			path: "/reset-password/:token/:email",
+			component: <ResetPassword {...GLOBAL_STATE} />,
 		},
 	]
 

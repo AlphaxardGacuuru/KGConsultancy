@@ -8,9 +8,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,21 +21,20 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 |
  */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::get('auth', [UserController::class, 'auth']);
 
-Route::apiResources([
-    "users" => UserController::class,
-    "suppliers" => SupplierController::class,
-    "ratings" => RatingController::class,
-    "reviews" => ReviewController::class,
-    "roles" => RoleController::class,
-    "staff" => StaffController::class,
-    "chats" => ChatController::class,
-]);
+// Define a middleware group for authenticated and verified users
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::apiResources([
+        "users" => UserController::class,
+        "suppliers" => SupplierController::class,
+        "ratings" => RatingController::class,
+        "reviews" => ReviewController::class,
+        "roles" => RoleController::class,
+        "staff" => StaffController::class,
+        "chats" => ChatController::class,
+    ]);
+});
 
 /*
  * Admin Dashboard

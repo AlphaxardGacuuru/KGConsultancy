@@ -22,10 +22,20 @@ class NewPasswordController extends Controller
      */
     public function create(Request $request)
     {
-        return Inertia::render('Auth/ResetPassword', [
-            'email' => $request->email,
-            'token' => $request->route('token'),
-        ]);
+        // return Inertia::render('Auth/ResetPassword', [
+        //     'email' => $request->email,
+        //     'token' => $request->route('token'),
+        // ]);
+
+        $baseUrl = env('FRONTEND_URL') . 'reset-password';
+
+        // Get Token
+        $token = '/' . $request->route('token');
+
+        // Get Email Token
+        $email = '/' . $request->input("email");
+
+        return redirect($baseUrl . $token . $email);
     }
 
     /**
@@ -38,8 +48,8 @@ class NewPasswordController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'token' => 'required',
+		$request->validate([
+			'token' => 'required',
             'email' => 'required|email',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
@@ -63,7 +73,11 @@ class NewPasswordController extends Controller
         // the application's home authenticated view. If there is an error we can
         // redirect them back to where they came from with their error message.
         if ($status == Password::PASSWORD_RESET) {
-            return redirect()->route('login')->with('status', __($status));
+            // return redirect()->route('login')->with('status', __($status));
+
+			return response([
+				"message" => "Password Reset successfully"
+			], 200);
         }
 
         throw ValidationException::withMessages([

@@ -122,7 +122,7 @@ const login = (props) => {
 									</div>
 								</div>
 
-								<div className="row mb-3">
+								<div className="row">
 									<div className="col-md-6 offset-md-4">
 										<div className="form-check">
 											<input
@@ -144,12 +144,12 @@ const login = (props) => {
 
 							<div className="row mb-0">
 								<div className="col-md-8 offset-md-4">
-									<a
+									<Link
 										className="btn btn-link"
-										href="{{ route('password.request') }}">
+										to="/forgot-password">
 										Forgot Your Password?
-									</a>
-									<div className="ms-3">
+									</Link>
+									<div className="ms-2">
 										Don't have an account?
 										<Link
 											to="/supplier/register"

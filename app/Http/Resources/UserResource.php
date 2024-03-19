@@ -22,6 +22,7 @@ class UserResource extends JsonResource
             "whatsAppPhone" => $this->whatsapp_phone,
             "email" => $this->email,
             "accountType" => $this->account_type,
+			"emailIsVerified" =>$this->email_verified_at,
             "roleId" => $this->role->first()?->id,
             "role" => $this->role->first()?->name,
             "permissions" => $this->role->first()?->permissions,

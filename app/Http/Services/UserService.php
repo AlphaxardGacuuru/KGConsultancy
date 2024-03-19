@@ -121,11 +121,7 @@ class UserService extends Service
             $auth = auth('sanctum')->user();
 
             // Check if user is supplier
-            // if ($auth->account_type == "supplier") {
-            // return new UserResource($auth->supplier);
-            // } else {
             return new UserResource($auth);
-            // }
         } else {
             return response(["message" => "Not Authenticated"], 401);
         }

@@ -88,6 +88,7 @@ const register = (props) => {
 					.then((res) => {
 						// Set LocalStorage
 						props.setLocalStorage("auth", res.data.data)
+						// Reload Window
 						window.location.reload()
 						// Redirect to Home
 						setTimeout(

@@ -10,6 +10,8 @@ import AdminNav from "@/components/Layouts/AdminNav"
 import SupplierNav from "@/components/Layouts/SupplierNav"
 
 import AdminLogin from "@/pages/admin/login"
+import VerifyEmail from "@/pages/admin/verify-email"
+
 import AdminDashboard from "@/pages/admin/index"
 
 import AdminSuppliers from "@/pages/admin/suppliers/index"
@@ -29,6 +31,7 @@ import AdminChatNew from "@/pages/admin/chats/new"
 import AdminChatView from "@/pages/admin/chats/[id]"
 
 import SupplierRegister from "@/pages/supplier/register"
+
 import Supplier from "@/pages/supplier/profile/[id]"
 import SupplierEdit from "@/pages/supplier/profile/edit/[id]"
 
@@ -49,6 +52,10 @@ const RouteList = ({ GLOBAL_STATE }) => {
 		{
 			path: "/supplier/register",
 			component: <SupplierRegister {...GLOBAL_STATE} />,
+		},
+		{
+			path: "/verify-email/:id/:hash/:expires/:signature",
+			component: <VerifyEmail {...GLOBAL_STATE} />,
 		},
 	]
 

@@ -10,6 +10,7 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,6 @@ Route::get("admin", [AdminController::class, "index"]);
 
 Route::get('/mailable', function () {
     $user = App\Models\User::find(1);
- 
+
     return new App\Mail\WelcomeMail($user);
 });

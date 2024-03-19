@@ -3,6 +3,7 @@ import ReactDOM from "react-dom"
 import { HashRouter } from "react-router-dom"
 
 import ScrollToTop from "@/functions/ScrollToTop"
+import EmailNotVerified from "@/components/Core/EmailNotVerified"
 import TopNav from "@/components/Layouts/TopNav"
 import Footer from "@/components/Layouts/Footer"
 import Messages from "@/components/Core/Messages"
@@ -124,6 +125,7 @@ function App() {
 	return (
 		<HashRouter>
 			<ScrollToTop />
+			<EmailNotVerified {...GLOBAL_STATE} />
 			<TopNav {...GLOBAL_STATE} />
 			<RouteList GLOBAL_STATE={GLOBAL_STATE} />
 			<Footer {...GLOBAL_STATE} />

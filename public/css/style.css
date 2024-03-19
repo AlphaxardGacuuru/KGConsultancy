@@ -1131,6 +1131,27 @@ img {
 
 /* Bottom slide Nav End */
 
+/* Background Blur */
+.background-blur {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	bottom: 0;
+	background-color: rgba(255, 255, 255, 0.1);
+	z-index: 1000000;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-transition-duration: 800ms;
+	transition-duration: 800ms;
+	transition: 0.1s;
+	backdrop-filter: blur(5px);
+	/* backdrop-filter: invert(80%); */
+	/* backdrop-filter: sepia(90%); */
+}
+/* Background Blur End */
+
 /* :: Hero Slides Area CSS */
 .hero-slides .single-hero-slide {
 	height: 950px;

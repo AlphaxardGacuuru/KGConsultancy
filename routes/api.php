@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\RoleController;
@@ -33,6 +34,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         "roles" => RoleController::class,
         "staff" => StaffController::class,
         "chats" => ChatController::class,
+        'notifications' => NotificationController::class,
     ]);
 });
 

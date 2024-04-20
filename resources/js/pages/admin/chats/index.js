@@ -69,7 +69,7 @@ const Chat = (props) => {
 						key={key}
 						className="my-card d-flex m-2 p-2">
 						<div className="pt-2">
-							<Link to={`chats/view/${chatThread.to}`}>
+							<Link to={`chats/view/${chatThread.userId}`}>
 								<Img
 									// src={chatThread.avatar}
 									className="rounded-circle"
@@ -85,7 +85,7 @@ const Chat = (props) => {
 								maxWidth: "75%",
 								wordWrap: "break-word",
 							}}>
-							<Link to={`chats/view/${chatThread.to}`}>
+							<Link to={`chats/view/${chatThread.userId}`}>
 								<h6
 									className="m-0"
 									style={{

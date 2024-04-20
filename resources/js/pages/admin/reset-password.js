@@ -117,7 +117,7 @@ const ResetPassword = (props) => {
 
 								<Btn
 									type="submit"
-									btnText="send reset link"
+									btnText="reset password"
 									loading={loading}
 								/>
 							</div>

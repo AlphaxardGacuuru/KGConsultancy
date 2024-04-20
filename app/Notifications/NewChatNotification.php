@@ -11,18 +11,20 @@ class NewChatNotification extends Notification
 {
     use Queueable;
 
-	public $chat;
-	public $user;
+    public $chat;
+    public $user;
+    public $recipient;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($chat, $user)
+    public function __construct($chat, $user, $recipient)
     {
         $this->chat = $chat;
         $this->user = $user;
+        $this->recipient = $recipient;
     }
 
     /**
@@ -58,10 +60,21 @@ class NewChatNotification extends Notification
      */
     public function toArray($notifiable)
     {
+		// Check User type and set appropriate url
+        switch ($this->recipient->account_type) {
+            case "admin":
+                $location = "/admin";
+                break;
+
+            default:
+                $location = "/supplier";
+                break;
+        }
+
         return [
-            'url' => '/chat/' . $this->user->id,
+            'url' => $location . '/chats/view/' . $this->user->id,
             'from' => $this->user->id,
-            'message' => $this->user->id . ' sent you a message: ' . $this->chat->text,
+            'message' => $this->user->name . ' sent you a message: ' . $this->chat->text,
         ];
     }
 }

@@ -31,7 +31,18 @@ class RatingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+			"supplierId" => "required|string",
+			"rating" => "required|integer",
+		]);
+
+		[$saved, $message, $rating] = $this->service->store($request);
+
+		return response([
+			"status" => $saved,
+			"message" => $message,
+			"data" => $rating,
+		], 200);
     }
 
     /**

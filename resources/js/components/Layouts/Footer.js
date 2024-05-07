@@ -6,6 +6,7 @@ const Footer = () => {
 
 	// Show Admin Nav based on Location
 	const showFooter =
+		!location.pathname.match("/review/") &&
 		!location.pathname.match("reset-password") &&
 		!location.pathname.match("verify-email") &&
 		!location.pathname.match("/forgot-password") &&

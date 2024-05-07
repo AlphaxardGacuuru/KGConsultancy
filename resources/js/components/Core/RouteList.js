@@ -5,6 +5,7 @@ import Index from "@/pages/index"
 import About from "@/pages/about"
 import Services from "@/pages/services"
 import Portfolio from "@/pages/portfolio"
+import ReviewCreate from "@/pages/review/create"
 
 import AdminNav from "@/components/Layouts/AdminNav"
 import SupplierNav from "@/components/Layouts/SupplierNav"
@@ -42,6 +43,29 @@ import SupplierChatNew from "@/pages/admin/chats/new"
 import SupplierChatView from "@/pages/admin/chats/[id]"
 
 const RouteList = ({ GLOBAL_STATE }) => {
+	const routes = [
+		{
+			path: "/",
+			component: <Index {...GLOBAL_STATE} />,
+		},
+		{
+			path: "/about",
+			component: <About {...GLOBAL_STATE} />,
+		},
+		{
+			path: "/services",
+			component: <Services {...GLOBAL_STATE} />,
+		},
+		{
+			path: "/portfolio",
+			component: <Portfolio {...GLOBAL_STATE} />,
+		},
+		{
+			path: "/review/:id/create",
+			component: <ReviewCreate {...GLOBAL_STATE} />,
+		},
+	]
+
 	const authRoutes = [
 		{
 			path: "/admin/login",
@@ -138,25 +162,6 @@ const RouteList = ({ GLOBAL_STATE }) => {
 		{
 			path: "/supplier/chats/view/:id",
 			component: <SupplierChatView {...GLOBAL_STATE} />,
-		},
-	]
-
-	const routes = [
-		{
-			path: "/",
-			component: <Index {...GLOBAL_STATE} />,
-		},
-		{
-			path: "/about",
-			component: <About {...GLOBAL_STATE} />,
-		},
-		{
-			path: "/services",
-			component: <Services {...GLOBAL_STATE} />,
-		},
-		{
-			path: "/portfolio",
-			component: <Portfolio {...GLOBAL_STATE} />,
 		},
 	]
 

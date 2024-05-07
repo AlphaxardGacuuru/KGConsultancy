@@ -32,7 +32,7 @@ const index = (props) => {
 		// Set page
 		props.setPage({ name: "Supplier Profile" })
 
-		props.get(`users/${id}`, setSupplier, null, false)
+		props.get(`suppliers/${id}`, setSupplier, null, false)
 		// props.get(`bids/by-user-id/${supplier.id}`, setBids)
 		// props.get(`tenders/by-user-id/${supplier.id}`, setTenders)
 		props.get(`reviews/${id}`, setReviews, null, false)

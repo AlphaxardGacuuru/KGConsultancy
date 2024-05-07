@@ -31,7 +31,18 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+			"to" => "required|string",
+			"text" => "required|string",
+		]);
+
+		[$saved, $message, $review] = $this->service->store($request);
+
+		return response([
+			"status" => $saved,
+			"message" => $message,
+			"data" => $review,
+		], 200);
     }
 
     /**

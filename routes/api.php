@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('auth', [UserController::class, 'auth']);
 
 // Define a middleware group for authenticated and verified users
-Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+// Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::apiResources([
         "users" => UserController::class,
         "suppliers" => SupplierController::class,
@@ -36,7 +36,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         "chats" => ChatController::class,
         'notifications' => NotificationController::class,
     ]);
-});
+// });
 
 /*
  * Admin Dashboard

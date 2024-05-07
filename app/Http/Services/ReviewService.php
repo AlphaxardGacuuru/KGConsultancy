@@ -16,4 +16,17 @@ class ReviewService extends Service
 
         return ReviewResource::collection($reviews);
     }
+
+    /*
+     * Store Review
+     */
+    public function store($request)
+    {
+        $review = new Review;
+        $review->supplier_id = $request->to;
+        $review->text = $request->text;
+        $saved = $review->save();
+
+        return [$saved, "Review saved successfully", $review];
+    }
 }
